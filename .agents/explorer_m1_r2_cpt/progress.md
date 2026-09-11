@@ -1,0 +1,28 @@
+# Progress: Explorer 2.1 (CPT & Schema Remediation Specialist)
+
+- Last visited: 2026-09-09T17:45:00Z
+- Status: Investigation & Remediation Complete (Handoff Delivered)
+- Tasks:
+  - [x] Workspace initialization (DISPATCH.md, BRIEFING.md, progress.md)
+  - [x] View and analyze required documents:
+    - [x] ORIGINAL_REQUEST.md
+    - [x] MASTER_PROJECT_BRIEF.md
+    - [x] SCOPE.md & GATE_STATUS.md
+    - [x] reviewer_m1_2/review.md & challenger_m1_2/challenge.md
+    - [x] deliverables/04_WORDPRESS_CPT_ARCHITECTURE.md
+    - [x] explorer_m1_cpt/analysis.md
+  - [x] Detail drop-in remediation for all 9 failure points:
+    - [x] 1. Template naming & event templates
+    - [x] 2. Facility metadata fields (specs, locations, gallery)
+    - [x] 3. Architectural Decision Record (ADR) for facility modeling
+    - [x] 4. Transient cache locale scoping & dual-ID invalidation
+    - [x] 5. Taxonomy hierarchy harmonization (`value_chain_stage`)
+    - [x] 6. Multi-subsidiary press relations (scalar rows)
+    - [x] 7. Orphan handling & post lifecycle hooks
+    - [x] 8. 100% output escaping + phone regex + SVG security
+    - [x] 9. Admin table custom columns for event & achievement
+    - [x] Bonus: `team_member` metadata schema (Table 4.5) & Polylang sync hardening
+  - [x] Synthesize findings and write analysis.md
+  - [x] Update BRIEFING.md
+  - [x] Write handoff.md with 5-component protocol
+  - [x] Send final message to parent agent

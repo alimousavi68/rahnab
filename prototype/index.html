@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>هلدینگ سرمایه‌گذاری رهناب فارمد | Rahnab Pharmed Investment Holding</title>
+  <meta name="description"
+    content="پیشگام حاکمیت زیست‌فناوری، پالایشگاه صنعتی پلاسما، ایمونوتراپی سلولی و داروهای با فناوری بالا در جمهوری اسلامی ایران.">
+
+  <!-- Google Fonts: Inter (Sans), Cormorant Garamond (Editorial & Stats Serif), JetBrains Mono (Tech), Outfit (Display) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Design Tokens & Styles -->
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            obsidian: '#05070B',
+            bionavy: '#0A0E17',
+            substrate: '#101522',
+            elevated: '#161D2E',
+            gold: {
+              300: '#F3D3A2',
+              400: '#E5B887',
+              500: '#D4AF37',
+              600: '#B89028',
+              700: '#8C6D18'
+            },
+            amber: {
+              300: '#FDE68A',
+              400: '#FBBF24',
+              500: '#F59E0B'
+            },
+            azure: {
+              300: '#F3D3A2',
+              400: '#E5B887',
+              500: '#D4AF37',
+              600: '#B89028'
+            }
+          },
+          fontFamily: {
+            'fa-display': ['Peyda', 'Abar', 'IRANYekanX', 'system-ui', 'sans-serif'],
+            'fa-body': ['Peyda', 'IRANYekanX', 'Abar', 'system-ui', 'sans-serif'],
+            'en-sans': ['Inter', 'system-ui', 'sans-serif'],
+            'en-serif': ['Cormorant Garamond', 'Georgia', 'serif'],
+            'en-mono': ['JetBrains Mono', 'monospace'],
+            'outfit': ['Outfit', 'sans-serif'],
+            'inter': ['Inter', 'sans-serif'],
+            'en-display': ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
+            'en-body': ['Inter', 'system-ui', 'sans-serif'],
+            'serif-stat': ['Cormorant Garamond', 'Georgia', 'serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.18/dist/lenis.min.js"></script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-[#05070B] text-[#FDF8F0] selection:bg-gold-400 selection:text-black font-fa-display antialiased">
+
+  <!-- =========================================
+       NAVBAR — Inspired by davidecattaneo.it (Minimalist Edge-to-Edge Luxury)
+       ========================================= -->
+  <header id="mainNavbar"
+    class="navbar fixed top-0 left-0 w-full z-50 px-6 sm:px-10 lg:px-16 py-6 sm:py-8 flex items-center justify-between pointer-events-none">
+    <!-- Left: Free-Standing Holding Logo with Glass Reflection Effect -->
+    <a href="#hero" class="logo-shimmer-wrapper relative flex items-center group pointer-events-auto shrink-0 transition-transform duration-300 hover:scale-105"
+      aria-label="Rahnab Pharmed">
+      <img id="mainLogoImg" src="assets/images/logo_rahnab.png" alt="Rahnab Pharmed"
+        class="logo-entrance h-9 sm:h-11 md:h-14 lg:h-[58px] w-auto object-contain filter drop-shadow-[0_0_20px_rgba(229,184,135,0.4)]">
+      <canvas id="logoShimmerCanvas" class="pointer-events-none absolute inset-0 w-full h-full"></canvas>
+    </a>
+
+    <!-- Right: Actions (Locale Switcher FA|EN + Animated Menu Toggle Box) -->
+    <div class="navbar__actions flex items-center gap-4 sm:gap-6 pointer-events-auto">
+      <!-- Minimalist Locale Switcher (davidecattaneo.it text toggle) -->
+      <div class="locale-switcher flex items-center gap-1 text-xs font-mono font-bold tracking-wider">
+        <button id="langFaBtn"
+          class="locale-switcher__item is-active px-2 py-1 rounded transition-all text-white border border-white/40 bg-white/10"
+          aria-label="Farsi">
+          <span>FA</span>
+        </button>
+        <span class="text-white/20 select-none text-[10px]">/</span>
+        <button id="langEnBtn"
+          class="locale-switcher__item px-2 py-1 rounded transition-all text-slate-400 hover:text-white border border-transparent"
+          aria-label="English">
+          <span>EN</span>
+        </button>
+      </div>
+
+      <!-- Dashed Box Menu Toggle Button -->
+      <button id="navbarMenuToggle" aria-label="Toggle Menu" aria-expanded="false"
+        class="navbar__toggle group flex items-center gap-2.5 sm:gap-3 cursor-pointer select-none focus:outline-none">
+        <span id="menuToggleLabel"
+          class="navbar__toggle-label text-[11px] sm:text-xs uppercase tracking-widest font-bold text-gold-400 group-hover:text-gold-300 transition-colors"
+          data-i18n="nav_menu_label">منو</span>
+        <div
+          class="navbar__toggle-box w-9 h-9 sm:w-10 sm:h-10 border border-dashed border-white/40 group-hover:border-gold-400/80 rounded-md relative flex items-center justify-center transition-all bg-black/40 backdrop-blur-md">
+          <!-- Open icon (3 micro-bars: 2 white, 1 gold accent) -->
+          <div
+            class="toggle-icon-open flex flex-col justify-center items-end gap-1 w-4 sm:w-4.5 transition-all duration-300">
+            <span class="w-full h-0.5 bg-white rounded-full transition-transform"></span>
+            <span class="w-full h-0.5 bg-white rounded-full transition-transform"></span>
+            <span class="w-2 h-0.5 bg-gold-400 rounded-full transition-all group-hover:w-full"></span>
+          </div>
+          <!-- Close icon (X) -->
+          <div
+            class="toggle-icon-close absolute inset-0 flex items-center justify-center opacity-0 scale-75 transition-all duration-300">
+            <svg class="w-4 h-4 text-gold-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </div>
+        </div>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================
+       FULL-SCREEN CINEMATIC NAV MENU (davidecattaneo.it style)
+       ========================================= -->
+  <nav id="fullNavMenu" aria-label="Main menu"
+    class="navmenu fixed inset-0 z-40 bg-[#05070B]/98 backdrop-blur-2xl hidden opacity-0 transition-opacity duration-300 flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 px-6 sm:px-12 lg:px-16 overflow-y-auto"
+    inert>
+    <!-- Menu Content (2-Column Asymmetric Grid) -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center my-auto py-6">
+      <!-- Main Links (01 to 06) -->
+      <div class="lg:col-span-8 flex flex-col">
+        <!-- Subtle holding category tag -->
+        <div class="mb-4 sm:mb-6">
+          <span class="text-xs uppercase tracking-widest text-gold-400 font-mono font-bold"
+            data-i18n="nav_holding_tag">هلدینگ سرمایه‌گذاری رهناب فارمد</span>
+        </div>
+        <ul class="navmenu-list flex flex-col gap-1.5 sm:gap-2">
+          <li class="navmenu-item group">
+            <a href="#hero"
+              class="navmenu-link flex items-center gap-4 sm:gap-6 py-1 text-white hover:text-gold-400 transition-all">
+              <span class="navmenu-num font-en-mono text-xs sm:text-sm text-gold-400/70 tracking-wider">01</span>
+              <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
+                data-i18n="nav_home">صفحه اصلی</span>
+              <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </li>
+          <li class="navmenu-item group">
+            <a href="#about"
+              class="navmenu-link flex items-center gap-4 sm:gap-6 py-1 text-white hover:text-gold-400 transition-all">
+              <span class="navmenu-num font-en-mono text-xs sm:text-sm text-gold-400/70 tracking-wider">02</span>
+              <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
+                data-i18n="nav_about">درباره رهناب</span>
+              <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </li>
+          <li class="navmenu-item group">
+            <a href="#services"
+              class="navmenu-link flex items-center gap-4 sm:gap-6 py-1 text-white hover:text-gold-400 transition-all">
+              <span class="navmenu-num font-en-mono text-xs sm:text-sm text-gold-400/70 tracking-wider">03</span>
+              <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
+                data-i18n="nav_services">خدمات و توانمندی‌ها</span>
+              <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </li>
+          <li class="navmenu-item group">
+            <div class="flex items-center justify-between w-full">
+              <a href="#companies"
+                class="navmenu-link flex-1 flex items-center gap-4 sm:gap-6 py-1 text-white hover:text-gold-400 transition-all">
+                <span class="navmenu-num font-en-mono text-xs sm:text-sm text-gold-400/70 tracking-wider">04</span>
+                <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
+                  data-i18n="nav_companies">شرکت‌های زیرمجموعه</span>
+                <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </a>
+              <!-- Interactive Submenu Toggle -->
+              <button type="button" id="submenuToggleBtn" class="submenu-toggle-btn p-1.5 sm:p-2 rounded-full border border-white/10 hover:border-gold-400/40 hover:bg-gold-400/10 text-gold-400 transition-all flex items-center justify-center shrink-0 ms-2"
+                aria-expanded="false" aria-label="نمایش شرکت‌های زیرمجموعه">
+                <svg class="w-4 h-4 transform transition-transform duration-300 submenu-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+            </div>
+            <!-- Submenu Accordion (Subsidiaries) -->
+            <div id="navmenuSubmenu" class="navmenu-submenu hidden max-h-0 overflow-hidden transition-all duration-300 ps-6 sm:ps-12 pe-2">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2.5 pb-1 border-t border-white/10 mt-1">
+                <a href="#companies" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <div class="flex flex-col">
+                    <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_rasta">نوژین زیست فارمد</span>
+                    <span class="text-[10px] text-slate-500 font-mono" data-i18n="sub_rasta_desc">واکسن‌های دامی و طیور</span>
+                  </div>
+                </a>
+                <a href="#companies" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <div class="flex flex-col">
+                    <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_sinagene">تأمین پلاسما نوژین</span>
+                    <span class="text-[10px] text-slate-500 font-mono" data-i18n="sub_sinagene_desc">فرآورده‌های مشتق از پلاسما</span>
+                  </div>
+                </a>
+                <a href="#companies" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <div class="flex flex-col">
+                    <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_pishgaman">پرسیس ژن</span>
+                    <span class="text-[10px] text-slate-500 font-mono" data-i18n="sub_pishgaman_desc">شتاب‌دهنده زیست‌دارویی</span>
+                  </div>
+                </a>
+                <a href="#companies" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <div class="flex flex-col">
+                    <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_plasma">آرک زیست آزما</span>
+                    <span class="text-[10px] text-slate-500 font-mono" data-i18n="sub_plasma_desc">آزمایشگاه کنترل کیفی بیولوژیک</span>
+                  </div>
+                </a>
+                <a href="#companies" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <div class="flex flex-col">
+                    <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_partgene">پادرا سرم البرز</span>
+                    <span class="text-[10px] text-slate-500 font-mono" data-i18n="sub_partgene_desc">سرم‌های ایمنی و پادزهرها</span>
+                  </div>
+                </a>
+                <a href="#companies" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <div class="flex flex-col">
+                    <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_pharmazist">کارا یاخته تجهیز آزما</span>
+                    <span class="text-[10px] text-slate-500 font-mono" data-i18n="sub_pharmazist_desc">بیوراکتورها و تجهیزات صنعتی</span>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="navmenu-item group">
+            <a href="#impact"
+              class="navmenu-link flex items-center gap-4 sm:gap-6 py-1 text-white hover:text-gold-400 transition-all">
+              <span class="navmenu-num font-en-mono text-xs sm:text-sm text-gold-400/70 tracking-wider">05</span>
+              <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
+                data-i18n="nav_impact">تأثیر ملی</span>
+              <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </li>
+          <li class="navmenu-item group">
+            <a href="#news"
+              class="navmenu-link flex items-center gap-4 sm:gap-6 py-1 text-white hover:text-gold-400 transition-all">
+              <span class="navmenu-num font-en-mono text-xs sm:text-sm text-gold-400/70 tracking-wider">06</span>
+              <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
+                data-i18n="nav_news">اخبار و رویدادها</span>
+              <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </li>
+          <li class="navmenu-item group">
+            <a href="#footer"
+              class="navmenu-link flex items-center gap-4 sm:gap-6 py-1 text-white hover:text-gold-400 transition-all">
+              <span class="navmenu-num font-en-mono text-xs sm:text-sm text-gold-400/70 tracking-wider">07</span>
+              <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
+                data-i18n="nav_contact">تماس با ما</span>
+              <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Side Info / Holding Passport -->
+      <div class="lg:col-span-4 flex flex-col gap-6 lg:border-s border-white/10 lg:ps-10">
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-slate-500 mb-1" data-i18n="nav_info_hq">دفتر مرکزی
+          </p>
+          <p class="text-sm text-slate-300 leading-relaxed" data-i18n="nav_info_address">تهران، پژوهشگاه ملی مهندسی
+            ژنتیک و زیست‌فناوری (NIGEB)</p>
+        </div>
+        <div>
+          <p class="text-xs font-mono uppercase tracking-widest text-slate-500 mb-1" data-i18n="nav_info_direct">ارتباط
+            مستقیم</p>
+          <a href="tel:+982144787260"
+            class="text-base font-en-mono text-gold-400 hover:text-gold-300 transition-colors block dir-ltr text-start">+98
+            (21) 4478 7260</a>
+          <a href="mailto:office@rahnab.com"
+            class="text-sm font-en-mono text-slate-400 hover:text-white transition-colors block mt-0.5">office@rahnab.com</a>
+        </div>
+        <div class="pt-2">
+          <button
+            class="btn-open-inquiry text-xs font-bold px-4 py-2 rounded-full border border-gold-400/40 text-gold-400 hover:bg-gold-400/10 transition-all inline-flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
+            <span data-i18n="modal_title">درخواست همکاری تجاری B2B</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10 pt-4 flex items-center justify-between text-[11px] font-mono text-slate-500">
+      <span>© 2026 RAHNAB PHARMED HOLDING</span>
+      <span class="hidden sm:inline text-gold-400/80 font-bold tracking-wider" data-i18n="nav_menu_close_hint">کلید ESC
+        برای بستن</span>
+      <span class="hidden md:inline">BIOTECHNOLOGY SOVEREIGNTY</span>
+    </div>
+  </nav>
+
+  <!-- B2B Inquiry Modal -->
+  <div id="inquiryModal"
+    class="fixed inset-0 bg-black/80 z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-md p-4">
+    <div class="bg-[#0A0E17] border border-gold-400/25 rounded-3xl w-full max-w-lg p-8 relative shadow-2xl">
+      <button id="closeModalBtn" aria-label="Close"
+        class="absolute top-5 left-5 text-slate-400 hover:text-white text-2xl leading-none">&times;</button>
+      <div class="mb-6">
+        <span class="text-xs uppercase tracking-widest text-gold-400 font-bold font-en-mono"
+          data-i18n="modal_label">PORTAL PARTNERSHIP</span>
+        <h3 class="text-2xl font-bold text-white mt-1" data-i18n="modal_title">درخواست همکاری تجاری B2B</h3>
+        <p class="text-slate-400 text-sm mt-1" data-i18n="modal_subtitle">ارتباط مستقیم با معاونت سرمایه‌گذاری و توسعه
+          کسب‌وکار هلدینگ</p>
+      </div>
+      <form class="flex flex-col gap-4">
+        <input type="text" placeholder="نام و نام خانوادگی"
+          class="bg-[#05070B] border border-white/10 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-gold-400 outline-none text-sm transition-colors"
+          data-i18n-placeholder="modal_name">
+        <input type="text" placeholder="نام شرکت / سازمان"
+          class="bg-[#05070B] border border-white/10 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-gold-400 outline-none text-sm transition-colors"
+          data-i18n-placeholder="modal_company">
+        <input type="email" placeholder="ایمیل سازمانی (Corporate Email)"
+          class="bg-[#05070B] border border-white/10 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-gold-400 outline-none text-sm transition-colors"
+          data-i18n-placeholder="modal_email">
+        <textarea placeholder="شرح درخواست همکاری یا سرمایه‌گذاری..." rows="4"
+          class="bg-[#05070B] border border-white/10 rounded-xl p-3.5 text-white placeholder-slate-500 focus:border-gold-400 outline-none text-sm transition-colors"
+          data-i18n-placeholder="modal_message"></textarea>
+        <button type="submit" class="btn-primary w-full justify-center py-3.5 mt-2" data-i18n="modal_submit">ارسال
+          درخواست رسمی</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================
+       ZONE 1: HERO SECTION (Awwwards Cattaneo Composition)
+       ========================================= -->
+  <section class="hero-section" id="hero">
+    <!-- Full-Bleed Background Video with Ambient Vignette -->
+    <div class="hero-scaled-canvas-wrapper absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <video class="hero-scaled-video" id="heroVideo" autoplay loop muted playsinline preload="auto">
+        <source src="assets/videos/hero-genome.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="hero-ambient-vignette"></div>
+
+    <!-- Top/Mid Narrative Statement (Opposite side from Headline) -->
+    <div class="relative z-10 w-full px-6 sm:px-10 lg:px-16 pt-16 sm:pt-24 flex justify-end">
+      <div class="max-w-xl text-start">
+        <p class="text-sm sm:text-base md:text-lg text-slate-200/90 leading-relaxed font-normal">
+          <span class="text-white font-bold block sm:inline" data-i18n="hero_narrative_lead">از سنتز فرآیندهای زیستی تا
+            پالایشگاه صنعتی پلاسما: </span>
+          <span data-i18n="hero_subtitle">راهبری یکپارچه زیرساخت‌های کلان زیست‌داروسازی، از پالایشگاه صنعتی پلاسما تا
+            درمان‌های پیشرفته سلولی.</span>
+        </p>
+      </div>
+    </div>
+
+    <!-- Bottom Row: Massive Headline (Left) + Minimalist Scroll Indicator (Right) -->
+    <div
+      class="relative z-10 w-full px-6 sm:px-10 lg:px-16 pb-8 pt-16 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+      <!-- Massive Editorial Headline (Bottom-Left) -->
+      <div class="max-w-4xl lg:max-w-5xl 2xl:max-w-6xl text-start">
+        <div
+          class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-gold-400/25 bg-gold-400/10 text-gold-400 text-xs font-semibold mb-4 backdrop-blur-md">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+          <span data-i18n="hero_badge">هلدینگ تخصصی سلامت و زیست‌داروسازی</span>
+        </div>
+        <h1 class="hero-headline leading-[1.04] tracking-tight text-start">
+          <span class="hero-title-main block font-black text-white" data-i18n="hero_title_1">پیشگام در توسعه<br>فناوری‌های زیستی</span>
+          <span class="hero-title-sub block font-normal not-italic text-gold-400 mt-2 sm:mt-3 lg:mt-5"
+            data-i18n="hero_title_2">توسعه‌بخش راهکارهای نوین سلامت</span>
+        </h1>
+      </div>
+
+      <!-- Minimalist Scroll Cue (Bottom-Right) -->
+      <div class="shrink-0 flex items-center md:pb-2">
+        <a href="#about"
+          class="group inline-flex items-center gap-2.5 text-xs font-en-mono font-bold tracking-widest text-slate-400 hover:text-gold-400 transition-colors uppercase">
+          <span data-i18n="hero_scroll">SCROLL TO EXPLORE</span>
+          <svg class="w-3.5 h-3.5 text-gold-400 scroll-indicator-arrow transition-transform" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Subtle Ecosystem Ticker Docked at Bottom -->
+    <div id="heroMarqueeDivider"
+      class="relative z-10 w-full border-t border-white/10 py-3 bg-[#05070B]/70 backdrop-blur-md overflow-hidden mask-radial-edges">
+      <div
+        class="animate-marquee items-center gap-10 sm:gap-14 text-[11px] font-en-mono font-bold uppercase tracking-widest text-slate-400">
+        <span class="hover:text-gold-400 transition-colors">PERSIS GENE</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">TAMIN PLASMA</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">NOZHIN ZIST</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">CARTIMED</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">PADRA SERUM</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">BAYA ZIST</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">ARC ZIST AZMA</span>
+        <span class="text-white/20">•</span>
+        <!-- Loop duplicate -->
+        <span class="hover:text-gold-400 transition-colors">PERSIS GENE</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">TAMIN PLASMA</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">NOZHIN ZIST</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">CARTIMED</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">PADRA SERUM</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">BAYA ZIST</span>
+        <span class="text-white/20">•</span>
+        <span class="hover:text-gold-400 transition-colors">ARC ZIST AZMA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       ZONE 2: ABOUT (Editorial Asymmetric)
+       ========================================= -->
+  <section class="pt-44 lg:pt-52 pb-28 bg-[#080B10] relative border-t border-white/5" id="about">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <!-- Visual Column -->
+        <div
+          class="lg:col-span-6 about-img-col relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl h-[480px] group">
+          <img src="assets/images/about-cleanroom.jpg" alt="زیرساخت صنعتی زیست‌دارویی"
+            class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#05070B] via-[#05070B]/30 to-transparent"></div>
+          <div
+            class="absolute bottom-6 right-6 left-6 p-5 rounded-2xl bg-black/55 backdrop-blur-md border border-white/10">
+            <span
+              class="text-[10px] uppercase font-bold text-gold-400 font-en-mono tracking-widest block mb-1.5">STRATEGIC
+              INFRASTRUCTURE</span>
+            <p class="text-white font-bold text-sm md:text-base leading-snug" data-i18n="about_image_tag">زیرساخت صنعتی
+              زیست‌دارویی کشور</p>
+          </div>
+        </div>
+
+        <!-- Narrative Column -->
+        <div class="lg:col-span-6 about-text-col flex flex-col gap-6">
+          <!-- Label -->
+          <div class="flex items-center gap-3 fade-up-element">
+            <div class="h-[2px] w-8 bg-gold-400 shrink-0"></div>
+            <span class="text-gold-400 font-bold text-xs tracking-widest uppercase" data-i18n="about_label">درباره
+              ره‌ناب فارمد</span>
+          </div>
+
+          <!-- Title (kinetic) -->
+          <h2 class="display-lg kinetic-title font-extrabold text-white leading-tight">
+            <span class="line-wrapper"><span class="line-wrapper-inner block" data-i18n="about_title_1">ریشه در
+                دانش،</span></span>
+            <span class="line-wrapper"><span class="line-wrapper-inner block text-gold-400"
+                data-i18n="about_title_2">شاخه در سلامت ملی</span></span>
+          </h2>
+
+          <!-- Condensed text — justify, larger, relaxed -->
+          <div class="fade-up-element">
+            <p class="text-slate-300 text-base md:text-lg leading-[1.9] text-justify" data-i18n="about_p1">
+              هلدینگ سرمایه‌گذاری ره‌ناب فارمد با اتکا به سرمایه‌های انسانی نخبه، مدیریت تخصصی و بهره‌گیری از فناوری‌های
+              پیشرفته زیستی، مسیر کشف، توسعه و شتاب‌دهی ایده‌های دانش‌بنیان در حوزه بایوتکنولوژی را می‌پیماید تا ارزشی
+              پایدار برای سلامت ملی و تمامی ذی‌نفعان خلق کند.
+            </p>
+          </div>
+
+          <!-- Stat Cards (improved visual) -->
+          <div class="grid grid-cols-2 gap-4 fade-up-element">
+            <!-- Card 1: +2000 -->
+            <div
+              class="about-stat-card p-5 rounded-2xl bg-gradient-to-br from-gold-400/15 to-gold-400/5 border border-gold-400/25 flex flex-col gap-1.5">
+              <span class="text-3xl lg:text-4xl font-black text-gold-400 font-fa-display tracking-tight"
+                data-i18n="about_stat_invest">+۲,۰۰۰</span>
+              <span class="text-xs font-bold text-white" data-i18n="about_stat_invest_unit">میلیارد تومان</span>
+              <span class="text-[11px] text-slate-400 leading-snug" data-i18n="about_stat_invest_label">سرمایه‌گذاری در
+                زیست‌بوم دانش‌بنیان</span>
+            </div>
+            <!-- Card 2: 7 companies (replacing 1405) -->
+            <div
+              class="about-stat-card p-5 rounded-2xl bg-white/[0.04] border border-white/10 flex flex-col gap-1.5 hover:border-gold-400/20 transition-colors">
+              <span class="text-3xl lg:text-4xl font-black text-white font-fa-display tracking-tight"
+                data-i18n="about_stat_horizon">۷</span>
+              <span class="text-xs font-bold text-gold-400" data-i18n="about_stat_horizon_unit">شرکت دانش‌بنیان
+                فعال</span>
+              <span class="text-[11px] text-slate-400 leading-snug" data-i18n="about_stat_horizon_label">در اکوسیستم
+                هلدینگ رهناب</span>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <a href="#services"
+            class="inline-flex items-center gap-3 text-gold-400 font-bold hover:text-gold-300 transition-colors group self-start fade-up-element">
+            <span data-i18n="about_cta">درباره مأموریت و ساختار رهناب</span>
+            <span
+              class="transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">←</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       ZONE 3: STRATEGIC SERVICES & CAPABILITIES (Glass Architecture with Custom Linear Icons)
+       ========================================= -->
+  <section class="services-section py-28 bg-[#05070B] relative border-t border-white/5" id="services">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <!-- Section Header -->
+      <div class="text-center mb-20 fade-up-element">
+        <span class="caption text-gold-400 uppercase tracking-widest text-xs font-bold block mb-2"
+          data-i18n="services_label">خدمات و توانمندی‌های راهبردی</span>
+        <h2 class="display-xl kinetic-title font-extrabold text-white">
+          <span class="line-wrapper block"><span class="line-wrapper-inner block" data-i18n="services_title">اکوسیستم
+              یکپارچه زیست‌داروسازی</span></span>
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto mt-4 text-sm md:text-base" data-i18n="services_subtitle">
+          ارائه راهکارهای حیاتی، تخصصی و نوآورانه در ۶ محور کلان سلامت، داروسازی و امنیت زیستی کشور
+        </p>
+      </div>
+
+      <!-- Services Cards Stack (Value Chain Glass Architecture with 64x64 Standalone SVG Icons) -->
+      <div class="space-y-5">
+        <!-- 01: Veterinary & Poultry Vaccines -->
+        <div class="value-chain-tier-card group" data-tier="1">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-6">
+              <div
+                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                <img src="assets/icons/services/service-veterinary-vaccines.svg" alt="واکسن‌های دامی و طیور"
+                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                  data-i18n="svc_1_title">ارائه انواع واکسن‌های دامی و طیور</h3>
+                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                  data-i18n="svc_1_en">Veterinary Recombinant Vaccines & National Biosecurity</p>
+                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_1_desc">تأمین
+                  امنیت زیستی و زنجیره سلامت غذایی از طریق تولید، توسعه و ارتقای فرمولاسیون واکسن‌های نوترکیب حیوانی و
+                  طیور با استانداردهای نوین بین‌المللی.</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                data-i18n="svc_1_badge_1">دام و طیور</span>
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                data-i18n="svc_1_badge_2">واکسن‌های نوترکیب</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02: Pediatric Pharmaceuticals -->
+        <div class="value-chain-tier-card group" data-tier="2">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-6">
+              <div
+                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                <img src="assets/icons/services/service-pediatric-pharma.svg" alt="داروهای کودکان و اطفال"
+                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                  data-i18n="svc_2_title">ارائه انواع داروهای کودکان و اطفال</h3>
+                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                  data-i18n="svc_2_en">Pediatric Specialty Formulations & Metabolic Care</p>
+                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_2_desc">تولید
+                  فرمولاسیون‌های حیاتی و داروهای ویژه نوزادان و کودکان در حوزه‌های انکولوژی، متابولیک و درمان‌های دارویی
+                  اختصاصی اطفال.</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                data-i18n="svc_2_badge_1">انکولوژی اطفال</span>
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                data-i18n="svc_2_badge_2">فرمولاسیون اختصاصی</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03: Therapeutic Supplements & Nutraceuticals -->
+        <div class="value-chain-tier-card group" data-tier="3">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-6">
+              <div
+                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                <img src="assets/icons/services/service-nutraceuticals.svg" alt="مکمل‌های غذایی و درمانی"
+                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                  data-i18n="svc_3_title">ارائه انواع مکمل‌های غذایی و درمانی</h3>
+                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                  data-i18n="svc_3_en">Therapeutic Supplements & Bioactive Nutraceuticals</p>
+                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_3_desc">توسعه
+                  فرآورده‌های طبیعی پیشرفته، پروبیوتیک‌های زیستی و مکمل‌های متابولیک و درمانی با هدف ارتقای پایدار
+                  شاخص‌های سلامت عمومی جامعه.</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                data-i18n="svc_3_badge_1">مکمل‌های زیستی</span>
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                data-i18n="svc_3_badge_2">پروبیوتیک درمانی</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04: Biological Dressings for Surgery & Burns -->
+        <div class="value-chain-tier-card group" data-tier="4">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-6">
+              <div
+                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                <img src="assets/icons/services/service-biological-dressings.svg"
+                  alt="ارائه انواع پانسمان‌های زیستی و سوختگی"
+                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                  data-i18n="svc_4_title">ارائه انواع پانسمان‌های زیستی و سوختگی</h3>
+                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                  data-i18n="svc_4_en">Regenerative Dermal Matrices & Burn Bio-Dressings</p>
+                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_4_desc">ارائه
+                  راهکارهای ماتریکس بیولوژیک و سلول‌های بازساختی جهت تسریع فرآیند ترمیم بافت در سوختگی‌های حاد پوستی،
+                  جراحی‌های باز و زخم‌های مزمن.</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                data-i18n="svc_4_badge_1">ترمیم بافت و سوختگی</span>
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                data-i18n="svc_4_badge_2">ماتریکس آمنیوتیک</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 05: Plasma Protein Replacement Therapy -->
+        <div class="value-chain-tier-card group" data-tier="5">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-6">
+              <div
+                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                <img src="assets/icons/services/service-plasma-therapy.svg"
+                  alt="ارائه انواع داروهای مشتق از پلاسما و نوترکیب"
+                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                  data-i18n="svc_5_title">ارائه انواع داروهای مشتق از پلاسما و نوترکیب</h3>
+                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                  data-i18n="svc_5_en">Plasma-Derived Protein Replacement & Immunoglobulins</p>
+                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_5_desc">تأمین
+                  فرآورده‌های مشتق از پلاسما شامل IVIG، آلبومین انسانی و فاکتورهای انعقادی حیاتی برای بیماران دچار کمبود
+                  یا نقص ایمنی اولیه و اکتسابی.</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                data-i18n="svc_5_badge_1">مشتقات پلاسما</span>
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                data-i18n="svc_5_badge_2">IVIG و آلبومین</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 06: Advanced Vaccine Adjuvants -->
+        <div class="value-chain-tier-card group" data-tier="6">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="flex items-start gap-6">
+              <div
+                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                <img src="assets/icons/services/service-vaccine-adjuvants.svg"
+                  alt="ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن"
+                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+              </div>
+              <div>
+                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                  data-i18n="svc_6_title">ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن</h3>
+                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                  data-i18n="svc_6_en">Advanced Biological Adjuvants & Immune Enhancers</p>
+                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_6_desc">
+                  فرمولاسیون و تولید ادجوانت‌های پیشرفته زیستی جهت افزایش اثربخشی و ایمنی‌زایی واکسن‌ها و به حداقل
+                  رساندن دوز مصرفی و عوارض ناخواسته جانبی.</p>
+              </div>
+            </div>
+            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                data-i18n="svc_6_badge_1">ادجوانت‌های زیستی</span>
+              <span
+                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                data-i18n="svc_6_badge_2">افزایش ایمنی‌زایی</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- =========================================
+       ZONE 4: SUBSIDIARY COMPANIES PORTFOLIO (High-End Awwwards Showcase)
+       ========================================= -->
+  <section class="companies-section py-28 bg-[#070A11] relative border-t border-white/5" id="companies">
+    <div class="container mx-auto px-6 max-w-7xl">
+      <!-- Section Header (Center-Aligned matching #services) -->
+      <div class="text-center mb-20 fade-up-element">
+        <span class="caption text-gold-400 uppercase tracking-widest text-xs font-bold font-en-mono block mb-2"
+          data-i18n="companies_label">اکوسیستم سرمایه‌گذاری</span>
+        <h2 class="display-xl kinetic-title font-extrabold text-white">
+          <span class="line-wrapper block"><span class="line-wrapper-inner block" data-i18n="companies_title">شرکت‌های
+              دانش‌بنیان رهناب</span></span>
+        </h2>
+        <p class="text-slate-400 max-w-2xl mx-auto mt-4 text-sm md:text-base leading-relaxed"
+          data-i18n="companies_subtitle">
+          بنگاه‌های تخصصی و هم‌افزا — از پالایش صنعتی پلاسما تا ایمونوتراپی سلولی پیشرفته
+        </p>
+      </div>
+
+      <!-- 6 Subsidiaries Grid (Dual-Action Cards, Centered Optimized Logos, Clutter-Free) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Comp 01: Nozhin Zist Pharmed -->
+        <div class="subsidiary-card group">
+          <div class="subsidiary-spotlight"></div>
+          <!-- Centered Prominent Logo Frame -->
+          <div class="subsidiary-logo-frame">
+            <img src="assets/images/subsidiaries/nojin_logo.webp" alt="نوژین زیست فارمد" class="subsidiary-logo-img">
+          </div>
+          <div class="flex-grow text-start">
+            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+              data-i18n="comp_1_name">نوژین زیست فارمد</h3>
+            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+              data-i18n="comp_1_en">Nozhin Zist Pharmed</p>
+            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_1_role">
+              پالایشگاه صنعتی پلاسما — تولید فاکتورهای خونی، آلبومین و ایمونوگلوبولین‌ها با ظرفیت سالانه ۱۵۰,۰۰۰ لیتر.
+            </p>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+            <a href="#company-nojine" class="company-learn-more-btn">
+              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="https://nojinepharmed.com/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Comp 02: Tamin Plasma Nozhin -->
+        <div class="subsidiary-card group">
+          <div class="subsidiary-spotlight"></div>
+          <!-- Centered Prominent Logo Frame -->
+          <div class="subsidiary-logo-frame">
+            <img src="assets/images/subsidiaries/logo-tamin-plasma.svg" alt="تأمین پلاسما نوژین"
+              class="subsidiary-logo-img">
+          </div>
+          <div class="flex-grow text-start">
+            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+              data-i18n="comp_2_name">تأمین پلاسما نوژین</h3>
+            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+              data-i18n="comp_2_en">Tamin Plasma Nozhin</p>
+            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_2_role">
+              شبکه سراسری مراکز آفرزیس خودکار و تأمین پلاسمای استاندارد انسانی با انطباق کامل بر استانداردهای بین‌المللی
+              GMP.
+            </p>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+            <a href="#company-tamin" class="company-learn-more-btn">
+              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="https://tpnojine.com/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Comp 03: Persis Gene -->
+        <div class="subsidiary-card group">
+          <div class="subsidiary-spotlight"></div>
+          <!-- Centered Prominent Logo Frame -->
+          <div class="subsidiary-logo-frame">
+            <img src="assets/images/subsidiaries/logo-persisgen.png" alt="پرسیس‌ژن" class="subsidiary-logo-img">
+          </div>
+          <div class="flex-grow text-start">
+            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+              data-i18n="comp_3_name">پرسیس‌ژن</h3>
+            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+              data-i18n="comp_3_en">Persis Gene</p>
+            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_3_role">
+              شتابدهنده و انکوباتور ملی فرآیندهای زیستی، بانک سلولی و تحقیق و توسعه محصولات نوین بیوتکنولوژی و
+              بیوسیمیلارها.
+            </p>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+            <a href="#company-persis" class="company-learn-more-btn">
+              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="https://demo-branding.com/persis/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Comp 04: Arc Zist Azma -->
+        <div class="subsidiary-card group">
+          <div class="subsidiary-spotlight"></div>
+          <!-- Centered Prominent Logo Frame -->
+          <div class="subsidiary-logo-frame">
+            <img src="assets/images/subsidiaries/logo-arc.png" alt="آرک زیست آزما" class="subsidiary-logo-img">
+          </div>
+          <div class="flex-grow text-start">
+            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+              data-i18n="comp_4_name">آرک زیست آزما</h3>
+            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+              data-i18n="comp_4_en">Arc Zist Azma</p>
+            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_4_role">
+              آزمایشگاه همکار سازمان غذا و دارو (IFDA)، مرجع ملی کنترل کیفیت فرآورده‌های بیولوژیک و صدور گواهی Batch
+              Release.
+            </p>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+            <a href="#company-arc" class="company-learn-more-btn">
+              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="http://arcbioassay.com/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Comp 05: Padra Serum Alborz -->
+        <div class="subsidiary-card group">
+          <div class="subsidiary-spotlight"></div>
+          <!-- Centered Prominent Logo Frame -->
+          <div class="subsidiary-logo-frame">
+            <img src="assets/images/subsidiaries/padra-serum-logo-who-Final-PNG-1.png" alt="پادرا سرم البرز"
+              class="subsidiary-logo-img">
+          </div>
+          <div class="flex-grow text-start">
+            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+              data-i18n="comp_5_name">پادرا سرم البرز</h3>
+            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+              data-i18n="comp_5_en">Padra Serum Alborz</p>
+            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_5_role">
+              تولیدکننده پیشرو پادزهرهای هایپرایمیون مارگزیدگی، عقرب‌گزیدگی و سرم‌های درمانی اورژانسی با پوشش بیش از ۷۰٪
+              نیاز ملی.
+            </p>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+            <a href="#company-padra" class="company-learn-more-btn">
+              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="https://padraserum.com/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Comp 06: KarayaKhteh Tajhiz Azma -->
+        <div class="subsidiary-card group">
+          <div class="subsidiary-spotlight"></div>
+          <!-- Centered Prominent Logo Frame -->
+          <div class="subsidiary-logo-frame">
+            <img src="assets/images/subsidiaries/logo-karayakhte.webp" alt="کارا یاخته تجهیز آزما"
+              class="subsidiary-logo-img">
+          </div>
+          <div class="flex-grow text-start">
+            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+              data-i18n="comp_6_name">کارا یاخته تجهیز آزما</h3>
+            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+              data-i18n="comp_6_en">KarayaKhteh / CARTIMED</p>
+            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_6_role">
+              پیشگام ایمونوتراپی سلولی اتولوگ، فاز کارآزمایی بالینی درمان سرطان با فناوری CAR-T و تولید فرآورده‌های
+              دارویی پیشرفته ATMP.
+            </p>
+          </div>
+          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+            <a href="#company-karayakhteh" class="company-learn-more-btn">
+              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
+              <span class="text-xs">↗</span>
+            </a>
+            <a href="http://karayakhteh.ir/" target="_blank" rel="noopener noreferrer"
+              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       ZONE 4: IMPACT METRICS (Full-Width Cinematic)
+       ========================================= -->
+  <section class="py-28 bg-[#07090e] relative border-y border-gold-400/10" id="impact">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16 fade-up-element">
+        <span class="caption text-gold-400 uppercase tracking-widest text-xs font-bold block mb-2"
+          data-i18n="impact_label">مقیاس و نفوذ ملی</span>
+        <h2 class="display-lg kinetic-title font-extrabold text-white" data-i18n="impact_title">تأثیر ملی در شاخص‌های
+          سلامت</h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
+          <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3" data-target="100">
+            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">%</span>
+          </div>
+          <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_1">پوشش یکپارچه زنجیره</p>
+          <span class="caption text-slate-400 text-xs" data-i18n="impact_sub_1">پوشش ۱۰۰ درصدی زنجیره لایف‌ساینس</span>
+        </div>
+
+        <div
+          class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
+          <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3"
+            data-target="150000">
+            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">+</span>
+          </div>
+          <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_2">لیتر ظرفیت پالایش
+            پلاسما</p>
+          <span class="caption text-slate-400 text-xs" data-i18n="impact_sub_2">ظرفیت سالانه پالایشگاه اختصاصی</span>
+        </div>
+
+        <div
+          class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
+          <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3" data-target="70">
+            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">%+</span>
+          </div>
+          <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_3">تأمین پادزهر اورژانسی
+          </p>
+          <span class="caption text-slate-400 text-xs" data-i18n="impact_sub_3">سهم ملی در مهار گزش‌های کشنده</span>
+        </div>
+
+        <div
+          class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
+          <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3" data-target="1400">
+            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">+</span>
+          </div>
+          <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_4">دانشمند و نخبه زیستی
+          </p>
+          <span class="caption text-slate-400 text-xs" data-i18n="impact_sub_4">نیروی انسانی متخصص در اکوسیستم</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       ZONE 5: NEWS & MEDIA (Local High-Res Images)
+       ========================================= -->
+  <section class="py-28 bg-[#05070B]" id="news">
+    <div class="container mx-auto px-6">
+      <div class="flex justify-between items-end mb-14">
+        <div>
+          <span class="caption text-gold-400 uppercase tracking-widest text-xs font-bold block mb-2"
+            data-i18n="news_label">اخبار و رویدادهای هلدینگ</span>
+          <h2 class="display-lg kinetic-title font-extrabold text-white" data-i18n="news_title">اخبار و رویدادها</h2>
+        </div>
+        <a href="#"
+          class="hidden sm:inline-flex items-center gap-2 text-gold-400 font-bold hover:text-gold-300 transition-colors text-sm"
+          data-i18n="news_all">
+          <span>مشاهده آرشیو اخبار</span>
+          <span class="transform rtl:rotate-180">→</span>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Featured Story (Local Refinery Image) -->
+        <div class="lg:col-span-8 news-card group cursor-pointer relative overflow-hidden h-[460px]">
+          <img src="assets/images/news-plasma-refinery.jpg" alt="News Feature"
+            class="news-card-img absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-8">
+            <div class="flex items-center gap-4 mb-3">
+              <span class="text-gold-400 text-xs font-bold font-en-display">OCT 2024</span>
+              <span class="bg-white/10 text-slate-200 px-3 py-1 rounded-full text-xs font-medium"
+                data-i18n="news_cat_1">توسعه زیرساخت ملی</span>
+            </div>
+            <h3
+              class="text-xl md:text-3xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors leading-snug"
+              data-i18n="news_item_1_title">
+              بهره‌برداری از فاز تکمیلی پالایشگاه صنعتی پلاسمای نوژین زیست فارمد با ظرفیت ۱۵۰ هزار لیتر
+            </h3>
+            <p class="text-slate-300 text-xs md:text-sm line-clamp-2 leading-relaxed" data-i18n="news_item_1_desc">
+              این گام استراتژیک، وابستگی کشور به ارسال پلاسما به خارج از مرزها را خاتمه داده و تولید داروهای حیاتی مشتق
+              از پلاسما را درون مرزهای کشور تثبیت می‌کند.
+            </p>
+          </div>
+        </div>
+
+        <!-- Secondary Stories (Local Lab & Antivenom Images) -->
+        <div class="lg:col-span-4 flex flex-col gap-6">
+          <div
+            class="news-card group cursor-pointer flex flex-col justify-between h-[218px] relative overflow-hidden p-6">
+            <img src="assets/images/news-cart-celltherapy.jpg" alt="CAR-T Lab"
+              class="news-card-img absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity">
+            <div class="relative z-10">
+              <span class="text-gold-400 text-xs font-bold font-en-display block mb-2">SEP 2024</span>
+              <h4
+                class="text-base font-bold text-white group-hover:text-gold-400 transition-colors line-clamp-2 leading-snug"
+                data-i18n="news_item_2_title">
+                موفقیت کارا یاخته در فاز نخست کارآزمایی بالینی ایمونوتراپی سلولی CAR-T
+              </h4>
+            </div>
+            <p class="text-slate-400 text-xs line-clamp-2 relative z-10" data-i18n="news_item_2_desc">ورود رسمی به
+              باشگاه تولیدکنندگان فناوری‌های درمان پیشرفته سرطان در غرب آسیا.</p>
+          </div>
+
+          <div
+            class="news-card group cursor-pointer flex flex-col justify-between h-[218px] relative overflow-hidden p-6">
+            <img src="assets/images/news-antivenom-lab.jpg" alt="Antivenom Lab"
+              class="news-card-img absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity">
+            <div class="relative z-10">
+              <span class="text-gold-400 text-xs font-bold font-en-display block mb-2">AUG 2024</span>
+              <h4
+                class="text-base font-bold text-white group-hover:text-gold-400 transition-colors line-clamp-2 leading-snug"
+                data-i18n="news_item_3_title">
+                تأمین بیش از ۷۰ درصد پادزهرهای اورژانسی کشور توسط پادرا سرم البرز
+              </h4>
+            </div>
+            <p class="text-slate-400 text-xs line-clamp-2 relative z-10" data-i18n="news_item_3_desc">پوشش سراسری مراکز
+              درمان گزش‌های خطرناک و نجات جان هزاران بیمار در مناطق مرزی.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================
+       ZONE 6: FOOTER (Faithfully Matching prompt_hover-footer.md)
+       ========================================= -->
+  <footer class="hover-footer-container" id="footer">
+    <div class="container mx-auto px-6 pt-16 pb-2 relative z-10">
+      <!-- Top 4 Columns -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
+        <!-- Brand Column (ONLY Logo - No duplicate text!) -->
+        <div class="lg:col-span-4 flex flex-col space-y-4">
+          <a href="#hero" aria-label="Rahnab Pharmed" class="block">
+            <img src="assets/images/logo_rahnab.png" alt="Rahnab Pharmed" class="h-14 md:h-16 w-auto object-contain">
+          </a>
+          <p class="text-slate-400 text-sm leading-relaxed max-w-sm" data-i18n="footer_desc">
+            معمار زنجیره ارزش زیست‌فناوری نوین ایران. سرمایه‌گذاری تخصصی در زیرساخت‌های کلان سلامت و استقلال دارویی.
+          </p>
+          <div class="pt-2 flex flex-col space-y-2.5 text-sm text-slate-300">
+            <a href="mailto:info@rahnab.com" class="flex items-center gap-2.5 hover:text-gold-400 transition-colors group">
+              <svg class="w-4 h-4 text-gold-400 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              <span class="font-en-display" data-i18n="footer_email">info@rahnab.com</span>
+            </a>
+            <a href="tel:+982149361200" class="flex items-center gap-2.5 hover:text-gold-400 transition-colors group">
+              <svg class="w-4 h-4 text-gold-400 flex-shrink-0 transition-transform group-hover:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+              </svg>
+              <span dir="ltr" class="font-fa-display font-medium text-left" data-i18n="footer_phone">۰۲۱۴۹۳۶۱۲۰۰</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links Column -->
+        <div class="lg:col-span-2">
+          <h4 class="text-white font-bold text-base mb-5" data-i18n="footer_links_title">دسترسی سریع</h4>
+          <ul class="space-y-3 text-sm text-slate-400">
+            <li><a href="#about" class="hover:text-gold-400 transition-colors" data-i18n="footer_link_1">درباره
+                هلدینگ</a></li>
+            <li><a href="#services" class="hover:text-gold-400 transition-colors" data-i18n="footer_link_2">خدمات و
+                توانمندی‌ها</a></li>
+            <li><a href="#companies" class="hover:text-gold-400 transition-colors"
+                data-i18n="footer_link_companies">شرکت‌های زیرمجموعه</a></li>
+            <li><a href="#impact" class="hover:text-gold-400 transition-colors" data-i18n="footer_link_3">تأثیر ملی</a>
+            </li>
+            <li><a href="#news" class="hover:text-gold-400 transition-colors" data-i18n="footer_link_4">اخبار و
+                دستاوردها</a></li>
+          </ul>
+        </div>
+
+        <!-- Subsidiaries Column -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-bold text-base mb-5" data-i18n="footer_subs_title">شرکت‌های زیرمجموعه</h4>
+          <ul class="space-y-2 text-sm text-slate-400">
+            <li><a href="https://nojinepharmed.com/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-gold-400 transition-colors">نوژین زیست فارمد (Nozhin Zist) ↗</a></li>
+            <li><a href="https://tpnojine.com/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-gold-400 transition-colors">تأمین پلاسما نوژین (Tamin Plasma) ↗</a></li>
+            <li><a href="https://demo-branding.com/persis/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-gold-400 transition-colors">پرسیس ژن (Persis Gene) ↗</a></li>
+            <li><a href="http://arcbioassay.com/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-gold-400 transition-colors">آرک زیست آزما (Arc Zist Azma) ↗</a></li>
+            <li><a href="https://padraserum.com/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-gold-400 transition-colors">پادرا سرم البرز (Padra Serum) ↗</a></li>
+            <li><a href="http://karayakhteh.ir/" target="_blank" rel="noopener noreferrer"
+                class="hover:text-gold-400 transition-colors">کارا یاخته تجهیز آزما (KarayaKhteh) ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Central Office Column -->
+        <div class="lg:col-span-3">
+          <h4 class="text-white font-bold text-base mb-5" data-i18n="footer_address_title">دفتر مرکزی هلدینگ</h4>
+          <p class="text-slate-400 text-sm leading-relaxed mb-6" data-i18n="footer_address">
+            تهران، کیلومتر ۱۵ اتوبان تهران-کرج، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)، طبقه ۳، واحد ۳۰۲
+          </p>
+          <div class="flex items-center gap-3">
+            <a href="https://www.linkedin.com/company/rahnab-pharmed" target="_blank" rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 hover:bg-gold-400 hover:text-black hover:border-gold-400 transition-all">
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TextHoverEffect (Exact Dimensions & Visual from prompt_hover-footer.md) -->
+    <div class="footer-text-hover-section">
+      <div id="footerHoverText" data-hover-text="RAHNAB" class="w-full h-full flex items-center justify-center">
+        <!-- SVG Injected dynamically by motion.js -->
+      </div>
+    </div>
+
+    <!-- Footer Bottom Bar (Positioned Below RAHNAB) -->
+    <div class="container mx-auto px-6 pb-10 relative z-10">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs text-slate-500">
+        <p data-i18n="footer_copyright">© 2026 هلدینگ سرمایه‌گذاری رهناب فارمد. تمامی حقوق محفوظ است.</p>
+        <p class="text-slate-400 font-medium" data-i18n="footer_motto">طراحی و توسعه توسط <a href="https://ihasht.ir" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 font-bold transition-colors underline decoration-gold-400/30 underline-offset-4">هشت‌بهشت (HashtBehesht)</a></p>
+      </div>
+    </div>
+
+    <!-- Exact FooterBackgroundGradient from prompt_hover-footer.md -->
+    <div class="footer-radial-gradient"></div>
+  </footer>
+
+  <!-- Floating Back to Top Button (Awwwards Trending Progress Ring) -->
+  <button id="backToTopBtn" class="back-to-top-btn group" aria-label="Back to top" title="بازگشت به ابتدای صفحه">
+    <!-- Circular SVG Progress Ring Track -->
+    <svg class="progress-ring absolute inset-0 w-full h-full -rotate-90 pointer-events-none" viewBox="0 0 48 48">
+      <circle class="progress-ring-bg" cx="24" cy="24" r="21" fill="none" stroke="rgba(255, 255, 255, 0.08)" stroke-width="2.5" />
+      <circle id="backToTopProgress" class="progress-ring-circle" cx="24" cy="24" r="21" fill="none" stroke="url(#goldGradBackToTop)" stroke-width="2.5" stroke-dasharray="132" stroke-dashoffset="132" stroke-linecap="round" />
+      <defs>
+        <linearGradient id="goldGradBackToTop" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#E5B887" />
+          <stop offset="100%" stop-color="#F3D3A2" />
+        </linearGradient>
+      </defs>
+    </svg>
+    <!-- Center Obsidian Frosted Glass Core with Micro-Arrow -->
+    <div class="back-to-top-core relative z-10 flex items-center justify-center">
+      <svg class="w-4 h-4 text-gold-400 transform transition-transform duration-300 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.4">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+      </svg>
+    </div>
+  </button>
+
+  <!-- =========================================
+       SCRIPTS
+       ========================================= -->
+  <script src="js/three-scene.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof initHeroScene === 'function') initHeroScene();
+      if (typeof initMotionEngine === 'function') initMotionEngine();
+      if (typeof initApp === 'function') initApp();
+    });
+  </script>
+</body>
+
+</html>
