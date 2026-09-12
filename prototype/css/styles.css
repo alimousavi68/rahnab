@@ -595,6 +595,19 @@ html[lang="en"] .navbar__toggle-label {
   letter-spacing: 0.15em !important;
 }
 
+/* Fullscreen Menu Side Info Typography */
+html[lang="fa"] .nav-info-label {
+  font-family: var(--font-fa-display), 'Peyda', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: normal !important;
+}
+
+html[lang="en"] .nav-info-label {
+  font-family: var(--font-en-mono, 'JetBrains Mono', monospace) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.12em !important;
+}
+
 @keyframes scrollArrowPeriodicPulse {
   0%, 65%, 100% {
     transform: translateY(0);

@@ -172,21 +172,23 @@ $nav_links = [
     <!-- Side Info / Holding Passport -->
     <div class="lg:col-span-4 flex flex-col gap-6 lg:border-s border-white/10 lg:ps-10">
       <div>
-        <p class="text-xs font-mono uppercase tracking-widest text-slate-500 mb-1" data-i18n="nav_info_hq">دفتر مرکزی</p>
+        <p class="nav-info-label text-xs uppercase text-slate-500 mb-1" data-i18n="nav_info_hq">دفتر مرکزی</p>
         <p class="text-sm text-slate-300 leading-relaxed" data-i18n="nav_info_address">تهران، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)</p>
       </div>
       <div>
-        <p class="text-xs font-mono uppercase tracking-widest text-slate-500 mb-1" data-i18n="nav_info_direct">ارتباط مستقیم</p>
+        <p class="nav-info-label text-xs uppercase text-slate-500 mb-1" data-i18n="nav_info_direct">ارتباط مستقیم</p>
         <a href="tel:+982144787260"
-          class="text-base font-en-mono text-gold-400 hover:text-gold-300 transition-colors block dir-ltr text-start">+98 (21) 4478 7260</a>
-        <a href="mailto:office@rahnab.com"
-          class="text-sm font-en-mono text-slate-400 hover:text-white transition-colors block mt-0.5">office@rahnab.com</a>
+          class="text-base font-bold text-gold-400 hover:text-gold-300 transition-colors inline-block dir-ltr text-start" dir="ltr">
+          <span data-i18n="nav_info_phone">۰۲۱۴۴۷۸۷۲۶۰</span>
+        </a>
+        <a href="mailto:info@rahnab.com"
+          class="text-sm font-en-mono text-slate-400 hover:text-white transition-colors block mt-0.5 dir-ltr text-start" dir="ltr">info@rahnab.com</a>
       </div>
       <div class="pt-2">
         <a href="contact.php"
           class="text-xs font-bold px-4 py-2 rounded-full border border-gold-400/40 text-gold-400 hover:bg-gold-400/10 transition-all inline-flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
-          <span data-i18n="modal_title">درخواست همکاری تجاری B2B</span>
+          <span data-i18n="nav_cta_cooperation">ارتباط و همکاری با هلدینگ</span>
         </a>
       </div>
     </div>

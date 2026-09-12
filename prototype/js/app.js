@@ -23,6 +23,8 @@ const translations = {
         nav_info_hq: "دفتر مرکزی",
         nav_info_address: "تهران، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)",
         nav_info_direct: "ارتباط مستقیم",
+        nav_info_phone: "۰۲۱۴۴۷۸۷۲۶۰",
+        nav_cta_cooperation: "ارتباط و همکاری با هلدینگ",
         hero_scroll: "SCROLL TO EXPLORE",
         
         // Modal
@@ -575,6 +577,8 @@ const translations = {
         nav_info_hq: "HEADQUARTERS",
         nav_info_address: "Tehran, National Institute of Genetic Engineering and Biotechnology (NIGEB)",
         nav_info_direct: "DIRECT INQUIRY",
+        nav_info_phone: "+982144787260",
+        nav_cta_cooperation: "Connect & Collaborate",
         hero_scroll: "SCROLL TO EXPLORE",
         
         // Modal
