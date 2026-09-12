@@ -138,7 +138,7 @@ include_once __DIR__ . '/includes/fullscreen-menu.php';
           <div class="kpi-counter-val text-3xl sm:text-4xl font-bold text-gold-400 tracking-tight flex items-baseline gap-1" data-target="2000">
             <span>+</span>
             <span class="kpi-num stat-number">۲,۰۰۰</span>
-            <span class="text-lg text-gold-300 font-mono" data-i18n="about_stat_invest_unit">B</span>
+            <span class="text-lg text-gold-300 font-mono" data-i18n="about_page_invest_abbr"></span>
           </div>
           <div class="text-xs sm:text-sm text-slate-400 mt-2 font-medium" data-i18n="about_stat_invest_label">میلیارد تومان سرمایه‌گذاری متعهد</div>
         </div>
