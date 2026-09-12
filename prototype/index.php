@@ -19,8 +19,8 @@ include_once __DIR__ . '/includes/fullscreen-menu.php';
     </div>
     <div class="hero-ambient-vignette"></div>
 
-    <!-- Top/Mid Narrative Statement (Opposite side from Headline) -->
-    <div class="relative z-10 w-full px-6 sm:px-10 lg:px-16 pt-16 sm:pt-24 flex justify-end">
+    <!-- Top/Mid Narrative Statement (Opposite side from Headline — Desktop Only) -->
+    <div class="relative z-10 w-full px-6 sm:px-10 lg:px-16 pt-16 sm:pt-24 hidden md:flex justify-end">
       <div class="max-w-xl text-start">
         <p class="text-sm sm:text-base md:text-lg text-slate-200/90 leading-relaxed font-normal">
           <span class="text-white font-bold block sm:inline" data-i18n="hero_narrative_lead">از سنتز فرآیندهای زیستی تا
@@ -46,6 +46,13 @@ include_once __DIR__ . '/includes/fullscreen-menu.php';
           <span class="hero-title-sub block font-normal not-italic text-gold-400 mt-2 sm:mt-3 lg:mt-5"
             data-i18n="hero_title_2">توسعه‌بخش راهکارهای نوین سلامت</span>
         </h1>
+        <!-- Mobile Narrative Statement (Directly below Headline for ideal mobile UX) -->
+        <div class="block md:hidden mt-4 pt-3 border-t border-white/10 max-w-lg text-start">
+          <p class="text-xs sm:text-sm text-slate-300/90 leading-relaxed font-normal">
+            <span class="text-white font-bold inline" data-i18n="hero_narrative_lead">از سنتز فرآیندهای زیستی تا پالایشگاه صنعتی پلاسما: </span>
+            <span data-i18n="hero_subtitle">راهبری یکپارچه زیرساخت‌های کلان زیست‌داروسازی، از پالایشگاه صنعتی پلاسما تا درمان‌های پیشرفته سلولی.</span>
+          </p>
+        </div>
       </div>
 
       <!-- Minimalist Scroll Cue (Bottom-Right) -->
