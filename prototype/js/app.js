@@ -460,7 +460,7 @@ const translations = {
         // Contact Page
         contact_crumb: "تماس با ما",
         contact_eyebrow: "ارتباط با ما",
-        contact_hero_title: "راه‌های ارتباط با هلدینگ سرمایه‌گذاری رهناب فارمد",
+        contact_hero_title: "تماس با رهناب فارمد",
         contact_hero_subtitle: "ما همواره آماده پاسخگویی به پرسش‌ها، نظرات و پیشنهادهای شما هستیم.",
         contact_info_title: "اطلاعات دفتر مرکزی",
         contact_info_desc: "دفتر مرکزی هلدینگ سرمایه‌گذاری رهناب فارمد مستقر در پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری.",
@@ -953,7 +953,7 @@ const translations = {
         // Contact Page
         contact_crumb: "Contact Us",
         contact_eyebrow: "Contact Us",
-        contact_hero_title: "Connecting with Rahnab Pharmed Investment Holding",
+        contact_hero_title: "Contact Rahnab Pharmed",
         contact_hero_subtitle: "We are always ready to address your inquiries, feedback, and questions.",
         contact_info_title: "Headquarters Information",
         contact_info_desc: "Rahnab Pharmed Investment Holding headquarters situated at the National Institute of Genetic Engineering and Biotechnology (NIGEB).",

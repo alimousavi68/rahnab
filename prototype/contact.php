@@ -45,7 +45,7 @@ include_once __DIR__ . '/includes/fullscreen-menu.php';
 
       <!-- Main Headline (Solid White, No Gradient) -->
       <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight max-w-4xl mb-4" data-i18n="contact_hero_title">
-        راه‌های ارتباط با هلدینگ سرمایه‌گذاری رهناب فارمد
+        تماس با رهناب فارمد
       </h1>
 
       <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed text-justify sm:text-start" data-i18n="contact_hero_subtitle">
