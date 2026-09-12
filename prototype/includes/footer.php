@@ -17,7 +17,7 @@ $companies_url = 'companies.php';
 $contact_url   = 'contact.php';
 
 $impact_url    = $is_home ? '#impact' : 'index.php#impact';
-$news_url      = $is_home ? '#news' : 'index.php#news';
+$news_url      = 'news.php';
 ?>
   <!-- =========================================
        ZONE 6: FOOTER (Minimalist Holding Luxury)

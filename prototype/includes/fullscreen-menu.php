@@ -47,7 +47,7 @@ $nav_links = [
         'num'   => '06',
         'title' => 'اخبار و رویدادها',
         'i18n'  => 'nav_news',
-        'url'   => $is_home ? '#news' : 'index.php#news',
+        'url'   => 'news.php',
     ],
     'contact' => [
         'num'   => '07',

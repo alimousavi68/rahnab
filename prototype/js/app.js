@@ -492,7 +492,41 @@ const translations = {
         contact_nav_neshan: "مسیریابی با نشان",
         contact_nav_balad: "مسیریابی با بلد",
         contact_nav_google: "مسیریابی با گوگل مپ",
-        contact_nav_waze: "مسیریابی با ویز"
+        contact_nav_waze: "مسیریابی با ویز",
+
+        // News Page
+        news_crumb: "اخبار و رویدادها",
+        news_eyebrow: "اخبار و رویدادها",
+        news_hero_title: "اخبار و دستاوردهای هلدینگ رهناب فارمد",
+        news_hero_subtitle: "انعکاس آخرین پیشرفت‌های علمی، توسعه زیرساخت‌های کلان دارویی و رویدادهای اکوسیستم سلامت رهناب.",
+        news_tab_all: "همه رویدادها",
+        news_tab_infra: "توسعه زیرساخت ملی",
+        news_tab_science: "فناوری و درمان‌های پیشرفته",
+        news_tab_health: "ارتقای سلامت و خدمات ملی",
+        news_featured_badge: "دستاورد ملی",
+        news_read_more: "مطالعه خبر کامل",
+        news_featured_date: "۱۸ مهر ۱۴۰۳",
+        news_featured_read: "۵ دقیقه مطالعه",
+        news_1_date: "۲۸ شهریور ۱۴۰۳",
+        news_1_read: "۴ دقیقه مطالعه",
+        news_2_date: "۱۲ شهریور ۱۴۰۳",
+        news_2_read: "۳ دقیقه مطالعه",
+        news_3_date: "۲۵ مرداد ۱۴۰۳",
+        news_3_read: "۴ دقیقه مطالعه",
+        news_3_title: "اخذ گواهینامه رفرنس بین‌المللی ISO/IEC 17025 توسط آرک زیست آزما",
+        news_3_desc: "ارتقای استانداردهای کنترل کیفی، آزمون‌های بیواسی و تأیید بچ‌ریلیز فرآورده‌های بیولوژیک در سطح آزمایشگاه‌های مرجع منطقه‌ای.",
+        news_4_date: "۰۴ مرداد ۱۴۰۳",
+        news_4_read: "۵ دقیقه مطالعه",
+        news_4_title: "آغاز چرخه شتاب‌دهی دور جدید تیم‌های زیست‌دارویی در شتاب‌دهنده پرسیس ژن",
+        news_4_desc: "ورود ۶ استارتاپ نخبگانی زیست‌فناوری سلامت به مرحله تحقیق، توسعه فرمولاسیون و جذب سرمایه‌گذاری ونچر در هلدینگ.",
+        news_5_date: "۱۶ تیر ۱۴۰۳",
+        news_5_read: "۳ دقیقه مطالعه",
+        news_5_title: "افتتاح بزرگ‌ترین پایگاه جمع‌آوری پلاسمای استان البرز توسط تأمین پلاسما نوژین",
+        news_5_desc: "گسترش شبکه ملی جمع‌آوری پلاسما به روش پلاسمانویسی تمام‌اتوماتیک و مطابق با استانداردهای بهداشت جهانی WHO.",
+        news_6_date: "۲۲ خرداد ۱۴۰۳",
+        news_6_read: "۴ دقیقه مطالعه",
+        news_6_title: "بومی‌سازی نانویاورهای اختصاصی واکسن‌های دامی و طیور در نوژین زیست فارمد",
+        news_6_desc: "دستیابی به دانش فنی فرمولاسیون ادجوانت‌های روغنی پیشرفته جهت افزایش اثربخشی ایمنی‌زایی واکسن‌ها در صنعت دامپروری."
     },
     en: {
         // Nav
@@ -985,7 +1019,41 @@ const translations = {
         contact_nav_neshan: "Route on Neshan",
         contact_nav_balad: "Route on Balad",
         contact_nav_google: "Route on Google Maps",
-        contact_nav_waze: "Route on Waze"
+        contact_nav_waze: "Route on Waze",
+
+        // News Page
+        news_crumb: "News & Events",
+        news_eyebrow: "News & Media",
+        news_hero_title: "News & Milestones of Rahnab Pharmed Holding",
+        news_hero_subtitle: "Reflecting the latest scientific breakthroughs, macro biopharma infrastructure developments, and ecosystem milestones.",
+        news_tab_all: "All News",
+        news_tab_infra: "National Infrastructure",
+        news_tab_science: "Advanced Therapies & Science",
+        news_tab_health: "National Health & Services",
+        news_featured_badge: "National Milestone",
+        news_read_more: "Read Full Story",
+        news_featured_date: "Oct 10, 2024",
+        news_featured_read: "5 min read",
+        news_1_date: "Sep 19, 2024",
+        news_1_read: "4 min read",
+        news_2_date: "Sep 3, 2024",
+        news_2_read: "3 min read",
+        news_3_date: "Aug 15, 2024",
+        news_3_read: "4 min read",
+        news_3_title: "Arc Zist Azma Receives International ISO/IEC 17025 Reference Accreditation",
+        news_3_desc: "Elevating biological QC standards, bioassays, and batch release testing to international reference laboratory level.",
+        news_4_date: "Jul 25, 2024",
+        news_4_read: "5 min read",
+        news_4_title: "Persis Gene Launches Next Acceleration Cycle for Biotech Startups",
+        news_4_desc: "Six elite biotechnology teams advance to formulation, scale-up, and venture funding under holding mentorship.",
+        news_5_date: "Jul 6, 2024",
+        news_5_read: "3 min read",
+        news_5_title: "Inauguration of Alborz Province's Largest Plasmapheresis Center by Tamin Plasma",
+        news_5_desc: "Expanding national source plasma collection capacity using fully automated apheresis systems aligned with WHO guidelines.",
+        news_6_date: "Jun 11, 2024",
+        news_6_read: "4 min read",
+        news_6_title: "Localization of Specialized Nano-Adjuvants for Veterinary Vaccines at Nozhin Zist",
+        news_6_desc: "Mastery of advanced oily emulsion formulation technology to boost immunogenicity across veterinary vaccines."
     }
 };
 
@@ -1324,6 +1392,9 @@ function initApp() {
     // Initialize company category filter on companies page
     initCompanyFilter();
 
+    // Initialize news filter on news page
+    initNewsFilter();
+
     // Initialize contact form handler on contact page
     initContactForm();
 
@@ -1334,6 +1405,44 @@ function initApp() {
             setLanguage(saved);
         }
     } catch(e) {}
+}
+
+function initNewsFilter() {
+    const filterButtons = document.querySelectorAll('.news-filter-btn');
+    const newsCards = document.querySelectorAll('.news-showcase-card');
+
+    if (!filterButtons.length || !newsCards.length) return;
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const filter = btn.getAttribute('data-filter');
+
+            filterButtons.forEach(b => {
+                b.classList.remove('is-active', 'bg-gold-400', 'text-black', 'border-gold-400');
+                b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+            });
+            btn.classList.add('is-active', 'bg-gold-400', 'text-black', 'border-gold-400');
+            btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+
+            newsCards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    card.classList.remove('hidden');
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 30);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(8px)';
+                    setTimeout(() => {
+                        card.classList.add('hidden');
+                    }, 200);
+                }
+            });
+        });
+    });
 }
 
 function initContactForm() {
@@ -1406,7 +1515,7 @@ function initCompanyFilter() {
 }
 
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.subsidiary-card, .service-card, .company-showcase-card, .service-showcase-card, .contact-info-card, .contact-form-card');
+    const cards = document.querySelectorAll('.subsidiary-card, .service-card, .company-showcase-card, .service-showcase-card, .contact-info-card, .contact-form-card, .news-showcase-card');
 
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {

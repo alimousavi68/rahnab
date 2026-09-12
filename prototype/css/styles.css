@@ -1398,3 +1398,45 @@ html[lang="fa"] .service-card-title {
     border-radius: 1.25rem;
   }
 }
+
+/* =========================================
+   News Showcase Cards (News Archive)
+   ========================================= */
+.news-showcase-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(16, 21, 34, 0.8) 0%, rgba(10, 14, 23, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-showcase-card:hover {
+  border-color: rgba(229, 184, 135, 0.4);
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 0 32px rgba(229, 184, 135, 0.12);
+}
+
+.news-showcase-card .news-card-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(229, 184, 135, 0.12) 0%, transparent 75%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.news-showcase-card:hover .news-card-spotlight {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .news-showcase-card {
+    border-radius: 1.25rem;
+  }
+}

@@ -680,7 +680,7 @@ include_once __DIR__ . '/includes/modal-inquiry.php';
             data-i18n="news_label">اخبار و رویدادهای هلدینگ</span>
           <h2 class="display-lg kinetic-title font-extrabold text-white" data-i18n="news_title">اخبار و رویدادها</h2>
         </div>
-        <a href="#"
+        <a href="news.php"
           class="hidden sm:inline-flex items-center gap-2 text-gold-400 font-bold hover:text-gold-300 transition-colors text-sm"
           data-i18n="news_all">
           <span>مشاهده آرشیو اخبار</span>
