@@ -162,8 +162,8 @@ get_header();
             <div
               class="about-stat-card p-5 rounded-2xl bg-gradient-to-br from-gold-400/15 to-gold-400/5 border border-gold-400/25 flex flex-col gap-1.5">
               <span class="text-3xl lg:text-4xl font-black text-gold-400 font-fa-display tracking-tight"
-                data-i18n="about_stat_invest">+۲,۰۰۰</span>
-              <span class="text-xs font-bold text-white" data-i18n="about_stat_invest_unit">میلیارد تومان</span>
+                data-i18n="about_stat_invest">+<?php echo esc_html(rahnab_get_option('rahnab_invest_val', '۲,۰۰۰')); ?></span>
+              <span class="text-xs font-bold text-white" data-i18n="about_stat_invest_unit"><?php echo esc_html(rahnab_get_option('rahnab_invest_unit', 'میلیارد تومان')); ?></span>
               <span class="text-[11px] text-slate-400 leading-snug" data-i18n="about_stat_invest_label">سرمایه‌گذاری در
                 زیست‌بوم دانش‌بنیان</span>
             </div>
@@ -638,7 +638,7 @@ get_header();
         <div
           class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
           <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3" data-target="100">
-            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">%</span>
+            <span class="kpi-num">۱۰۰</span><span class="text-2xl font-normal text-gold-400 mr-1">%</span>
           </div>
           <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_1">پوشش یکپارچه زنجیره</p>
           <span class="caption text-slate-400 text-xs" data-i18n="impact_sub_1">پوشش ۱۰۰ درصدی زنجیره لایف‌ساینس</span>
@@ -648,7 +648,7 @@ get_header();
           class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
           <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3"
             data-target="150000">
-            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">+</span>
+            <span class="kpi-num">۱۵۰,۰۰۰</span><span class="text-2xl font-normal text-gold-400 mr-1">+</span>
           </div>
           <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_2">لیتر ظرفیت پالایش
             پلاسما</p>
@@ -658,7 +658,7 @@ get_header();
         <div
           class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
           <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3" data-target="70">
-            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">%+</span>
+            <span class="kpi-num">۷۰</span><span class="text-2xl font-normal text-gold-400 mr-1">%+</span>
           </div>
           <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_3">تأمین پادزهر اورژانسی
           </p>
@@ -668,7 +668,7 @@ get_header();
         <div
           class="metric-card bg-white/[0.02] border border-white/5 hover:border-gold-400/20 transition-all rounded-2xl p-6">
           <div class="kpi-counter-val stat-number text-4xl md:text-5xl font-bold text-gold-400 mb-3" data-target="1400">
-            <span class="kpi-num">۰</span><span class="text-2xl font-normal text-gold-400 mr-1">+</span>
+            <span class="kpi-num">۱,۴۰۰</span><span class="text-2xl font-normal text-gold-400 mr-1">+</span>
           </div>
           <p class="text-slate-200 font-bold text-base md:text-lg mb-1" data-i18n="impact_kpi_4">دانشمند و نخبه زیستی
           </p>

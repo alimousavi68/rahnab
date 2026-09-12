@@ -584,8 +584,8 @@ html[lang='en'] .display-lg {
 }
 
 /* Menu Toggle Button Typography */
-html[lang="fa"] #menuToggleLabel,
-html[lang="fa"] .navbar__toggle-label {
+:is(html[lang^="fa"], html[dir="rtl"]) #menuToggleLabel,
+:is(html[lang^="fa"], html[dir="rtl"]) .navbar__toggle-label {
   font-family: 'Peyda', sans-serif !important;
   font-weight: 600 !important;
   letter-spacing: normal !important;
@@ -599,7 +599,7 @@ html[lang="en"] .navbar__toggle-label {
 }
 
 /* Fullscreen Menu Side Info Typography */
-html[lang="fa"] .nav-info-label {
+:is(html[lang^="fa"], html[dir="rtl"]) .nav-info-label {
   font-family: var(--font-fa-display), 'Peyda', sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: normal !important;
@@ -646,7 +646,7 @@ html[lang="en"] .nav-info-label {
 }
 
 /* Bidirectional Typography: Peyda for Persian (FA), Outfit/Inter for English (EN) */
-html[lang="fa"] .hero-title-main {
+:is(html[lang^="fa"], html[dir="rtl"]) .hero-title-main {
   font-size: clamp(1.95rem, 4.4vw + 0.2rem, 5.0rem);
   line-height: 1.16;
   font-family: 'Peyda', 'Abar', system-ui, sans-serif !important;
@@ -654,7 +654,7 @@ html[lang="fa"] .hero-title-main {
   letter-spacing: -0.02em;
 }
 
-html[lang="fa"] .hero-title-sub {
+:is(html[lang^="fa"], html[dir="rtl"]) .hero-title-sub {
   font-size: clamp(1.15rem, 2.0vw + 0.15rem, 2.5rem);
   line-height: 1.4;
   font-family: 'Peyda', system-ui, sans-serif !important;
@@ -837,20 +837,20 @@ html[dir="ltr"] .services-chain-item.is-active {
 }
 
 /* Ensure Persian Typography is consistently Peyda */
-html[lang="fa"] [data-i18n="about_label"],
-html[lang="fa"] [data-i18n="about_image_tag"],
-html[lang="fa"] [data-i18n="about_title_1"],
-html[lang="fa"] [data-i18n="about_title_2"],
-html[lang="fa"] [data-i18n="about_p1"],
-html[lang="fa"] [data-i18n="about_stat_invest"],
-html[lang="fa"] [data-i18n="about_stat_invest_unit"],
-html[lang="fa"] [data-i18n="about_stat_invest_label"],
-html[lang="fa"] [data-i18n="about_stat_horizon"],
-html[lang="fa"] [data-i18n="about_stat_horizon_unit"],
-html[lang="fa"] [data-i18n="about_stat_horizon_label"],
-html[lang="fa"] [data-i18n="companies_label"],
-html[lang="fa"] [data-i18n="companies_title"],
-html[lang="fa"] [data-i18n="companies_subtitle"] {
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_label"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_image_tag"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_title_1"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_title_2"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_p1"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_stat_invest"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_stat_invest_unit"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_stat_invest_label"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_stat_horizon"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_stat_horizon_unit"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_stat_horizon_label"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="companies_label"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="companies_title"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="companies_subtitle"] {
   font-family: var(--font-fa-display) !important;
 }
 
@@ -864,8 +864,8 @@ html[lang="fa"] [data-i18n="companies_subtitle"] {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html[lang="fa"] .service-badge,
-html[lang="fa"] [data-i18n^="svc_"][data-i18n*="badge"] {
+:is(html[lang^="fa"], html[dir="rtl"]) .service-badge,
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n^="svc_"][data-i18n*="badge"] {
   font-family: 'Peyda', var(--font-fa-body) !important;
   font-weight: 200 !important;
   letter-spacing: normal !important;
@@ -887,8 +887,8 @@ html[lang="en"] [data-i18n^="svc_"][data-i18n*="badge"] {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html[lang="fa"] .company-badge,
-html[lang="fa"] [data-i18n^="comp_"][data-i18n$="_tag"] {
+:is(html[lang^="fa"], html[dir="rtl"]) .company-badge,
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n^="comp_"][data-i18n$="_tag"] {
   font-family: 'Peyda', var(--font-fa-body) !important;
   font-weight: 300 !important;
   letter-spacing: normal !important;
@@ -1056,17 +1056,17 @@ html[lang="en"] [data-i18n^="comp_"][data-i18n$="_tag"] {
   box-shadow: 0 4px 15px rgba(229, 184, 135, 0.15);
 }
 
-html[lang="fa"] .company-learn-more-btn {
+:is(html[lang^="fa"], html[dir="rtl"]) .company-learn-more-btn {
   font-family: 'Peyda', var(--font-fa-body) !important;
   font-weight: 300 !important;
   letter-spacing: normal !important;
 }
 
 /* Persian Section Label Overrides */
-html[lang="fa"] [data-i18n="services_label"],
-html[lang="fa"] [data-i18n="impact_label"],
-html[lang="fa"] [data-i18n="about_label"],
-html[lang="fa"] [data-i18n="news_label"] {
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="services_label"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="impact_label"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="about_label"],
+:is(html[lang^="fa"], html[dir="rtl"]) [data-i18n="news_label"] {
   font-family: 'Peyda', var(--font-fa-display) !important;
   letter-spacing: normal !important;
   font-weight: 700 !important;
@@ -1201,8 +1201,8 @@ html[lang="en"] .font-outfit {
   font-family: 'Outfit', 'Inter', system-ui, sans-serif !important;
 }
 
-html[lang="fa"],
-html[lang="fa"] body {
+:is(html[lang^="fa"], html[dir="rtl"]),
+:is(html[lang^="fa"], html[dir="rtl"]) body {
   font-family: var(--font-fa-display), 'Peyda', sans-serif !important;
   direction: rtl;
 }
@@ -1300,14 +1300,14 @@ html[lang="fa"] body {
 /* =========================================
    Persian Font Guarantees
    ========================================= */
-html[lang="fa"] nav[aria-label="Breadcrumb"],
-html[lang="fa"] .about-eyebrow,
-html[lang="fa"] .badge-fa,
-html[lang="fa"] .tag-pill,
-html[lang="fa"] .stat-label,
-html[lang="fa"] .org-badge,
-html[lang="fa"] .org-title,
-html[lang="fa"] .service-card-title {
+:is(html[lang^="fa"], html[dir="rtl"]) nav[aria-label="Breadcrumb"],
+:is(html[lang^="fa"], html[dir="rtl"]) .about-eyebrow,
+:is(html[lang^="fa"], html[dir="rtl"]) .badge-fa,
+:is(html[lang^="fa"], html[dir="rtl"]) .tag-pill,
+:is(html[lang^="fa"], html[dir="rtl"]) .stat-label,
+:is(html[lang^="fa"], html[dir="rtl"]) .org-badge,
+:is(html[lang^="fa"], html[dir="rtl"]) .org-title,
+:is(html[lang^="fa"], html[dir="rtl"]) .service-card-title {
   font-family: var(--font-fa-display), 'Peyda', sans-serif !important;
 }
 

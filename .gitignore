@@ -22,3 +22,7 @@ yarn-error.log*
 # Builds & archives
 *.zip
 source-inventory.json
+
+# WordPress local test environment
+wordpress/
+

@@ -65,6 +65,16 @@ if (!function_exists('rahnab_setup')) {
 }
 add_action('after_setup_theme', 'rahnab_setup');
 
+/**
+ * Filter language attributes to ensure lang="fa" dir="rtl" for exact prototype parity.
+ */
+add_filter('language_attributes', function ($output) {
+    if (is_rtl()) {
+        return 'lang="fa" dir="rtl"';
+    }
+    return $output;
+});
+
 if (!function_exists('rahnab_content_width')) {
     /**
      * Set the content width in pixels, based on the theme design and layout.

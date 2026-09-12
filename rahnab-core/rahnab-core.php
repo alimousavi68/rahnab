@@ -100,7 +100,6 @@ add_action('init', 'rahnab_core_register_cpts');
  * Register Taxonomies
  */
 function rahnab_core_register_taxonomies() {
-    // Taxonomy: Company Sector
     register_taxonomy('company_sector', ['company'], [
         'labels' => [
             'name'          => __('حوزه تخصصی شرکت', 'rahnab-core'),
@@ -116,11 +115,24 @@ function rahnab_core_register_taxonomies() {
 add_action('init', 'rahnab_core_register_taxonomies');
 
 /**
- * Flush rewrite rules on activation and deactivation
+ * Include Seeder
+ */
+require_once RAHNAB_CORE_DIR . 'inc/class-seeder.php';
+Rahnab_Core_Seeder::init();
+
+/**
+ * Activation and Deactivation Hooks
  */
 function rahnab_core_activate() {
     rahnab_core_register_cpts();
     rahnab_core_register_taxonomies();
+    
+    // Seed initial content if not already seeded
+    $companies_count = wp_count_posts('company');
+    if (empty($companies_count->publish)) {
+        Rahnab_Core_Seeder::seed_all();
+    }
+
     flush_rewrite_rules();
 }
 register_activation_hook(__FILE__, 'rahnab_core_activate');

@@ -76,6 +76,12 @@ if (!function_exists('rahnab_scripts')) {
                   300: '#FDE68A',
                   400: '#FBBF24',
                   500: '#F59E0B'
+                },
+                azure: {
+                  300: '#F3D3A2',
+                  400: '#E5B887',
+                  500: '#D4AF37',
+                  600: '#B89028'
                 }
               },
               fontFamily: {
@@ -96,13 +102,13 @@ if (!function_exists('rahnab_scripts')) {
         ";
         wp_add_inline_script('tailwindcss', $tailwind_config);
 
-        // 6. Animation Libraries (GSAP, ScrollTrigger, Lenis)
+        // 6. Animation Libraries (GSAP & ScrollTrigger - in Head like prototype)
         wp_enqueue_script(
             'gsap',
             'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',
             [],
             '3.12.5',
-            true
+            false
         );
 
         wp_enqueue_script(
@@ -110,22 +116,14 @@ if (!function_exists('rahnab_scripts')) {
             'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',
             ['gsap'],
             '3.12.5',
-            true
-        );
-
-        wp_enqueue_script(
-            'lenis',
-            'https://unpkg.com/lenis@1.1.18/dist/lenis.min.js',
-            [],
-            '1.1.18',
-            true
+            false
         );
 
         // 7. Motion Orchestrator
         wp_enqueue_script(
             'rahnab-motion',
             RAHNAB_URI . '/assets/js/motion.js',
-            ['gsap', 'gsap-scrolltrigger', 'lenis'],
+            ['gsap', 'gsap-scrolltrigger'],
             RAHNAB_VERSION,
             true
         );

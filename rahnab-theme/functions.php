@@ -20,6 +20,7 @@ $rahnab_includes = [
     '/inc/setup.php',
     '/inc/enqueue.php',
     '/inc/template-tags.php',
+    '/inc/customizer.php',
 ];
 
 foreach ($rahnab_includes as $file) {

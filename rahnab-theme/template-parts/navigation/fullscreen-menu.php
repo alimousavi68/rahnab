@@ -166,16 +166,21 @@ $nav_links = [
     <div class="lg:col-span-4 flex flex-col gap-6 lg:border-s border-white/10 lg:ps-10">
       <div>
         <p class="nav-info-label text-xs uppercase text-slate-500 mb-1" data-i18n="nav_info_hq"><?php esc_html_e('دفتر مرکزی', 'rahnab'); ?></p>
-        <p class="text-sm text-slate-300 leading-relaxed" data-i18n="nav_info_address"><?php esc_html_e('تهران، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)', 'rahnab'); ?></p>
+        <p class="text-sm text-slate-300 leading-relaxed" data-i18n="nav_info_address"><?php echo esc_html(rahnab_get_option('rahnab_address', 'تهران، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)')); ?></p>
       </div>
       <div>
         <p class="nav-info-label text-xs uppercase text-slate-500 mb-1" data-i18n="nav_info_direct"><?php esc_html_e('ارتباط مستقیم', 'rahnab'); ?></p>
-        <a href="tel:+982144787260"
+        <?php 
+          $menu_phone_disp = rahnab_get_option('rahnab_phone', '۰۲۱۴۴۷۸۷۲۶۰');
+          $menu_phone_clean = preg_replace('/[^0-9+]/', '', $menu_phone_disp);
+          $menu_email_val   = rahnab_get_option('rahnab_email', 'info@rahnab.com');
+        ?>
+        <a href="tel:<?php echo esc_attr($menu_phone_clean); ?>"
           class="text-base font-bold text-gold-400 hover:text-gold-300 transition-colors inline-block dir-ltr text-start" dir="ltr">
-          <span data-i18n="nav_info_phone">۰۲۱۴۴۷۸۷۲۶۰</span>
+          <span data-i18n="nav_info_phone"><?php echo esc_html($menu_phone_disp); ?></span>
         </a>
-        <a href="mailto:info@rahnab.com"
-          class="text-sm font-en-mono text-slate-400 hover:text-white transition-colors block mt-0.5 dir-ltr text-start" dir="ltr">info@rahnab.com</a>
+        <a href="mailto:<?php echo esc_attr($menu_email_val); ?>"
+          class="text-sm font-en-mono text-slate-400 hover:text-white transition-colors block mt-0.5 dir-ltr text-start" dir="ltr"><?php echo esc_html($menu_email_val); ?></a>
       </div>
       <div class="pt-2">
         <a href="<?php echo esc_url(home_url('/contact/')); ?>"
