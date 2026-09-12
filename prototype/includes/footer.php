@@ -14,6 +14,7 @@ $home_url      = $is_home ? '#hero' : 'index.php';
 $about_url     = 'about.php';
 $services_url  = 'services.php';
 $companies_url = 'companies.php';
+$contact_url   = 'contact.php';
 
 $impact_url    = $is_home ? '#impact' : 'index.php#impact';
 $news_url      = $is_home ? '#news' : 'index.php#news';
@@ -58,6 +59,7 @@ $news_url      = $is_home ? '#news' : 'index.php#news';
             <li><a href="<?php echo $companies_url; ?>" class="hover:text-gold-400 transition-colors" data-i18n="footer_link_companies">شرکت‌های زیرمجموعه</a></li>
             <li><a href="<?php echo $impact_url; ?>" class="hover:text-gold-400 transition-colors" data-i18n="footer_link_3">تأثیر ملی</a></li>
             <li><a href="<?php echo $news_url; ?>" class="hover:text-gold-400 transition-colors" data-i18n="footer_link_4">اخبار و دستاوردها</a></li>
+            <li><a href="<?php echo $contact_url; ?>" class="hover:text-gold-400 transition-colors <?php echo $active_page === 'contact' ? 'text-gold-400 font-bold' : ''; ?>" data-i18n="nav_contact">تماس با ما</a></li>
           </ul>
         </div>
 

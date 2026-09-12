@@ -1354,5 +1354,47 @@ html[lang="fa"] .service-card-title {
   }
 }
 
+/* =========================================
+   Contact Page Cards (Info & Form)
+   ========================================= */
+.contact-info-card,
+.contact-form-card {
+  position: relative;
+  background: linear-gradient(135deg, rgba(16, 21, 34, 0.8) 0%, rgba(10, 14, 23, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.75rem;
+  padding: 2.5rem 2.25rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
 
+.contact-info-card:hover,
+.contact-form-card:hover {
+  border-color: rgba(229, 184, 135, 0.4);
+  box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.7), 0 0 32px rgba(229, 184, 135, 0.12);
+}
 
+.contact-info-card .contact-card-spotlight,
+.contact-form-card .contact-card-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(420px circle at var(--mouse-x, 50%) var(--mouse-y, 0%), rgba(229, 184, 135, 0.12) 0%, transparent 75%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.contact-info-card:hover .contact-card-spotlight,
+.contact-form-card:hover .contact-card-spotlight {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .contact-info-card,
+  .contact-form-card {
+    padding: 1.75rem 1.25rem;
+    border-radius: 1.25rem;
+  }
+}

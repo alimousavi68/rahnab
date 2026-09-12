@@ -53,7 +53,7 @@ $nav_links = [
         'num'   => '07',
         'title' => 'تماس با ما',
         'i18n'  => 'nav_contact',
-        'url'   => $is_home ? '#footer' : 'index.php#footer',
+        'url'   => 'contact.php',
     ],
 ];
 ?>

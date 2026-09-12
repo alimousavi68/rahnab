@@ -455,7 +455,44 @@ const translations = {
         sub_partgene: "پادرا سرم البرز",
         sub_partgene_desc: "سرم‌های ایمنی و پادزهرها",
         sub_pharmazist: "کارا یاخته تجهیز آزما",
-        sub_pharmazist_desc: "بیوراکتورها و تجهیزات صنعتی"
+        sub_pharmazist_desc: "بیوراکتورها و تجهیزات صنعتی",
+
+        // Contact Page
+        contact_crumb: "تماس با ما",
+        contact_eyebrow: "ارتباط با ما",
+        contact_hero_title: "راه‌های ارتباط با هلدینگ سرمایه‌گذاری رهناب فارمد",
+        contact_hero_subtitle: "ما همواره آماده پاسخگویی به پرسش‌ها، نظرات و پیشنهادهای شما هستیم.",
+        contact_info_title: "اطلاعات دفتر مرکزی",
+        contact_info_desc: "دفتر مرکزی هلدینگ سرمایه‌گذاری رهناب فارمد مستقر در پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری.",
+        contact_address_label: "نشانی دفتر مرکزی:",
+        contact_address_val: "تهران، کیلومتر ۱۵ اتوبان تهران-کرج، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)، طبقه ۳، واحد ۳۰۲",
+        contact_phone_label: "تلفن‌های تماس:",
+        contact_phone_val: "+۹۸ (۲۱) ۴۴۷۸ ۷۰۰۰ - ۴۴۷۸ ۷۰۲۲",
+        contact_email_label: "پست الکترونیک رسمی:",
+        contact_email_val: "info@rahnab.com",
+        contact_socials_title: "شبکه‌های اجتماعی و پیام‌رسان‌ها",
+        contact_socials_desc: "جهت دریافت آخرین اخبار، ارتباط مستقیم یا ارسال پیام از طریق پیام‌رسان‌ها می‌توانید از درگاه‌های زیر استفاده نمایید:",
+        contact_form_title: "ارسال پیام به هلدینگ",
+        contact_form_desc: "پیام، سوال یا نظر خود را در قالب فرم زیر ارسال فرمایید تا همکاران ما در سریع‌ترین زمان ممکن پاسخگوی شما باشند.",
+        contact_field_name: "نام و نام خانوادگی *",
+        contact_placeholder_name: "مثال: علی رضایی",
+        contact_field_phone: "شماره تماس مستقیم *",
+        contact_placeholder_phone: "۰۹۱۲۳۴۵۶۷۸۹",
+        contact_field_email: "پست الکترونیک *",
+        contact_placeholder_email: "name@example.com",
+        contact_field_subject: "موضوع پیام *",
+        contact_placeholder_subject: "موضوع پیام خود را بنویسید...",
+        contact_field_message: "متن پیام *",
+        contact_placeholder_message: "متن پیام، سوال یا نظر خود را وارد نمایید...",
+        contact_form_submit: "ارسال پیام",
+        contact_form_sending: "در حال ارسال...",
+        contact_form_success: "پیام شما با موفقیت ارسال شد. به زودی با شما تماس خواهیم گرفت.",
+        contact_map_title: "موقعیت جغرافیایی و دسترسی به دفتر مرکزی",
+        contact_map_subtitle: "پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)",
+        contact_nav_neshan: "مسیریابی با نشان",
+        contact_nav_balad: "مسیریابی با بلد",
+        contact_nav_google: "مسیریابی با گوگل مپ",
+        contact_nav_waze: "مسیریابی با ویز"
     },
     en: {
         // Nav
@@ -911,7 +948,44 @@ const translations = {
         sub_partgene: "Padra Serum Alborz",
         sub_partgene_desc: "Immunosera & Antivenoms",
         sub_pharmazist: "Kara Yakhteh Azma",
-        sub_pharmazist_desc: "Bioreactors & Industrial Systems"
+        sub_pharmazist_desc: "Bioreactors & Industrial Systems",
+
+        // Contact Page
+        contact_crumb: "Contact Us",
+        contact_eyebrow: "Contact Us",
+        contact_hero_title: "Connecting with Rahnab Pharmed Investment Holding",
+        contact_hero_subtitle: "We are always ready to address your inquiries, feedback, and questions.",
+        contact_info_title: "Headquarters Information",
+        contact_info_desc: "Rahnab Pharmed Investment Holding headquarters situated at the National Institute of Genetic Engineering and Biotechnology (NIGEB).",
+        contact_address_label: "Headquarters Address:",
+        contact_address_val: "Tehran, Km 15 Tehran-Karaj Highway, National Institute of Genetic Engineering and Biotechnology (NIGEB), 3rd Floor, Suite 302",
+        contact_phone_label: "Telephone:",
+        contact_phone_val: "+98 (21) 4478 7000 - 4478 7022",
+        contact_email_label: "Official Email:",
+        contact_email_val: "info@rahnab.com",
+        contact_socials_title: "Social Networks & Messaging",
+        contact_socials_desc: "For the latest updates, direct communication, or messaging, you can reach out to us through the channels below:",
+        contact_form_title: "Send a Message",
+        contact_form_desc: "Please submit your inquiry or message via the form below, and our team will get back to you promptly.",
+        contact_field_name: "Full Name *",
+        contact_placeholder_name: "e.g. John Doe",
+        contact_field_phone: "Direct Phone Number *",
+        contact_placeholder_phone: "+98 912 345 6789",
+        contact_field_email: "Email Address *",
+        contact_placeholder_email: "name@example.com",
+        contact_field_subject: "Subject *",
+        contact_placeholder_subject: "Enter the subject of your message...",
+        contact_field_message: "Your Message *",
+        contact_placeholder_message: "Write your message or inquiry here...",
+        contact_form_submit: "Send Message",
+        contact_form_sending: "Sending...",
+        contact_form_success: "Your message has been sent successfully. We will get back to you soon.",
+        contact_map_title: "Geographic Location & Headquarters Access",
+        contact_map_subtitle: "National Institute of Genetic Engineering and Biotechnology (NIGEB)",
+        contact_nav_neshan: "Route on Neshan",
+        contact_nav_balad: "Route on Balad",
+        contact_nav_google: "Route on Google Maps",
+        contact_nav_waze: "Route on Waze"
     }
 };
 
@@ -938,8 +1012,8 @@ function setLanguage(lang) {
     });
     
     // Update placeholders
-    document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-        const key = el.getAttribute('data-i18n-placeholder');
+    document.querySelectorAll('[data-i18n-placeholder], [data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder') || el.getAttribute('data-i18n-ph');
         if (translations[lang][key]) {
             el.setAttribute('placeholder', translations[lang][key]);
         }
@@ -1250,6 +1324,9 @@ function initApp() {
     // Initialize company category filter on companies page
     initCompanyFilter();
 
+    // Initialize contact form handler on contact page
+    initContactForm();
+
     // Restore saved language preference
     try {
         const saved = localStorage.getItem('rahnab_lang');
@@ -1257,6 +1334,37 @@ function initApp() {
             setLanguage(saved);
         }
     } catch(e) {}
+}
+
+function initContactForm() {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn ? submitBtn.innerHTML : '';
+
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = `
+                <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-black inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>${translations[currentLang].contact_form_sending}</span>
+            `;
+        }
+
+        setTimeout(() => {
+            alert(translations[currentLang].contact_form_success);
+            form.reset();
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = originalText;
+            }
+        }, 600);
+    });
 }
 
 function initCompanyFilter() {
@@ -1278,10 +1386,9 @@ function initCompanyFilter() {
             btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
 
             companyCards.forEach(card => {
-                const cardCat = card.getAttribute('data-category') || '';
-                if (filter === 'all' || cardCat.includes(filter)) {
+                const category = card.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
                     card.classList.remove('hidden');
-                    card.style.display = '';
                     setTimeout(() => {
                         card.style.opacity = '1';
                         card.style.transform = 'translateY(0)';
@@ -1299,7 +1406,7 @@ function initCompanyFilter() {
 }
 
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.subsidiary-card, .service-card, .company-showcase-card, .service-showcase-card');
+    const cards = document.querySelectorAll('.subsidiary-card, .service-card, .company-showcase-card, .service-showcase-card, .contact-info-card, .contact-form-card');
 
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
