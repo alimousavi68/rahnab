@@ -1,0 +1,266 @@
+/* =========================================
+   Rahnab Pharmed - Design Tokens & Font Stack
+   Primary Persian Font: Peyda (پیدا)
+   Accent: Champagne Gold (#E5B887) & Amber Specular (#F3D3A2)
+   English Stack: Inter (Sans), Cormorant Garamond (Editorial Serif / Stats), JetBrains Mono (Tech)
+   ========================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@300;400;500;600&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Peyda (پیدا) — Persian Primary Display & Body (Priority 1) */
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-ExtraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Peyda';
+  src: url('../fonts/peyda/PeydaFaNumWeb-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Abar (ابر) — Persian Secondary Display */
+@font-face {
+  font-family: 'Abar';
+  src: url('../fonts/abar/AbarHighFaNum-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Abar';
+  src: url('../fonts/abar/AbarHighFaNum-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Abar';
+  src: url('../fonts/abar/AbarHighFaNum-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* IRANYekanX — Persian Alternative Body */
+@font-face {
+  font-family: 'IRANYekanX';
+  src: url('../fonts/yekanx/IRANYekanXFaNum-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'IRANYekanX';
+  src: url('../fonts/yekanx/IRANYekanXFaNum-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* CSS Custom Properties */
+:root {
+  /* Surface Colors — Warm Obsidian & Smoked Bronze */
+  --surface-primary: #05070B;
+  --surface-secondary: #0A0E17;
+  --surface-tertiary: #101522;
+  --surface-elevated: #161D2E;
+  --surface-glass: rgba(10, 14, 23, 0.85);
+  --surface-glass-heavy: rgba(5, 7, 11, 0.94);
+
+  /* Text Colors */
+  --text-primary: #FDF8F0;
+  --text-secondary: #D4CDBC;
+  --text-tertiary: #9E9788;
+
+  /* Accent Colors — Royal Liquid Gold & Champagne Amber */
+  --accent-primary: #E5B887;
+  --accent-primary-hover: #F3D3A2;
+  --accent-light: #F7E7CE;
+  --accent-dark: #B89028;
+  --accent-glow: rgba(229, 184, 135, 0.25);
+  --accent-glow-strong: rgba(229, 184, 135, 0.50);
+  --border-accent: rgba(229, 184, 135, 0.30);
+  --border-subtle: rgba(229, 184, 135, 0.12);
+
+  /* Border Radii */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Typography Stack */
+  --font-fa-display: 'Peyda', 'Abar', 'IRANYekanX', system-ui, sans-serif;
+  --font-fa-body: 'Peyda', 'IRANYekanX', 'Abar', system-ui, sans-serif;
+
+  /* English Fonts — Inter (Sans) + Cormorant (Editorial & Stats Serif) + JetBrains (Tech) */
+  --font-en-sans: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-en-serif: 'Cormorant Garamond', Georgia, "Times New Roman", serif;
+  --font-en-serif-stat: 'Cormorant Garamond', Georgia, "Times New Roman", serif;
+  --font-en-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-en-outfit: 'Outfit', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --font-en-display: var(--font-en-outfit);
+  --font-en-body: var(--font-en-sans);
+
+  /* Layout Spacing */
+  --section-gap: clamp(80px, 10vh, 140px);
+  --container-max: 1280px;
+  --container-padding: clamp(20px, 4vw, 48px);
+}
+
+/* Persian Font Features (RTL only) */
+html[lang="fa"] {
+  font-family: var(--font-fa-body);
+}
+
+html[lang="fa"] body {
+  font-family: var(--font-fa-body);
+}
+
+html[lang="fa"] h1,
+html[lang="fa"] h2,
+html[lang="fa"] h3,
+html[lang="fa"] h4,
+html[lang="fa"] .display-2xl,
+html[lang="fa"] .display-xl,
+html[lang="fa"] .display-lg,
+html[lang="fa"] .font-fa-display {
+  font-family: var(--font-fa-display);
+}
+
+/* English Mode Overrides (Strict Western Numerals & Sans/Serif Typography) */
+html[lang="en"] {
+  direction: ltr;
+  font-family: var(--font-en-body) !important;
+}
+
+html[lang="en"] body {
+  font-family: var(--font-en-body) !important;
+}
+
+html[lang="en"] *,
+html[lang="en"] .font-fa-display,
+html[lang="en"] .font-fa-body {
+  font-family: var(--font-en-body);
+  font-feature-settings: normal !important;
+}
+
+/* Ensure Footer RAHNAB SVG word font is Peyda in both English and Persian */
+#footerHoverText svg text,
+.footer-text-hover-section svg text {
+  font-family: 'Peyda', var(--font-fa-display), sans-serif !important;
+  font-weight: 900 !important;
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] .display-2xl,
+html[lang="en"] .display-xl,
+html[lang="en"] .display-lg,
+html[lang="en"] .font-en-display {
+  font-family: var(--font-en-sans) !important;
+  letter-spacing: -0.03em;
+}
+
+/* Laboratory & Academic Serif for Numbers & Stats (per user guidance) */
+.stat-number,
+.kpi-counter-val,
+.kpi-num,
+.hero-kpi-val {
+  font-family: var(--font-en-serif-stat);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+html[lang="fa"] .stat-number,
+html[lang="fa"] .kpi-counter-val,
+html[lang="fa"] .kpi-num,
+html[lang="fa"] .hero-kpi-val {
+  font-family: var(--font-fa-display);
+  letter-spacing: normal;
+}
+
+/* Luxury Editorial Serif Accent (High-Fashion / ihasht.ir aesthetic) */
+.serif-accent,
+em.serif-accent,
+span.serif-accent {
+  font-family: var(--font-en-serif) !important;
+  font-style: italic !important;
+  font-weight: 300 !important;
+}
+
+/* Technical Monospace Micro-Elements */
+.font-en-mono,
+.mono-tag,
+.code-badge {
+  font-family: var(--font-en-mono) !important;
+  letter-spacing: 0.12em;
+}
