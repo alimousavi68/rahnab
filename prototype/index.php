@@ -6,7 +6,6 @@ $active_page = 'home';
 
 include_once __DIR__ . '/includes/header.php';
 include_once __DIR__ . '/includes/fullscreen-menu.php';
-include_once __DIR__ . '/includes/modal-inquiry.php';
 ?>
   <!-- =========================================
        ZONE 1: HERO SECTION (Awwwards Cattaneo Composition)

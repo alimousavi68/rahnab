@@ -182,11 +182,11 @@ $nav_links = [
           class="text-sm font-en-mono text-slate-400 hover:text-white transition-colors block mt-0.5">office@rahnab.com</a>
       </div>
       <div class="pt-2">
-        <button
-          class="btn-open-inquiry text-xs font-bold px-4 py-2 rounded-full border border-gold-400/40 text-gold-400 hover:bg-gold-400/10 transition-all inline-flex items-center gap-2">
+        <a href="contact.php"
+          class="text-xs font-bold px-4 py-2 rounded-full border border-gold-400/40 text-gold-400 hover:bg-gold-400/10 transition-all inline-flex items-center gap-2">
           <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping"></span>
           <span data-i18n="modal_title">درخواست همکاری تجاری B2B</span>
-        </button>
+        </a>
       </div>
     </div>
   </div>

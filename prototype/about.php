@@ -11,7 +11,6 @@ $active_page = 'about';
 
 include_once __DIR__ . '/includes/header.php';
 include_once __DIR__ . '/includes/fullscreen-menu.php';
-include_once __DIR__ . '/includes/modal-inquiry.php';
 ?>
 
   <!-- =========================================
@@ -611,10 +610,10 @@ include_once __DIR__ . '/includes/modal-inquiry.php';
           <p class="text-slate-400 text-sm mt-2 max-w-2xl" data-i18n="about_b2b_desc">پورتال ارتباط مستقیم هلدینگ رهناب فارمد آماده دریافت پیشنهادات تجاری، انتقال تکنولوژی و طرح‌های نخبگانی است.</p>
         </div>
         <div class="shrink-0 flex items-center gap-4">
-          <button class="btn-open-inquiry btn-primary text-sm px-7 py-3.5 rounded-full font-bold inline-flex items-center gap-2 cursor-pointer">
+          <a href="contact.php" class="btn-primary text-sm px-7 py-3.5 rounded-full font-bold inline-flex items-center gap-2 cursor-pointer">
             <span class="w-2 h-2 rounded-full bg-black animate-ping"></span>
             <span data-i18n="about_b2b_btn">ثبت درخواست رسمی B2B</span>
-          </button>
+          </a>
         </div>
       </div>
     </div>

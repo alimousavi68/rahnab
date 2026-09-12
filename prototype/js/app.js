@@ -526,7 +526,31 @@ const translations = {
         news_6_date: "۲۲ خرداد ۱۴۰۳",
         news_6_read: "۴ دقیقه مطالعه",
         news_6_title: "بومی‌سازی نانویاورهای اختصاصی واکسن‌های دامی و طیور در نوژین زیست فارمد",
-        news_6_desc: "دستیابی به دانش فنی فرمولاسیون ادجوانت‌های روغنی پیشرفته جهت افزایش اثربخشی ایمنی‌زایی واکسن‌ها در صنعت دامپروری."
+        news_6_desc: "دستیابی به دانش فنی فرمولاسیون ادجوانت‌های روغنی پیشرفته جهت افزایش اثربخشی ایمنی‌زایی واکسن‌ها در صنعت دامپروری.",
+
+        // 404 Page
+        error_404_tag: "خطای ۴۰۴",
+        error_404_title: "صفحه مورد نظر یافت نشد",
+        error_404_desc: "متأسفانه صفحه‌ای که به دنبال آن بودید تغییر مکان داده، حذف شده یا آدرس آن به اشتباه وارد شده است.",
+        error_404_btn_home: "بازگشت به صفحه اصلی",
+        error_404_btn_contact: "ارتباط با ما",
+        error_404_search_ph: "جستجو در تارنمای هلدینگ...",
+
+        // Search Page
+        search_crumb: "جستجو در سایت",
+        search_hero_title: "نتایج جستجو",
+        search_hero_subtitle: "جستجو در میان اخبار، شرکت‌های زیرمجموعه و توانمندی‌های هلدینگ رهناب فارمد.",
+        search_input_ph: "عبارت مورد نظر خود را وارد کنید...",
+        search_btn: "جستجو",
+        search_count_prefix: "نمایش",
+        search_count_suffix: "نتیجه برای عبارت:",
+        search_filter_all: "همه موارد",
+        search_filter_companies: "شرکت‌ها",
+        search_filter_services: "توانمندی‌ها",
+        search_filter_news: "اخبار و مقالات",
+        search_no_results: "هیچ نتیجه‌ای متناسب با عبارت جستجو شده یافت نشد.",
+        search_no_results_desc: "لطفاً املای کلمات را بررسی کنید یا عبارت دیگری را جستجو فرمایید.",
+        search_read_more: "مشاهده اطلاعات کامل"
     },
     en: {
         // Nav
@@ -1053,7 +1077,31 @@ const translations = {
         news_6_date: "Jun 11, 2024",
         news_6_read: "4 min read",
         news_6_title: "Localization of Specialized Nano-Adjuvants for Veterinary Vaccines at Nozhin Zist",
-        news_6_desc: "Mastery of advanced oily emulsion formulation technology to boost immunogenicity across veterinary vaccines."
+        news_6_desc: "Mastery of advanced oily emulsion formulation technology to boost immunogenicity across veterinary vaccines.",
+
+        // 404 Page
+        error_404_tag: "Error 404",
+        error_404_title: "Page Not Found",
+        error_404_desc: "Unfortunately, the page you were looking for has been moved, removed, or the URL was entered incorrectly.",
+        error_404_btn_home: "Back to Homepage",
+        error_404_btn_contact: "Contact Us",
+        error_404_search_ph: "Search across holding website...",
+
+        // Search Page
+        search_crumb: "Search Website",
+        search_hero_title: "Search Results",
+        search_hero_subtitle: "Search across holding news, subsidiary companies, and biopharma capabilities.",
+        search_input_ph: "Enter your search keywords...",
+        search_btn: "Search",
+        search_count_prefix: "Showing",
+        search_count_suffix: "results for:",
+        search_filter_all: "All Results",
+        search_filter_companies: "Subsidiaries",
+        search_filter_services: "Capabilities",
+        search_filter_news: "News & Releases",
+        search_no_results: "No results matched your search query.",
+        search_no_results_desc: "Please check your spelling or try searching with different keywords.",
+        search_read_more: "View Full Details"
     }
 };
 
@@ -1157,11 +1205,19 @@ function initApp() {
                 submenuToggleBtn.classList.remove('is-active');
                 navmenuSubmenu.classList.remove('is-open');
                 navmenuSubmenu.style.maxHeight = '0';
+                setTimeout(() => {
+                    if (!navmenuSubmenu.classList.contains('is-open')) {
+                        navmenuSubmenu.classList.add('hidden');
+                    }
+                }, 350);
             } else {
+                navmenuSubmenu.classList.remove('hidden');
                 submenuToggleBtn.setAttribute('aria-expanded', 'true');
                 submenuToggleBtn.classList.add('is-active');
                 navmenuSubmenu.classList.add('is-open');
-                navmenuSubmenu.style.maxHeight = navmenuSubmenu.scrollHeight + 'px';
+                requestAnimationFrame(() => {
+                    navmenuSubmenu.style.maxHeight = (navmenuSubmenu.scrollHeight + 30) + 'px';
+                });
             }
         });
     }
@@ -1208,6 +1264,7 @@ function initApp() {
                 submenuToggleBtn.classList.remove('is-active');
                 navmenuSubmenu.classList.remove('is-open');
                 navmenuSubmenu.style.maxHeight = '0';
+                navmenuSubmenu.classList.add('hidden');
             }
             if (window.gsap) {
                 gsap.to(fullMenu, {

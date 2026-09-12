@@ -23,7 +23,7 @@ $news_url      = 'news.php';
        ZONE 6: FOOTER (Minimalist Holding Luxury)
        ========================================= -->
   <footer class="hover-footer-container" id="footer">
-    <div class="container mx-auto px-6 pt-16 pb-2 relative z-10">
+    <div class="container mx-auto px-6 pt-16 pb-2 relative z-30 pointer-events-auto">
       <!-- Top 4 Columns -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
         <!-- Brand Column -->
@@ -96,14 +96,14 @@ $news_url      = 'news.php';
     </div>
 
     <!-- TextHoverEffect (Exact SVG Hover Effect from motion.js) -->
-    <div class="footer-text-hover-section">
+    <div class="footer-text-hover-section relative z-10">
       <div id="footerHoverText" data-hover-text="RAHNAB" class="w-full h-full flex items-center justify-center">
         <!-- SVG Injected dynamically by motion.js -->
       </div>
     </div>
 
     <!-- Footer Bottom Bar -->
-    <div class="container mx-auto px-6 pb-10 relative z-10">
+    <div class="container mx-auto px-6 pb-10 relative z-30 pointer-events-auto">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-white/10 text-xs text-slate-500">
         <p data-i18n="footer_copyright">© 2026 هلدینگ سرمایه‌گذاری رهناب فارمد. تمامی حقوق محفوظ است.</p>
         <p class="text-slate-400 font-medium" data-i18n="footer_motto">طراحی و توسعه توسط <a href="https://ihasht.ir" target="_blank" rel="noopener noreferrer" class="text-gold-400 hover:text-gold-300 font-bold transition-colors underline decoration-gold-400/30 underline-offset-4">هشت‌بهشت (HashtBehesht)</a></p>
