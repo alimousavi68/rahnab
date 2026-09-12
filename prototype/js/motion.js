@@ -1,6 +1,6 @@
 /**
  * Rahnab Pharmed — Premium Motion Engine
- * Lenis Smooth Scroll + GSAP ScrollTrigger + Real Scripted Counters
+ * Native 120Hz Hardware Scroll + GSAP ScrollTrigger + Real Scripted Counters
  * + Exact TextHoverEffect Footer (from prompt_hover-footer.md)
  */
 (function(global) {
@@ -24,22 +24,6 @@
     }
 
     gsap.registerPlugin(ScrollTrigger);
-
-    /* ── 1. Lenis Smooth Scroll ── */
-    var lenis = null;
-    if (typeof Lenis !== 'undefined') {
-      lenis = new Lenis({
-        duration: 1.2,
-        easing: function(t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
-        direction: 'vertical',
-        smoothTouch: false
-      });
-
-      gsap.ticker.add(function(time) {
-        lenis.raf(time * 1000);
-      });
-      gsap.ticker.lagSmoothing(0);
-    }
 
     var ctx = gsap.context(function() {
 
@@ -264,7 +248,6 @@
 
     return function cleanup() {
       ctx.revert();
-      if (lenis) lenis.destroy();
     };
   }
 
@@ -312,19 +295,9 @@
     global.triggerLogoShimmer = triggerSweep;
 
     function render(timestamp) {
-      // Continuously ensure resolution matches rendered image
-      var dpr = window.devicePixelRatio || 1;
-      var clientW = Math.round((img.clientWidth || img.offsetWidth || 0) * dpr);
-      var clientH = Math.round((img.clientHeight || img.offsetHeight || 0) * dpr);
-      if (clientW > 0 && clientH > 0 && (canvas.width !== clientW || canvas.height !== clientH)) {
-        canvas.width = clientW;
-        canvas.height = clientH;
-        canvas.style.width = (img.clientWidth || img.offsetWidth) + 'px';
-        canvas.style.height = (img.clientHeight || img.offsetHeight) + 'px';
-      }
-
       var w = canvas.width;
       var h = canvas.height;
+
       var shouldDraw = false;
       var progress = 0;
 

@@ -17,6 +17,7 @@ const translations = {
         nav_menu_label: "منو",
         nav_holding_tag: "هلدینگ سرمایه‌گذاری رهناب فارمد",
         nav_menu_close_hint: "کلید ESC برای بستن",
+        nav_current_page: "صفحه کنونی",
         nav_info_hq: "دفتر مرکزی",
         nav_info_address: "تهران، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)",
         nav_info_direct: "ارتباط مستقیم",
@@ -73,6 +74,103 @@ const translations = {
         about_stat_horizon_label: "در اکوسیستم هلدینگ رهناب",
         about_cta: "درباره مأموریت و ساختار رهناب",
 
+        // About Us Page Dedicated Keys
+        about_hero_tag: "معماری استقلال زیست‌دارویی کشور",
+        about_hero_title: "هم‌افزایی سرمایه استراتژیک، علم مرجع و حاکمیت زیست‌فناوری سلامت",
+        about_hero_subtitle: "هلدینگ سرمایه‌گذاری رهناب فارمد صرفاً یک نهاد مالی نیست؛ یک شتاب‌دهنده صنعتی است که فاصله پژوهشگاه‌های بنیادین تا خطوط تولید انبوه داروهای پیشرفته، پلاسما و بیوتکنولوژی را در جمهوری اسلامی ایران به صفر می‌رساند.",
+        about_stat_invest_val: "۲,۰۰۰",
+        about_stat_invest_unit: "B",
+        about_stat_invest_label: "میلیارد تومان سرمایه‌گذاری متعهد",
+        about_stat_scientists_val: "۱,۴۰۰",
+        about_stat_scientists_label: "پژوهشگر، متخصص و نیروی نخبه",
+        about_stat_companies_val: "۶",
+        about_stat_companies_label: "شرکت دانش‌بنیان تخصصی",
+        about_stat_liters_val: "۳۰۰,۰۰۰",
+        about_stat_liters_unit: "L",
+        about_stat_liters_label: "لیتر ظرفیت پالایش پلاسما در سال",
+        about_narrative_label: "داستان ما و رسالت بنیادین",
+        about_narrative_title: "از سنتز آزمایشگاهی تا زیرساخت‌های کلان صنعتی",
+        about_narrative_p1: "صنعت سلامت در جهان معاصر، عرصه نبرد دسترسی به فناوری‌های انحصاری است. هلدینگ رهناب فارمد با هدف رفع کامل وابستگی ایران به داروهای مشتق از پلاسما، پادزهرهای تخصصی و ایمونوتراپی سرطان شکل گرفت.",
+        about_narrative_p2: "ما با تجمیع تخصص ۶ شرکت دانش‌بنیان پیشرو تحت یک مدیریت واحد، چرخه کاملی از طراحی مولکول، فرآیند تخمیر بیولوژیک، جمع‌آوری پلاسمای انسانی، خالص‌سازی فوق‌پیشرفته و آزمون‌های کنترل کیفی مرجع را بنا نهاده‌ایم.",
+        about_cleanroom_grade: "استاندارد GMP کلاس A / B بین‌المللی",
+        about_cleanroom_infra: "زیرساخت اتاق تمیز صنعتی",
+        about_pillar_1_title: "سرمایه‌گذاری خطرپذیر علمی (Scientific Venture)",
+        about_pillar_1_desc: "حمایت جامع از پروژه‌های لبه دانش بیوتک با هدف تبدیل پتنت‌های دانشگاهی به محصولات پرچمدار بازار.",
+        about_pillar_2_title: "زنجیره خودکفا و تاب‌آور (Sovereign Supply Chain)",
+        about_pillar_2_desc: "حذف کامل آسیب‌پذیری دارویی کشور در مواجهه با تحریم‌های بین‌المللی و بحران‌های زیست‌پزشکی.",
+        about_pillar_3_title: "مرجعیت کیفی و استاندارد بین‌المللی (GMP Compliance)",
+        about_pillar_3_desc: "رعایت استانداردهای جهانی فارماکوپه اروپا و سازمان بهداشت جهانی (WHO) در کلیه خطوط تولید.",
+
+        // Core Services (6 Cards)
+        services_section_tag: "خدمات و توانمندی‌های محوری هلدینگ",
+        services_section_title: "زنجیره جامع خدمات تخصصی و فناوری‌های زیست‌دارویی",
+        services_section_subtitle: "تلفیق زیرساخت‌های کلان صنعتی، استانداردهای فارماکوپه بین‌المللی و زنجیره تأمین یکپارچه سلامت",
+        srv_card_1_num: "۰۱",
+        srv_card_1_title: "پالایش صنعتی پلاسما و فرآورده‌های مشتق",
+        srv_card_1_desc: "احداث و راهبری اولین پالایشگاه پلاسمای صنعتی کشور با ظرفیت ۳۰۰ هزار لیتر در سال جهت تولید فاکتورهای انعقادی VIII و IX، آلبومین و ایمونوگلوبولین (IVIG).",
+        srv_card_1_tag: "پالایشگاه ۳۰۰,۰۰۰ لیتری",
+        srv_card_2_num: "۰۲",
+        srv_card_2_title: "فرمولاسیون و پرکنی استریل بیولوژیک",
+        srv_card_2_desc: "خطوط فوق‌پیشرفته فیل و فینیش آسپتیک ویال و سرنگ آماده تزریق (PFS) در کلین‌روم‌های کلاس A و B منطبق با الزامات WHO و EU-GMP.",
+        srv_card_2_tag: "کلین‌روم کلاس A / B",
+        srv_card_3_num: "۰۳",
+        srv_card_3_title: "شتاب‌دهی و سرمایه‌گذاری خطرپذیر بیوتک",
+        srv_card_3_desc: "تامین مالی جسورانه، در اختیار قراردادن فب‌لب‌های بیوتکنولوژی و هدایت ایده‌های دانشگاهی به تولید انبوه و تجاری‌سازی صنعتی.",
+        srv_card_3_tag: "شتاب‌دهنده تخصصی",
+        srv_card_4_num: "۰۴",
+        srv_card_4_title: "ایمونوتراپی سلولی و درمان‌های پیشرفته (ATMP)",
+        srv_card_4_desc: "مهندسی ژنتیک سلول‌ها، درمان‌های هدفمند سرطان مبتنی بر سلول‌های کارتی (CAR-T Cell Therapy) و بومی‌سازی پلتفرم‌های ژن‌درمانی.",
+        srv_card_4_tag: "فناوری نسل ۵ سرطان",
+        srv_card_5_num: "۰۵",
+        srv_card_5_title: "سرم‌های هایپرایمیون و پادزهرهای اورژانسی",
+        srv_card_5_desc: "تولید صنعتی بیش از ۷۰ درصد پادزهرهای مارگزیدگی، عقرب‌زدگی و سرم‌های ایمنی خنثی‌کننده سموم با توزیع ملی در شبکه فوریت‌های پزشکی.",
+        srv_card_5_tag: "پوشش ۷۰٪ نیاز ملی",
+        srv_card_6_num: "۰۶",
+        srv_card_6_title: "آزمایشگاه رفرنس کنترل کیفی بیواسی و رهایش",
+        srv_card_6_desc: "مرکز آزمون‌های فیزیکوشیمیایی، بیواسی، پایداری، تست‌های استریلیتی و آنالیز ساختاری پروتئین‌های نوترکیب مطابق استاندارد ICH.",
+        srv_card_6_tag: "تأییدیه ISO 17025",
+
+        // Organizational Structure
+        org_section_tag: "حاکمیت و ساختار مدیریتی",
+        org_section_title: "ساختار سازمانی هلدینگ رهناب فارمد",
+        org_section_subtitle: "معماری حاکمیت شرکتی منسجم، شفاف و شایسته‌محور در مسیر تحقق اهداف راهبردی سلامت کشور",
+        org_board_title: "هیأت مدیره",
+        org_board_role: "عالی‌ترین رکن سیاست‌گذاری و تدوین استراتژی‌های کلان",
+        org_audit_title: "کمیته حسابرسی",
+        org_audit_role: "نظارت مستقل مالی، ارزیابی کنترل‌های داخلی و ریسک",
+        org_ceo_title: "مدیرعامل",
+        org_ceo_role: "فرماندهی اجرایی و راهبری عملیاتی هلدینگ و شرکت‌های تابعه",
+        org_div_1_title: "مدیریت سرمایه‌گذاری",
+        org_div_1_role: "سرمایه‌گذاری خطرپذیر و راهبری پورتفولیو",
+        org_div_2_title: "مدیریت طرح و برنامه‌ریزی",
+        org_div_2_role: "تدوین استراتژی‌ها و کنترل پروژه‌های صنعتی",
+        org_div_3_title: "مدیریت مالی-اداری",
+        org_div_3_role: "انضباط مالی، حسابداری و منابع انسانی",
+        org_div_4_title: "مدیریت حقوقی-ثبتی",
+        org_div_4_role: "حفاظت از پتنت‌ها، قراردادها و امور ثبتی",
+
+        // Human Capital & Subsidiaries Carousel
+        human_capital_label: "سرمایه انسانی و نخبگان علمی",
+        about_scientists_title: "قدرت ما در مغزافزار دانشمندان و متخصصان نهفته است",
+        about_scientists_desc: "ما در رهناب فارمد بر این باوریم که پیچیده‌ترین تجهیزات پالایشگاهی بدون ذهن‌های خلاق و متعهد بی‌ثمرند. اکوسیستم هلدینگ میزبان شبکه‌ای پویا از بیش از ۱۴۰۰ پژوهشگر و نخبگان بیوتکنولوژی است.",
+        about_scientists_kpi1_val: "۶۸٪",
+        about_scientists_kpi1_title: "مدارک ارشد و دکتری (PhD)",
+        about_scientists_kpi1_desc: "در تخصص‌های ژنتیک، بیوتکنولوژی و داروسازی",
+        about_scientists_kpi2_val: "۲۴+",
+        about_scientists_kpi2_title: "پتنت و نوآوری صنعتی",
+        about_subs_title: "اکوسیستم شرکت‌های تخصصی هلدینگ",
+        about_subs_tag: "ECOSYSTEM SYNERGY",
+        about_subs_desc: "بنگاه‌های تخصصی و هم‌افزا در زنجیره یکپارچه سلامت و فناوری‌های زیست‌دارویی",
+        about_subs_carousel_title: "اکوسیستم شرکت‌های تخصصی هلدینگ",
+        about_subs_carousel_tag: "ECOSYSTEM SYNERGY",
+        about_subs_carousel_hint: "",
+
+        // B2B CTA Banner
+        about_b2b_tag: "شراکت و اتحاد استراتژیک",
+        about_b2b_title: "آماده همکاری و سرمایه‌گذاری مشترک در پروژه‌های پیشرفته بیوتک هستید؟",
+        about_b2b_desc: "پورتال ارتباط مستقیم هلدینگ رهناب فارمد آماده دریافت پیشنهادات تجاری، انتقال تکنولوژی و طرح‌های نخبگانی است.",
+        about_b2b_btn: "ثبت درخواست رسمی B2B",
+
         // Value Chain (Original Section Restored)
         vc_label: "معماری زنجیره ارزش",
         vc_title: "اکوسیستم یکپارچه زیست‌داروسازی",
@@ -118,44 +216,91 @@ const translations = {
         services_title: "اکوسیستم یکپارچه زیست‌داروسازی",
         services_subtitle: "ارائه راهکارهای حیاتی، تخصصی و نوآورانه در ۶ محور کلان سلامت، داروسازی و امنیت زیستی کشور",
         
+        svc_1_num: "۰۱",
         svc_1_title: "ارائه انواع واکسن‌های دامی و طیور",
         svc_1_en: "Veterinary Recombinant Vaccines & National Biosecurity",
         svc_1_desc: "تأمین امنیت زیستی و زنجیره سلامت غذایی از طریق تولید، توسعه و ارتقای فرمولاسیون واکسن‌های نوترکیب حیوانی و طیور با استانداردهای نوین بین‌المللی.",
         svc_1_badge_1: "دام و طیور",
         svc_1_badge_2: "واکسن‌های نوترکیب",
         
+        svc_2_num: "۰۲",
         svc_2_title: "ارائه انواع داروهای کودکان و اطفال",
         svc_2_en: "Pediatric Specialty Formulations & Metabolic Care",
         svc_2_desc: "تولید فرمولاسیون‌های حیاتی و داروهای ویژه نوزادان و کودکان در حوزه‌های انکولوژی، متابولیک و درمان‌های دارویی اختصاصی اطفال.",
         svc_2_badge_1: "انکولوژی اطفال",
         svc_2_badge_2: "فرمولاسیون اختصاصی",
         
+        svc_3_num: "۰۳",
         svc_3_title: "ارائه انواع مکمل‌های غذایی و درمانی",
         svc_3_en: "Therapeutic Supplements & Bioactive Nutraceuticals",
         svc_3_desc: "توسعه فرآورده‌های طبیعی پیشرفته، پروبیوتیک‌های زیستی و مکمل‌های متابولیک و درمانی با هدف ارتقای پایدار شاخص‌های سلامت عمومی جامعه.",
         svc_3_badge_1: "مکمل‌های زیستی",
         svc_3_badge_2: "پروبیوتیک درمانی",
         
+        svc_4_num: "۰۴",
         svc_4_title: "ارائه انواع پانسمان‌های زیستی و سوختگی",
         svc_4_en: "Regenerative Dermal Matrices & Burn Bio-Dressings",
         svc_4_desc: "ارائه راهکارهای ماتریکس بیولوژیک و سلول‌های بازساختی جهت تسریع فرآیند ترمیم بافت در سوختگی‌های حاد پوستی، جراحی‌های باز و زخم‌های مزمن.",
         svc_4_badge_1: "ترمیم بافت و سوختگی",
         svc_4_badge_2: "ماتریکس آمنیوتیک",
         
+        svc_5_num: "۰۵",
         svc_5_title: "ارائه انواع داروهای مشتق از پلاسما و نوترکیب",
         svc_5_en: "Plasma-Derived Protein Replacement & Immunoglobulins",
         svc_5_desc: "تأمین فرآورده‌های مشتق از پلاسما شامل IVIG، آلبومین انسانی و فاکتورهای انعقادی حیاتی برای بیماران دچار کمبود یا نقص ایمنی اولیه و اکتسابی.",
         svc_5_badge_1: "مشتقات پلاسما",
         svc_5_badge_2: "IVIG و آلبومین",
         
+        svc_6_num: "۰۶",
         svc_6_title: "ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن",
         svc_6_en: "Advanced Biological Adjuvants & Immune Enhancers",
         svc_6_desc: "فرمولاسیون و تولید ادجوانت‌های پیشرفته زیستی جهت افزایش اثربخشی و ایمنی‌زایی واکسن‌ها و به حداقل رساندن دوز مصرفی و عوارض ناخواسته جانبی.",
         svc_6_badge_1: "ادجوانت‌های زیستی",
         svc_6_badge_2: "افزایش ایمنی‌زایی",
 
+        // Services Page Specific (Detailed Capabilities & Standards)
+        services_hero_tag: "زیرساخت‌های کلان صنعتی و دانش‌بنیان",
+        services_hero_title: "خدمات و توانمندی‌های راهبردی زیست‌دارویی",
+        services_hero_subtitle: "زنجیره یکپارچه از فرمولاسیون واکسن‌های نوترکیب و فرآورده‌های مشتق از پلاسما تا درمان‌های پیشرفته سلولی و رفرنس کنترل کیفی کشور.",
+        
+        svc_specs_label: "مشخصات فنی و مقیاس زیرساخت:",
+        svc_entities_label: "شرکت‌های مجری و پشتیبان:",
+        svc_btn_inquiry: "درخواست همکاری تجاری و استعلام",
+
+        svc_1_specs: "خطوط فرمولاسیون آسپتیک، بیوراکتورهای صنعتی پایلوت تا کلان، استانداردهای سازمان دامپزشکی و GMP بین‌المللی",
+        svc_1_entities: "نوژین زیست فارمد | پرسیس‌ژن",
+
+        svc_2_specs: "کلین‌روم‌های رده A/B، سامانه‌های لیوفیلیزاسیون صنعتی، کنترل کیفی دقیق فارماکوپه‌ای",
+        svc_2_entities: "پرسیس‌ژن | نوژین زیست فارمد",
+
+        svc_3_specs: "فرآوری عصاره‌های بیواکتیو، تخمیر باکتریایی تحت شرایط ایزوله، پایش پایداری میکروبی مطابق ICH",
+        svc_3_entities: "نوژین زیست فارمد",
+
+        svc_4_specs: "فناوری مهندسی بافت، ایزوله‌سازی داربست‌های آمنیوتیک، بسته‌بندی استریل پرتودهی گاما",
+        svc_4_entities: "پادرا سرم البرز | کارا یاخته تجهیز آزما",
+
+        svc_5_specs: "پالایشگاه ۳۰۰,۰۰۰ لیتری کسر پلاسما، جداسازی کوهن پیشرفته، سامانه‌های دومرحله‌ای نانوفیلتراسیون ویروسی",
+        svc_5_entities: "نوژین زیست فارمد | تأمین پلاسما نوژین",
+
+        svc_6_specs: "امولسیون‌های نانوذره‌ای، ادجوانت‌های آلومینیومی و لیپیدی، تست‌های ایمنی‌زایی برون‌تنی و درون‌تنی",
+        svc_6_entities: "پرسیس‌ژن | نوژین زیست فارمد",
+
+        // Standards & Regulatory Section
+        standards_tag: "استانداردها و اعتبارنامه‌های بین‌المللی",
+        standards_title: "انطباق کامل با مراجع و پروتکل‌های دارویی جهان",
+        standards_subtitle: "تمامی فرآیندهای تولید، کنترل کیفی و ترخیص محصولات در اکوسیستم رهناب فارمد تحت سخت‌گیرانه‌ترین استانداردهای بین‌المللی انجام می‌پذیرد.",
+        std_gmp_title: "استانداردهای بین‌المللی cGMP",
+        std_gmp_desc: "تولید آسپتیک در کلین‌روم‌های رده A و B با پایش مداوم ذرات و آلودگی‌های میکروبی مطابق اصول WHO.",
+        std_iso_title: "گواهینامه ISO/IEC 17025",
+        std_iso_desc: "آزمایشگاه کنترل کیفی مرجع و همکار رسمی سازمان غذا و دارو (IFDA) جهت صدور Batch Release رسمی.",
+        std_who_title: "پروتکل‌های سازمان بهداشت جهانی (WHO)",
+        std_who_desc: "فرمولاسیون پادزهرها، سرم‌ها و مشتقات پلاسما منطبق با سری گزارش‌های فنی WHO TRS.",
+        std_ich_title: "استانداردهای پایداری ICH",
+        std_ich_desc: "آزمون‌های پایداری در شرایط تسریع‌شده و واقعی مطابق با دستورالعمل‌های ICH Q1A تا Q10.",
+
         // Companies (Subsidiary Portfolio)
         companies_label: "اکوسیستم سرمایه‌گذاری",
+
         companies_title: "شرکت‌های دانش‌بنیان رهناب",
         companies_subtitle: "بنگاه‌های تخصصی و هم‌افزا — از پالایش صنعتی پلاسما تا ایمونوتراپی سلولی پیشرفته",
         companies_visit_site: "مشاهده وب‌سایت رسمی",
@@ -202,6 +347,60 @@ const translations = {
         comp_6_metric: "فناوری ATMP",
         comp_6_url: "http://karayakhteh.ir/",
         
+        // Companies Page Specific (Detailed Showcase)
+        companies_hero_tag: "اکوسیستم سرمایه‌گذاری و توسعه هم‌افزا",
+        companies_hero_title: "اکوسیستم شرکت‌های تخصصی و دانش‌بنیان هلدینگ رهناب فارمد",
+        companies_hero_subtitle: "هم‌افزایی هدفمند ۶ بازوی صنعتی و فناورانه از تولید واکسن‌های استراتژیک و پالایش صنعتی پلاسما تا ایمونوتراپی سلولی و کنترل کیفی مرجع کشور.",
+        
+        filter_all: "همه شرکت‌ها",
+        filter_biopharma: "زیست‌دارو و واکسن",
+        filter_plasma: "پلاسما و سرم‌های درمانی",
+        filter_incubation: "شتاب‌دهی و R&D",
+        filter_atmp: "سلول‌درمانی و تجهیزات",
+
+        comp_details_infra: "زیرساخت و ظرفیت تولید:",
+        comp_details_focus: "فرآورده‌ها و تمرکز محوری:",
+        comp_btn_official: "مشاهده وب‌سایت رسمی شرکت",
+        comp_btn_b2b: "درخواست همکاری تجاری",
+
+        comp_1_cap: "پالایشگاه ۳۰۰,۰۰۰ لیتری پلاسما، خطوط فیل و فینیش آسپتیک ویال و سرنگ آماده تزریق (PFS) در کلین‌روم‌های کلاس A و B",
+        comp_1_focus: "فاکتورهای انعقادی VIII و IX، آلبومین انسانی، ایمونوگلوبولین (IVIG)، واکسن‌های نوترکیب دامی و طیور",
+
+        comp_2_cap: "شبکه زنجیره سرد منهای ۳۰ درجه، سیستم‌های تمام‌اتوماتیک آفرزیس با پایش آنلاین بیومتریک اهداکنندگان",
+        comp_2_focus: "پلاسمای استاندارد انسانی با گرید دارویی، پلاسمای هایپرایمیون جهت استحصال داروهای بیولوژیک",
+
+        comp_3_cap: "فب‌لب‌های بیوتکنولوژی، کلین‌روم‌های مقیاس پایلوت، بانک سلولی ملی و سوئیت‌های تحقیق و توسعه فرآیندهای زیستی",
+        comp_3_focus: "آنتی‌بادی‌های مونوکلونال، پروتئین‌های نوترکیب درمانی، آنزیم‌های صنعتی و فرآورده‌های پیشرفته بیوسیمیلار",
+
+        comp_4_cap: "گواهینامه ISO/IEC 17025، همکار رسمی سازمان غذا و دارو (IFDA) و مرکز رفرنس آزمون‌های بین‌المللی WHO",
+        comp_4_focus: "آنالیز طیف‌سنجی جرمی ساختار پروتئین، تست استریلیتی، بیواسی سلولی و پایش پایداری مطابق استاندارد ICH",
+
+        comp_5_cap: "مزارع اختصاصی تولید ایمونوگلوبولین، خطوط تصفیه آنزیمی و فرمولاسیون پادزهرهای چندظرفیتی با توزیع ملی",
+        comp_5_focus: "پادزهر پلی‌والان مار و عقرب، سرم ضد هاری، پادزهر دیفتری و کزاز، ایمونوگلوبولین‌های اختصاصی",
+
+        comp_6_cap: "اتاق‌های تمیز فوق‌ایزوله کشت سلول، بیوراکتورهای ویو و همزن‌دار تولید داخل، اتاقک‌های پیشرفته فرآوری ژنی",
+        comp_6_focus: "کارآزمایی‌های بالینی CAR-T در لوسمی و لنفوم، طراحی و ساخت بیوراکتورهای صنعتی زیست‌دارویی",
+
+        // Synergy Section
+        synergy_tag: "معماری هم‌افزایی هلدینگ",
+        synergy_title: "چرخه پیوسته خلق ارزش در هلدینگ رهناب فارمد",
+        synergy_subtitle: "هیچ شرکتی به صورت جزیره‌ای فعالیت نمی‌کند؛ هر حلقه، ورودی پیشرفته حلقه بعدی را تأمین می‌نماید.",
+        synergy_step_1_num: "۰۱",
+        synergy_step_1_title: "شتاب‌دهی و کشف",
+        synergy_step_1_desc: "پرسیس ژن ایده‌های دانشگاهی را به پروتوتایپ صنعتی و خط پایلوت تبدیل می‌کند.",
+        synergy_step_2_num: "۰۲",
+        synergy_step_2_title: "تأمین نهاده زیستی",
+        synergy_step_2_desc: "تأمین پلاسما نوژین مواد اولیه دارویی پلاسما را با استاندارد GMP تأمین می‌نماید.",
+        synergy_step_3_num: "۰۳",
+        synergy_step_3_title: "تولید کلان صنعتی",
+        synergy_step_3_desc: "نوژین زیست و پادرا سرم مقیاس انبوه واکسن، پادزهر و مشتقات پلاسما را پالایش می‌کنند.",
+        synergy_step_4_num: "۰۴",
+        synergy_step_4_title: "کنترل کیفیت و ترخیص",
+        synergy_step_4_desc: "آرک زیست آزما آزمون‌های بیواسی و آزادسازی رسمی بچ را در آزمایشگاه مرجع انجام می‌دهد.",
+        synergy_step_5_num: "۰۵",
+        synergy_step_5_title: "درمان‌های پیشرفته ATMP",
+        synergy_step_5_desc: "کارا یاخته درمان‌های اختصاصی سلولی CAR-T را به خط مقدم سلامت کشور می‌رساند.",
+
         // Impact
         impact_label: "مقیاس و نفوذ ملی",
         impact_title: "تأثیر ملی در شاخص‌های سلامت",
@@ -273,6 +472,7 @@ const translations = {
         nav_menu_label: "MENU",
         nav_holding_tag: "RAHNAB PHARMED HOLDING",
         nav_menu_close_hint: "PRESS ESC TO CLOSE",
+        nav_current_page: "Current Page",
         nav_info_hq: "HEADQUARTERS",
         nav_info_address: "Tehran, National Institute of Genetic Engineering and Biotechnology (NIGEB)",
         nav_info_direct: "DIRECT INQUIRY",
@@ -329,6 +529,104 @@ const translations = {
         about_stat_horizon_label: "Across Rahnab's Holding Ecosystem",
         about_cta: "About Our Mission & Structure",
 
+        // About Us Page Dedicated Keys
+        about_hero_tag: "BIOPHARMA ARCHITECTURE & INNOVATION",
+        about_hero_title: "Synergy of Strategic Capital, Core Science & National Health Biotechnology Sovereignty",
+        about_hero_subtitle: "Rahnab Pharmed Investment Holding is an industrial catalyst bridging the gap between fundamental research institutes and commercial-scale manufacturing of plasma-derived therapeutics, vaccines, and advanced cell therapies.",
+        about_stat_invest_val: "2,000",
+        about_stat_invest_unit: "B",
+        about_stat_invest_label: "Billion Tomans Committed Capital",
+        about_stat_scientists_val: "1,400",
+        about_stat_scientists_label: "Elite Researchers & Specialists",
+        about_stat_companies_val: "6",
+        about_stat_companies_label: "Specialized Biotech Ventures",
+        about_stat_liters_val: "300,000",
+        about_stat_liters_unit: "L",
+        about_stat_liters_label: "Liters Plasma Refinery Capacity / Yr",
+        about_narrative_label: "OUR STORY & CORE MISSION",
+        about_narrative_title: "From Laboratory Synthesis to Mega Industrial Sites",
+        about_narrative_p1: "In modern times, sovereign healthcare demands mastery over proprietary bioprocesses. Rahnab Pharmed was established to eliminate national dependence on imported plasma derivatives, emergency antivenoms, and advanced cancer immunotherapies.",
+        about_narrative_p2: "By unifying 6 pioneering biotech subsidiaries under one strategic governance, we orchestrate a complete value chain from molecular design and sterile bioreactors to plasma fractionation and national reference quality release.",
+        about_cleanroom_grade: "International GMP Class A / B Standard",
+        about_cleanroom_infra: "Industrial Cleanroom Infrastructure",
+        about_pillar_1_title: "Scientific Venture Capital",
+        about_pillar_1_desc: "Strategic equity and incubation converting top university patents into high-impact sovereign commercial therapeutics.",
+        about_pillar_2_title: "Sovereign Supply Chain",
+        about_pillar_2_desc: "Fortifying national resilience against international supply chain disruptions and critical medication shortages.",
+        about_pillar_3_title: "Global GMP Compliance",
+        about_pillar_3_desc: "Strict adherence to WHO and European Pharmacopoeia standards across all manufacturing suites.",
+
+        // Core Services (6 Cards)
+        services_section_tag: "HOLDING CORE CAPABILITIES",
+        services_section_title: "Comprehensive Value Chain in Biopharmaceuticals",
+        services_section_subtitle: "Integrating mega industrial infrastructure, international pharmacopoeia standards, and sovereign supply resilience",
+        srv_card_1_num: "01",
+        srv_card_1_title: "Industrial Plasma Fractionation",
+        srv_card_1_desc: "Building and operating Iran's first 300,000 L/Yr industrial plasma refinery producing coagulation Factors VIII & IX, Albumin, and IVIG.",
+        srv_card_1_tag: "300,000 L/Yr Refinery",
+        srv_card_2_num: "02",
+        srv_card_2_title: "Aseptic Biopharma Fill & Finish",
+        srv_card_2_desc: "Cutting-edge sterile formulation and automated fill & finish for vials and prefilled syringes (PFS) in ISO Class A/B cleanroom suites.",
+        srv_card_2_tag: "Class A / B Cleanroom",
+        srv_card_3_num: "03",
+        srv_card_3_title: "Biotech Venture Incubation",
+        srv_card_3_desc: "Venture capital, advanced biotech fab-labs, and hands-on mentoring accelerating academic discoveries to commercial clinical scale.",
+        srv_card_3_tag: "Specialized Incubator",
+        srv_card_4_num: "04",
+        srv_card_4_title: "Advanced Cell Therapy & CAR-T (ATMP)",
+        srv_card_4_desc: "Cell engineering, targeted oncology platforms based on 5th-generation CAR-T immunotherapies, and localized gene therapy pipelines.",
+        srv_card_4_tag: "Gen-5 Oncology Tech",
+        srv_card_5_num: "05",
+        srv_card_5_title: "Hyperimmune Sera & Antivenoms",
+        srv_card_5_desc: "Industrial manufacturing of over 70% of national emergency antivenoms for snakebites, scorpion stings, and critical toxoid antitoxins.",
+        srv_card_5_tag: "70% National Coverage",
+        srv_card_6_num: "06",
+        srv_card_6_title: "Reference QC, Bioassay & Batch Release",
+        srv_card_6_desc: "National reference facility for physicochemical assays, cell-based bioassays, stability, sterility, and structural protein batch release.",
+        srv_card_6_tag: "ISO 17025 Certified",
+
+        // Organizational Structure
+        org_section_tag: "GOVERNANCE & LEADERSHIP",
+        org_section_title: "Rahnab Pharmed Organizational Structure",
+        org_section_subtitle: "Transparent, meritocratic corporate governance orchestrating sovereign biotech healthcare goals",
+        org_board_title: "Board of Directors",
+        org_board_role: "Highest governing authority establishing overarching strategy, protecting shareholder equity, and ensuring national health alignment",
+        org_audit_title: "Audit Committee",
+        org_audit_role: "Independent financial oversight, internal controls evaluation, and strategic risk monitoring",
+        org_ceo_title: "Chief Executive Officer (CEO)",
+        org_ceo_role: "Executive leadership, subsidiary operational management, and execution of holding corporate mandates",
+        org_div_1_title: "Investment Management",
+        org_div_1_role: "Portfolio asset allocation, biotech venture capital, startup incubation, and B2B strategic alliances",
+        org_div_2_title: "Planning & Strategy Management",
+        org_div_2_role: "Vision roadmap execution, KPI monitoring, and engineering management of manufacturing projects",
+        org_div_3_title: "Finance & Administration",
+        org_div_3_role: "Financial discipline, industrial cost accounting, corporate treasury, and human resource leadership",
+        org_div_4_title: "Legal & Corporate Affairs",
+        org_div_4_role: "Intellectual property & patent protection, corporate contract governance, and FDA regulatory compliance",
+
+        // Human Capital Section
+        human_capital_label: "HUMAN CAPITAL & SCIENTIFIC ELITE",
+        about_scientists_title: "Our Sovereign Power Lies in the Brilliance of Our Scientists",
+        about_scientists_desc: "At Rahnab Pharmed, state-of-the-art bioreactors thrive through exceptional minds. Our holding ecosystem unites over 1,400 researchers, PhD scientists, and biotech pioneers.",
+        about_scientists_kpi1_val: "68%",
+        about_scientists_kpi1_title: "MSc & PhD Degrees",
+        about_scientists_kpi1_desc: "In Molecular Genetics, Bioprocess Engineering, and Pharmaceutical Sciences",
+        about_scientists_kpi2_val: "24+",
+        about_scientists_kpi2_title: "Industrial Patents",
+        about_scientists_kpi2_desc: "Proprietary formulations and sovereign bioprocess methods",
+        about_subs_title: "Holding Specialized Subsidiaries Ecosystem",
+        about_subs_tag: "ECOSYSTEM SYNERGY",
+        about_subs_desc: "Synergistic specialized enterprises across the integrated biopharma value chain",
+        about_subs_carousel_title: "Holding Specialized Subsidiaries Ecosystem",
+        about_subs_carousel_tag: "ECOSYSTEM SYNERGY",
+        about_subs_carousel_hint: "",
+
+        // B2B CTA Banner
+        about_b2b_tag: "ALLIANCE & PARTNERSHIP",
+        about_b2b_title: "Ready to Partner & Invest in Advanced Biopharmaceutical Ventures?",
+        about_b2b_desc: "Rahnab Pharmed's direct corporate desk welcomes partnership inquiries, technology licensing, and commercial proposals.",
+        about_b2b_btn: "Submit Official B2B Request",
+
         // Value Chain (Original Section Restored)
         vc_label: "VALUE CHAIN ARCHITECTURE",
         vc_title: "Integrated Biopharma Ecosystem",
@@ -374,44 +672,91 @@ const translations = {
         services_title: "Integrated Biopharma Ecosystem",
         services_subtitle: "Pioneering vital and high-barrier solutions across 6 macro-pillars of human health, medicine, and biosecurity",
         
+        svc_1_num: "01",
         svc_1_title: "Veterinary & Poultry Vaccines",
         svc_1_en: "Veterinary Recombinant Vaccines & National Biosecurity",
         svc_1_desc: "Securing national biosecurity and livestock food chain integrity through advanced development and supply of recombinant animal and poultry vaccines.",
         svc_1_badge_1: "Veterinary & Agro",
         svc_1_badge_2: "Recombinant R&D",
         
+        svc_2_num: "02",
         svc_2_title: "Pediatric Specialty Pharmaceuticals",
         svc_2_en: "Pediatric Specialty Formulations & Metabolic Care",
         svc_2_desc: "Manufacturing critical therapeutic formulations and targeted medications specifically engineered for infants and children across oncology and metabolic care.",
         svc_2_badge_1: "Pediatric Care",
         svc_2_badge_2: "Targeted Formulations",
         
+        svc_3_num: "03",
         svc_3_title: "Therapeutic Supplements & Nutraceuticals",
         svc_3_en: "Therapeutic Supplements & Bioactive Nutraceuticals",
         svc_3_desc: "Advancing evidence-based functional formulations, therapeutic biome probiotics, and metabolic regulators to systematically reinforce public wellness.",
         svc_3_badge_1: "Bioactive Supplements",
         svc_3_badge_2: "Therapeutic Biome",
         
+        svc_4_num: "04",
         svc_4_title: "Biological Dressings for Surgery & Burns",
         svc_4_en: "Regenerative Dermal Matrices & Burn Bio-Dressings",
         svc_4_desc: "Delivering regenerative cellular matrices and bioactive dressings to dramatically accelerate tissue healing in acute thermal burns and reconstructive surgeries.",
         svc_4_badge_1: "Regenerative Tissue",
         svc_4_badge_2: "Amniotic Scaffolds",
         
+        svc_5_num: "05",
         svc_5_title: "Plasma Protein Replacement Therapy",
         svc_5_en: "Plasma-Derived Protein Replacement & Immunoglobulins",
         svc_5_desc: "Synthesizing essential plasma-derived concentrates including IVIG, Human Albumin, and Coagulation Factors for patients with primary and acquired immunodeficiencies.",
         svc_5_badge_1: "Plasma Fractionation",
         svc_5_badge_2: "IVIG & Albumin",
         
+        svc_6_num: "06",
         svc_6_title: "Advanced Vaccine Adjuvants",
         svc_6_en: "Advanced Biological Adjuvants & Immune Enhancers",
         svc_6_desc: "Formulating state-of-the-art biological adjuvants to maximize antigenic immunogenicity, sustain prolonged humoral response, and minimize adverse reactogenicity.",
         svc_6_badge_1: "Immune Adjuvants",
         svc_6_badge_2: "Safety & Potency",
 
+        // Services Page Specific (Detailed Capabilities & Standards)
+        services_hero_tag: "INDUSTRIAL & SCIENTIFIC CAPABILITIES",
+        services_hero_title: "Strategic Biopharmaceutical Capabilities & Services",
+        services_hero_subtitle: "An integrated life-science value chain from strategic vaccine formulation and plasma derivatives to advanced cellular therapies and national reference quality control.",
+        
+        svc_specs_label: "Key Infrastructure & Scale:",
+        svc_entities_label: "Executing Subsidiary Entities:",
+        svc_btn_inquiry: "Commercial Service Inquiry",
+
+        svc_1_specs: "Automated aseptic formulation, pilot-to-industrial bioreactors, IVO and WHO-aligned veterinary biosecurity standards.",
+        svc_1_entities: "Nozhin Zist Pharmed | Persis Gene",
+
+        svc_2_specs: "Class A/B cleanroom suites, industrial freeze-drying lyophilizers, and ultra-pure pediatric pharmacopeial compliance.",
+        svc_2_entities: "Persis Gene | Nozhin Zist Pharmed",
+
+        svc_3_specs: "Bioactive extraction units, precision bacterial fermentation, and microbiological stability validation per ICH protocols.",
+        svc_3_entities: "Nozhin Zist Pharmed",
+
+        svc_4_specs: "Tissue engineering scaffolds, amniotic membrane isolation, and gamma-irradiation sterile packaging.",
+        svc_4_entities: "Padra Serum Alborz | KarayaKhteh",
+
+        svc_5_specs: "300,000 L/yr plasma fractionation refinery, advanced Cohn chromatography, and dual nanofiltration viral inactivation.",
+        svc_5_entities: "Nozhin Zist Pharmed | Tamin Plasma Nozhin",
+
+        svc_6_specs: "Nanoparticle lipid formulations, modern aluminum adjuvants, and comprehensive in-vitro/in-vivo immunogenicity assays.",
+        svc_6_entities: "Persis Gene | Nozhin Zist Pharmed",
+
+        // Standards & Regulatory Section
+        standards_tag: "GLOBAL COMPLIANCE & ACCREDITATIONS",
+        standards_title: "Strict Alignment with Global Regulatory Authorities",
+        standards_subtitle: "All manufacturing processes, QC assays, and official lot release procedures across Rahnab Pharmed strictly adhere to international cGMP and WHO pharmacopeia.",
+        std_gmp_title: "c-GMP Certified Cleanrooms",
+        std_gmp_desc: "Aseptic manufacturing within Grade A & B cleanrooms with 24/7 HVAC and environmental particle monitoring.",
+        std_iso_title: "ISO/IEC 17025 Accreditation",
+        std_iso_desc: "National reference testing laboratory and official Iran FDA partner for certified commercial lot release.",
+        std_who_title: "WHO Guidelines Compliance",
+        std_who_desc: "Hyperimmune antivenoms and plasma fractionations formulated strictly to WHO TRS technical guidelines.",
+        std_ich_title: "ICH Quality & Stability Standards",
+        std_ich_desc: "Long-term and accelerated ICH stability programs validating molecule potency, safety, and shelf-life.",
+
         // Companies (Subsidiary Portfolio)
         companies_label: "INVESTMENT ECOSYSTEM",
+
         companies_title: "Rahnab Sovereign Ventures",
         companies_subtitle: "Specialized synergistic ventures — from industrial plasma fractionation to advanced cellular immunotherapy.",
         companies_visit_site: "VISIT OFFICIAL WEBSITE",
@@ -458,6 +803,60 @@ const translations = {
         comp_6_metric: "ATMP Therapeutics",
         comp_6_url: "http://karayakhteh.ir/",
         
+        // Companies Page Specific (Detailed Showcase)
+        companies_hero_tag: "STRATEGIC VENTURE PORTFOLIO",
+        companies_hero_title: "Specialized Biopharmaceutical & Healthcare Ventures",
+        companies_hero_subtitle: "A synergistic ecosystem of 6 sovereign biopharma ventures spanning strategic vaccine formulation and industrial plasma fractionation to cellular immunotherapy and national reference quality control.",
+        
+        filter_all: "All Ventures",
+        filter_biopharma: "Biopharma & Vaccines",
+        filter_plasma: "Plasma & Sera",
+        filter_incubation: "Incubation & R&D",
+        filter_atmp: "Cell Therapy & ATMP",
+
+        comp_details_infra: "Key Infrastructure & Scale:",
+        comp_details_focus: "Core Portfolio & Focus:",
+        comp_btn_official: "Visit Official Website",
+        comp_btn_b2b: "Commercial Inquiry",
+
+        comp_1_cap: "300,000 L/yr industrial plasma fractionation refinery, automated aseptic fill & finish suites for vials and PFS in Class A/B cleanrooms",
+        comp_1_focus: "Coagulation Factors VIII & IX, Human Albumin, IVIG, Recombinant veterinary and poultry vaccines",
+
+        comp_2_cap: "Nationwide -30°C cold chain logistics, automated apheresis systems with real-time biometric donor tracking",
+        comp_2_focus: "Pharmaceutical-grade source human plasma, hyperimmune plasma fractions for sovereign biological therapeutics",
+
+        comp_3_cap: "Biotech fab-labs, pilot-scale cleanrooms, national cell banking repository, and molecular bioprocess R&D suites",
+        comp_3_focus: "Monoclonal antibodies, therapeutic recombinant proteins, diagnostic enzymes, and advanced biosimilars",
+
+        comp_4_cap: "ISO/IEC 17025 accreditation, official testing partner of Iran FDA (IFDA), WHO-aligned national lot release center",
+        comp_4_focus: "Protein structural spectrometry, sterility assays, cell-based bioassays, and ICH stability validation",
+
+        comp_5_cap: "Specialized hyperimmune equine facilities, enzymatic F(ab')2 purification lines, nationwide distribution network",
+        comp_5_focus: "Polyvalent snake & scorpion antivenoms, rabies antisera, tetanus and diphtheria antitoxins",
+
+        comp_6_cap: "High-containment cell therapy cleanrooms, proprietary automated wave bioreactors, gene processing suites",
+        comp_6_focus: "Clinical trial pipelines for CD19 CAR-T cell therapy, precision bioprocess bioreactors and hardware",
+
+        // Synergy Section
+        synergy_tag: "SYNERGY VALUE CHAIN",
+        synergy_title: "Integrated Value Creation Cycle",
+        synergy_subtitle: "No subsidiary operates in isolation; every node feeds directly into the subsequent biopharma tier.",
+        synergy_step_1_num: "01",
+        synergy_step_1_title: "Incubation & Discovery",
+        synergy_step_1_desc: "Persis Gene incubates academic discoveries into scalable bioprocess prototypes.",
+        synergy_step_2_num: "02",
+        synergy_step_2_title: "Biological Inputs",
+        synergy_step_2_desc: "Tamin Plasma secures continuous EU-GMP compliant human plasma raw material.",
+        synergy_step_3_num: "03",
+        synergy_step_3_title: "Industrial Manufacturing",
+        synergy_step_3_desc: "Nozhin Zist & Padra Serum refine plasma, antivenoms, and vaccines at sovereign scale.",
+        synergy_step_4_num: "04",
+        synergy_step_4_title: "QC & Lot Release",
+        synergy_step_4_desc: "Arc Zist Azma conducts rigorous release testing and ICH bioassay validation.",
+        synergy_step_5_num: "05",
+        synergy_step_5_title: "Next-Gen ATMP",
+        synergy_step_5_desc: "KarayaKhteh translates 5th-gen CAR-T immunotherapy to hospitals and clinics.",
+
         // Impact
         impact_label: "SCALE & DOMINANCE",
         impact_title: "National Health Footprint",
@@ -634,7 +1033,16 @@ function initApp() {
             if (menuToggleLabel) {
                 menuToggleLabel.textContent = (currentLang === 'fa') ? 'بستن' : 'CLOSE';
             }
+            
+            // Prevent CLS by checking scrollbar width
+            const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+            if (scrollbarWidth > 0) {
+                document.body.style.paddingInlineEnd = `${scrollbarWidth}px`;
+                const navbar = document.getElementById('mainNavbar');
+                if (navbar) navbar.style.paddingInlineEnd = `${scrollbarWidth}px`;
+            }
             document.body.style.overflow = 'hidden';
+            if (window.lenis) window.lenis.stop();
             
             if (window.gsap) {
                 gsap.fromTo(fullMenu, { opacity: 0 }, { opacity: 1, duration: 0.35, ease: 'power2.out' });
@@ -668,6 +1076,10 @@ function initApp() {
                         fullMenu.classList.add('hidden');
                         fullMenu.classList.remove('flex');
                         document.body.style.overflow = '';
+                        document.body.style.paddingInlineEnd = '';
+                        const navbar = document.getElementById('mainNavbar');
+                        if (navbar) navbar.style.paddingInlineEnd = '';
+                        if (window.lenis) window.lenis.start();
                     }
                 });
             } else {
@@ -676,6 +1088,10 @@ function initApp() {
                     fullMenu.classList.add('hidden');
                     fullMenu.classList.remove('flex');
                     document.body.style.overflow = '';
+                    document.body.style.paddingInlineEnd = '';
+                    const navbar = document.getElementById('mainNavbar');
+                    if (navbar) navbar.style.paddingInlineEnd = '';
+                    if (window.lenis) window.lenis.start();
                 }, 250);
             }
         };
@@ -689,6 +1105,35 @@ function initApp() {
                 openMenu();
             }
         });
+
+        // 2.5 Subsidiaries Carousel (About Page)
+        const carouselContainer = document.getElementById('subsidiariesCarousel');
+        const carouselPrevBtn = document.getElementById('carouselPrevBtn');
+        const carouselNextBtn = document.getElementById('carouselNextBtn');
+
+        if (carouselContainer && (carouselPrevBtn || carouselNextBtn)) {
+            const getScrollStep = () => {
+                const firstCard = carouselContainer.querySelector('.subsidiary-card');
+                return firstCard ? (firstCard.offsetWidth + 20) : 320;
+            };
+
+            if (carouselPrevBtn) {
+                carouselPrevBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isRTL = document.documentElement.dir === 'rtl' || document.documentElement.lang === 'fa';
+                    const step = getScrollStep();
+                    carouselContainer.scrollBy({ left: isRTL ? step : -step, behavior: 'smooth' });
+                });
+            }
+            if (carouselNextBtn) {
+                carouselNextBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isRTL = document.documentElement.dir === 'rtl' || document.documentElement.lang === 'fa';
+                    const step = getScrollStep();
+                    carouselContainer.scrollBy({ left: isRTL ? -step : step, behavior: 'smooth' });
+                });
+            }
+        }
 
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -790,12 +1235,20 @@ function initApp() {
         updateScrollProgress();
 
         backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if (window.lenis) {
+                window.lenis.scrollTo(0);
+            } else {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
         });
+
     }
 
     // Initialize dynamic cursor spotlight tracking on cards
     initCardSpotlights();
+
+    // Initialize company category filter on companies page
+    initCompanyFilter();
 
     // Restore saved language preference
     try {
@@ -806,8 +1259,48 @@ function initApp() {
     } catch(e) {}
 }
 
+function initCompanyFilter() {
+    const filterButtons = document.querySelectorAll('.company-filter-btn');
+    const companyCards = document.querySelectorAll('.company-showcase-card');
+
+    if (!filterButtons.length || !companyCards.length) return;
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const filter = btn.getAttribute('data-filter');
+
+            filterButtons.forEach(b => {
+                b.classList.remove('is-active', 'bg-gold-400', 'text-black', 'border-gold-400');
+                b.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+            });
+            btn.classList.add('is-active', 'bg-gold-400', 'text-black', 'border-gold-400');
+            btn.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+
+            companyCards.forEach(card => {
+                const cardCat = card.getAttribute('data-category') || '';
+                if (filter === 'all' || cardCat.includes(filter)) {
+                    card.classList.remove('hidden');
+                    card.style.display = '';
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 30);
+                } else {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(8px)';
+                    setTimeout(() => {
+                        card.classList.add('hidden');
+                    }, 200);
+                }
+            });
+        });
+    });
+}
+
 function initCardSpotlights() {
-    const cards = document.querySelectorAll('.subsidiary-card, .service-card');
+    const cards = document.querySelectorAll('.subsidiary-card, .service-card, .company-showcase-card, .service-showcase-card');
+
     cards.forEach(card => {
         card.addEventListener('mousemove', (e) => {
             const rect = card.getBoundingClientRect();
