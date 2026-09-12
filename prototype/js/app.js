@@ -1239,6 +1239,10 @@ function initApp() {
 
     if (menuToggle && fullMenu) {
         const openMenu = () => {
+            if (fullMenu.hasAttribute('inert')) {
+                fullMenu.removeAttribute('inert');
+            }
+            fullMenu.style.pointerEvents = 'auto';
             fullMenu.classList.remove('hidden');
             fullMenu.classList.add('flex');
             menuToggle.classList.add('is-active');

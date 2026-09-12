@@ -37,20 +37,14 @@ $nav_links = [
         'url'   => 'companies.php',
         'has_sub' => true,
     ],
-    'impact' => [
-        'num'   => '05',
-        'title' => 'تأثیر ملی',
-        'i18n'  => 'nav_impact',
-        'url'   => $is_home ? '#impact' : 'index.php#impact',
-    ],
     'news' => [
-        'num'   => '06',
+        'num'   => '05',
         'title' => 'اخبار و رویدادها',
         'i18n'  => 'nav_news',
         'url'   => 'news.php',
     ],
     'contact' => [
-        'num'   => '07',
+        'num'   => '06',
         'title' => 'تماس با ما',
         'i18n'  => 'nav_contact',
         'url'   => 'contact.php',
@@ -61,11 +55,10 @@ $nav_links = [
      FULL-SCREEN CINEMATIC NAV MENU
      ========================================= -->
 <nav id="fullNavMenu" aria-label="Main menu"
-  class="navmenu fixed inset-0 z-40 bg-[#05070B]/98 backdrop-blur-2xl hidden opacity-0 transition-opacity duration-300 flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 px-6 sm:px-12 lg:px-16 overflow-y-auto"
-  inert>
+  class="navmenu fixed inset-0 z-[60] bg-[#05070B]/98 backdrop-blur-2xl hidden opacity-0 transition-opacity duration-300 flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 px-6 sm:px-12 lg:px-16 overflow-y-auto">
   <!-- Menu Content (2-Column Asymmetric Grid) -->
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center my-auto py-6">
-    <!-- Main Links (01 to 07) -->
+    <!-- Main Links (01 to 06) -->
     <div class="lg:col-span-8 flex flex-col">
       <!-- Holding category tag -->
       <div class="mb-4 sm:mb-6">
