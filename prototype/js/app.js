@@ -18,6 +18,8 @@ const translations = {
         nav_holding_tag: "هلدینگ سرمایه‌گذاری رهناب فارمد",
         nav_menu_close_hint: "کلید ESC برای بستن",
         nav_current_page: "صفحه کنونی",
+        nav_sub_toggle_label: "مشاهده ۶ شرکت",
+        nav_sub_toggle_close: "بستن زیرمنو",
         nav_info_hq: "دفتر مرکزی",
         nav_info_address: "تهران، پژوهشگاه ملی مهندسی ژنتیک و زیست‌فناوری (NIGEB)",
         nav_info_direct: "ارتباط مستقیم",
@@ -568,6 +570,8 @@ const translations = {
         nav_holding_tag: "RAHNAB PHARMED HOLDING",
         nav_menu_close_hint: "PRESS ESC TO CLOSE",
         nav_current_page: "Current Page",
+        nav_sub_toggle_label: "View 6 Subsidiaries",
+        nav_sub_toggle_close: "Close Submenu",
         nav_info_hq: "HEADQUARTERS",
         nav_info_address: "Tehran, National Institute of Genetic Engineering and Biotechnology (NIGEB)",
         nav_info_direct: "DIRECT INQUIRY",
@@ -1193,6 +1197,7 @@ function initApp() {
     const menuItems = document.querySelectorAll('.navmenu-item');
     const menuToggleLabel = document.getElementById('menuToggleLabel');
     const submenuToggleBtn = document.getElementById('submenuToggleBtn');
+    const submenuToggleText = document.getElementById('submenuToggleText');
     const navmenuSubmenu = document.getElementById('navmenuSubmenu');
 
     if (submenuToggleBtn && navmenuSubmenu) {
@@ -1203,6 +1208,9 @@ function initApp() {
             if (isExpanded) {
                 submenuToggleBtn.setAttribute('aria-expanded', 'false');
                 submenuToggleBtn.classList.remove('is-active');
+                if (submenuToggleText) {
+                    submenuToggleText.textContent = (currentLang === 'fa') ? 'مشاهده ۶ شرکت' : 'View 6 Subsidiaries';
+                }
                 navmenuSubmenu.classList.remove('is-open');
                 navmenuSubmenu.style.maxHeight = '0';
                 setTimeout(() => {
@@ -1214,6 +1222,9 @@ function initApp() {
                 navmenuSubmenu.classList.remove('hidden');
                 submenuToggleBtn.setAttribute('aria-expanded', 'true');
                 submenuToggleBtn.classList.add('is-active');
+                if (submenuToggleText) {
+                    submenuToggleText.textContent = (currentLang === 'fa') ? 'بستن زیرمنو' : 'Close Submenu';
+                }
                 navmenuSubmenu.classList.add('is-open');
                 requestAnimationFrame(() => {
                     navmenuSubmenu.style.maxHeight = (navmenuSubmenu.scrollHeight + 30) + 'px';
@@ -1262,6 +1273,9 @@ function initApp() {
             if (submenuToggleBtn && navmenuSubmenu) {
                 submenuToggleBtn.setAttribute('aria-expanded', 'false');
                 submenuToggleBtn.classList.remove('is-active');
+                if (submenuToggleText) {
+                    submenuToggleText.textContent = (currentLang === 'fa') ? 'مشاهده ۶ شرکت' : 'View 6 Subsidiaries';
+                }
                 navmenuSubmenu.classList.remove('is-open');
                 navmenuSubmenu.style.maxHeight = '0';
                 navmenuSubmenu.classList.add('hidden');
@@ -1335,7 +1349,40 @@ function initApp() {
         }
 
         menuLinks.forEach(link => {
-            link.addEventListener('click', () => {
+            link.addEventListener('click', (e) => {
+                const href = link.getAttribute('href');
+                if (!href) {
+                    closeMenu();
+                    return;
+                }
+
+                // Handle in-page smooth scroll if destination anchor exists on the current page
+                const currentPage = window.location.pathname.split('/').pop() || 'index.php';
+                const parts = href.split('#');
+                const targetPage = parts[0];
+                const targetHash = parts[1];
+
+                const isSamePage = !targetPage || 
+                                   targetPage === currentPage || 
+                                   (currentPage === '' && targetPage === 'index.php') ||
+                                   (currentPage === 'index.php' && targetPage === '');
+
+                if (targetHash && isSamePage) {
+                    const targetEl = document.getElementById(targetHash);
+                    if (targetEl) {
+                        e.preventDefault();
+                        closeMenu();
+                        setTimeout(() => {
+                            if (window.lenis) {
+                                window.lenis.scrollTo(targetEl, { offset: -80 });
+                            } else {
+                                targetEl.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        }, 260);
+                        return;
+                    }
+                }
+
                 closeMenu();
             });
         });

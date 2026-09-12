@@ -88,16 +88,17 @@ $nav_links = [
                 <span class="navmenu-title text-xl sm:text-3xl lg:text-4xl font-black tracking-tight"
                   data-i18n="<?php echo $link['i18n']; ?>"><?php echo $link['title']; ?></span>
                 <?php if ($is_current): ?>
-                  <span class="ms-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-gold-400/15 text-gold-300 border border-gold-400/30">صفحه کنونی</span>
+                  <span class="ms-3 text-[10px] font-mono px-2 py-0.5 rounded-full bg-gold-400/15 text-gold-300 border border-gold-400/30" data-i18n="nav_current_page">صفحه کنونی</span>
                 <?php endif; ?>
                 <svg class="navmenu-arrow w-5 h-5 text-gold-400 opacity-0 hidden sm:inline-block ms-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                 </svg>
               </a>
               <!-- Interactive Submenu Toggle -->
-              <button type="button" id="submenuToggleBtn" class="submenu-toggle-btn p-1.5 sm:p-2 rounded-full border border-white/10 hover:border-gold-400/40 hover:bg-gold-400/10 text-gold-400 transition-all flex items-center justify-center shrink-0 ms-2"
+              <button type="button" id="submenuToggleBtn" class="submenu-toggle-btn px-2.5 sm:px-3 py-1.5 rounded-xl border border-white/10 hover:border-gold-400/40 hover:bg-gold-400/10 text-gold-400 transition-all flex items-center gap-1.5 sm:gap-2 shrink-0 ms-2"
                 aria-expanded="false" aria-label="نمایش شرکت‌های زیرمجموعه">
-                <svg class="w-4 h-4 transform transition-transform duration-300 submenu-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <span id="submenuToggleText" class="text-[11px] font-mono font-bold text-gold-400/80 transition-colors" data-i18n="nav_sub_toggle_label">مشاهده ۶ شرکت</span>
+                <svg class="w-3.5 h-3.5 transform transition-transform duration-300 submenu-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
               </button>
@@ -105,43 +106,43 @@ $nav_links = [
             <!-- Submenu Accordion (Subsidiaries) -->
             <div id="navmenuSubmenu" class="navmenu-submenu hidden max-h-0 overflow-hidden transition-all duration-300 ps-6 sm:ps-12 pe-2">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2.5 pb-1 border-t border-white/10 mt-1">
-                <a href="companies.php#company-nojine" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                <a href="companies.php#company-nojin" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="submenu-dot w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 transition-transform duration-300"></span>
                   <div class="flex flex-col">
                     <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_rasta">نوژین زیست فارمد</span>
                     <span class="text-[10px] text-slate-400" data-i18n="sub_rasta_desc">واکسن‌های دامی و طیور</span>
                   </div>
                 </a>
-                <a href="companies.php#company-tamin" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                <a href="companies.php#company-tamin-plasma" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="submenu-dot w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 transition-transform duration-300"></span>
                   <div class="flex flex-col">
                     <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_sinagene">تأمین پلاسما نوژین</span>
                     <span class="text-[10px] text-slate-400" data-i18n="sub_sinagene_desc">فرآورده‌های مشتق از پلاسما</span>
                   </div>
                 </a>
                 <a href="companies.php#company-persis" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <span class="submenu-dot w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 transition-transform duration-300"></span>
                   <div class="flex flex-col">
                     <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_pishgaman">پرسیس ژن</span>
                     <span class="text-[10px] text-slate-400" data-i18n="sub_pishgaman_desc">شتاب‌دهنده زیست‌دارویی</span>
                   </div>
                 </a>
                 <a href="companies.php#company-arc" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <span class="submenu-dot w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 transition-transform duration-300"></span>
                   <div class="flex flex-col">
                     <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_plasma">آرک زیست آزما</span>
                     <span class="text-[10px] text-slate-400" data-i18n="sub_plasma_desc">آزمایشگاه کنترل کیفی بیولوژیک</span>
                   </div>
                 </a>
                 <a href="companies.php#company-padra" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                  <span class="submenu-dot w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 transition-transform duration-300"></span>
                   <div class="flex flex-col">
                     <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_partgene">پادرا سرم البرز</span>
                     <span class="text-[10px] text-slate-400" data-i18n="sub_partgene_desc">سرم‌های ایمنی و پادزهرها</span>
                   </div>
                 </a>
-                <a href="companies.php#company-karayakhteh" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
-                  <span class="w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0"></span>
+                <a href="companies.php#company-karayakhte" class="submenu-link nav-item flex items-center gap-2.5 p-2 rounded-lg bg-white/[0.02] hover:bg-gold-400/10 border border-white/5 hover:border-gold-400/30 transition-all">
+                  <span class="submenu-dot w-1.5 h-1.5 rounded-full bg-gold-400 shrink-0 transition-transform duration-300"></span>
                   <div class="flex flex-col">
                     <span class="text-xs sm:text-sm font-bold text-slate-200 hover:text-gold-300 transition-colors" data-i18n="sub_pharmazist">کارا یاخته تجهیز آزما</span>
                     <span class="text-[10px] text-slate-400" data-i18n="sub_pharmazist_desc">بیوراکتورها و تجهیزات صنعتی</span>
