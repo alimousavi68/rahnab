@@ -211,188 +211,147 @@ get_header();
 
       <!-- Services Cards Stack (Value Chain Glass Architecture with 64x64 Standalone SVG Icons) -->
       <div class="space-y-5">
-        <!-- 01: Veterinary & Poultry Vaccines -->
-        <div class="value-chain-tier-card group" data-tier="1">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div class="flex items-start gap-6">
-              <div
-                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-                <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-veterinary-vaccines.svg" alt="واکسن‌های دامی و طیور"
-                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-              </div>
-              <div>
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
-                  data-i18n="svc_1_title">ارائه انواع واکسن‌های دامی و طیور</h3>
-                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
-                  data-i18n="svc_1_en">Veterinary Recombinant Vaccines & National Biosecurity</p>
-                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_1_desc">تأمین
-                  امنیت زیستی و زنجیره سلامت غذایی از طریق تولید، توسعه و ارتقای فرمولاسیون واکسن‌های نوترکیب حیوانی و
-                  طیور با استانداردهای نوین بین‌المللی.</p>
-              </div>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
-                data-i18n="svc_1_badge_1">دام و طیور</span>
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
-                data-i18n="svc_1_badge_2">واکسن‌های نوترکیب</span>
-            </div>
-          </div>
-        </div>
+        <?php
+        $services_query = new WP_Query([
+            'post_type'      => 'service',
+            'posts_per_page' => 6,
+            'orderby'        => 'menu_order date',
+            'order'          => 'ASC',
+        ]);
 
-        <!-- 02: Pediatric Pharmaceuticals -->
-        <div class="value-chain-tier-card group" data-tier="2">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div class="flex items-start gap-6">
-              <div
-                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-                <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-pediatric-pharma.svg" alt="داروهای کودکان و اطفال"
-                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-              </div>
-              <div>
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
-                  data-i18n="svc_2_title">ارائه انواع داروهای کودکان و اطفال</h3>
-                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
-                  data-i18n="svc_2_en">Pediatric Specialty Formulations & Metabolic Care</p>
-                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_2_desc">تولید
-                  فرمولاسیون‌های حیاتی و داروهای ویژه نوزادان و کودکان در حوزه‌های انکولوژی، متابولیک و درمان‌های دارویی
-                  اختصاصی اطفال.</p>
-              </div>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
-                data-i18n="svc_2_badge_1">انکولوژی اطفال</span>
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
-                data-i18n="svc_2_badge_2">فرمولاسیون اختصاصی</span>
-            </div>
-          </div>
-        </div>
+        $default_services = [
+            1 => [
+                'title'    => 'ارائه انواع واکسن‌های دامی و طیور',
+                'en'       => 'Veterinary Recombinant Vaccines & National Biosecurity',
+                'desc'     => 'تأمین امنیت زیستی و زنجیره سلامت غذایی از طریق تولید، توسعه و ارتقای فرمولاسیون واکسن‌های نوترکیب حیوانی و طیور با استانداردهای نوین بین‌المللی.',
+                'badge_1'  => 'دام و طیور',
+                'badge_2'  => 'واکسن‌های نوترکیب',
+            ],
+            2 => [
+                'title'    => 'ارائه انواع داروهای کودکان و اطفال',
+                'en'       => 'Pediatric Specialty Formulations & Metabolic Care',
+                'desc'     => 'تولید فرمولاسیون‌های حیاتی و داروهای ویژه نوزادان و کودکان در حوزه‌های انکولوژی، متابولیک و درمان‌های دارویی اختصاصی اطفال.',
+                'badge_1'  => 'انکولوژی اطفال',
+                'badge_2'  => 'فرمولاسیون اختصاصی',
+            ],
+            3 => [
+                'title'    => 'ارائه انواع مکمل‌های غذایی و درمانی',
+                'en'       => 'Therapeutic Supplements & Bioactive Nutraceuticals',
+                'desc'     => 'توسعه فرآورده‌های طبیعی پیشرفته، پروبیوتیک‌های زیستی و مکمل‌های متابولیک و درمانی با هدف ارتقای پایدار شاخص‌های سلامت عمومی جامعه.',
+                'badge_1'  => 'مکمل‌های زیستی',
+                'badge_2'  => 'پروبیوتیک درمانی',
+            ],
+            4 => [
+                'title'    => 'ارائه انواع پانسمان‌های زیستی و سوختگی',
+                'en'       => 'Regenerative Dermal Matrices & Burn Bio-Dressings',
+                'desc'     => 'ارائه راهکارهای ماتریکس بیولوژیک و سلول‌های بازساختی جهت تسریع فرآیند ترمیم بافت در سوختگی‌های حاد پوستی، جراحی‌های باز و زخم‌های مزمن.',
+                'badge_1'  => 'ترمیم بافت و سوختگی',
+                'badge_2'  => 'ماتریکس آمنیوتیک',
+            ],
+            5 => [
+                'title'    => 'ارائه انواع داروهای مشتق از پلاسما و نوترکیب',
+                'en'       => 'Plasma-Derived Protein Replacement & Immunoglobulins',
+                'desc'     => 'تأمین فرآورده‌های مشتق از پلاسما شامل IVIG، آلبومین انسانی و فاکتورهای انعقادی حیاتی برای بیماران دچار کمبود یا نقص ایمنی اولیه و اکتسابی.',
+                'badge_1'  => 'مشتقات پلاسما',
+                'badge_2'  => 'IVIG و آلبومین',
+            ],
+            6 => [
+                'title'    => 'ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن',
+                'en'       => 'Next-Generation Vaccine Adjuvants & Nanocarriers',
+                'desc'     => 'فرمولاسیون و تولید ادجوانت‌های پیشرفته زیستی جهت افزایش اثربخشی و ایمنی‌زایی واکسن‌ها و به حداقل رساندن دوز مصرفی و عوارض ناخواسته جانبی.',
+                'badge_1'  => 'ادجوانت‌های زیستی',
+                'badge_2'  => 'افزایش ایمنی‌زایی',
+            ],
+        ];
 
-        <!-- 03: Therapeutic Supplements & Nutraceuticals -->
-        <div class="value-chain-tier-card group" data-tier="3">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div class="flex items-start gap-6">
-              <div
-                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-                <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-nutraceuticals.svg" alt="مکمل‌های غذایی و درمانی"
-                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-              </div>
-              <div>
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
-                  data-i18n="svc_3_title">ارائه انواع مکمل‌های غذایی و درمانی</h3>
-                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
-                  data-i18n="svc_3_en">Therapeutic Supplements & Bioactive Nutraceuticals</p>
-                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_3_desc">توسعه
-                  فرآورده‌های طبیعی پیشرفته، پروبیوتیک‌های زیستی و مکمل‌های متابولیک و درمانی با هدف ارتقای پایدار
-                  شاخص‌های سلامت عمومی جامعه.</p>
-              </div>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
-                data-i18n="svc_3_badge_1">مکمل‌های زیستی</span>
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
-                data-i18n="svc_3_badge_2">پروبیوتیک درمانی</span>
-            </div>
-          </div>
-        </div>
+        if ($services_query->have_posts()) :
+            $tier = 0;
+            while ($services_query->have_posts()) :
+                $services_query->the_post();
+                $tier++;
+                $post_id = get_the_ID();
+                $fallback = $default_services[$tier] ?? $default_services[1];
 
-        <!-- 04: Biological Dressings for Surgery & Burns -->
-        <div class="value-chain-tier-card group" data-tier="4">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div class="flex items-start gap-6">
-              <div
-                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-                <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-biological-dressings.svg"
-                  alt="ارائه انواع پانسمان‌های زیستی و سوختگی"
-                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-              </div>
-              <div>
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
-                  data-i18n="svc_4_title">ارائه انواع پانسمان‌های زیستی و سوختگی</h3>
-                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
-                  data-i18n="svc_4_en">Regenerative Dermal Matrices & Burn Bio-Dressings</p>
-                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_4_desc">ارائه
-                  راهکارهای ماتریکس بیولوژیک و سلول‌های بازساختی جهت تسریع فرآیند ترمیم بافت در سوختگی‌های حاد پوستی،
-                  جراحی‌های باز و زخم‌های مزمن.</p>
-              </div>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
-                data-i18n="svc_4_badge_1">ترمیم بافت و سوختگی</span>
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
-                data-i18n="svc_4_badge_2">ماتریکس آمنیوتیک</span>
-            </div>
-          </div>
-        </div>
+                $title = get_the_title();
+                $title_en = rahnab_get_meta($post_id, '_service_title_en', $fallback['en']);
+                $desc = get_the_excerpt();
+                if (empty($desc)) {
+                    $desc = get_the_content();
+                }
+                if (empty($desc)) {
+                    $desc = $fallback['desc'];
+                }
+                $desc = wp_strip_all_tags($desc);
 
-        <!-- 05: Plasma Protein Replacement Therapy -->
-        <div class="value-chain-tier-card group" data-tier="5">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div class="flex items-start gap-6">
-              <div
-                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-                <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-plasma-therapy.svg"
-                  alt="ارائه انواع داروهای مشتق از پلاسما و نوترکیب"
-                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-              </div>
-              <div>
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
-                  data-i18n="svc_5_title">ارائه انواع داروهای مشتق از پلاسما و نوترکیب</h3>
-                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
-                  data-i18n="svc_5_en">Plasma-Derived Protein Replacement & Immunoglobulins</p>
-                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_5_desc">تأمین
-                  فرآورده‌های مشتق از پلاسما شامل IVIG، آلبومین انسانی و فاکتورهای انعقادی حیاتی برای بیماران دچار کمبود
-                  یا نقص ایمنی اولیه و اکتسابی.</p>
-              </div>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
-                data-i18n="svc_5_badge_1">مشتقات پلاسما</span>
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
-                data-i18n="svc_5_badge_2">IVIG و آلبومین</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 06: Advanced Vaccine Adjuvants -->
-        <div class="value-chain-tier-card group" data-tier="6">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
-            <div class="flex items-start gap-6">
-              <div
-                class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-                <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-vaccine-adjuvants.svg"
-                  alt="ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن"
-                  class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-              </div>
-              <div>
-                <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
-                  data-i18n="svc_6_title">ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن</h3>
-                <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
-                  data-i18n="svc_6_en">Advanced Biological Adjuvants & Immune Enhancers</p>
-                <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_6_desc">
-                  فرمولاسیون و تولید ادجوانت‌های پیشرفته زیستی جهت افزایش اثربخشی و ایمنی‌زایی واکسن‌ها و به حداقل
-                  رساندن دوز مصرفی و عوارض ناخواسته جانبی.</p>
-              </div>
-            </div>
-            <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
-                data-i18n="svc_6_badge_1">ادجوانت‌های زیستی</span>
-              <span
-                class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
-                data-i18n="svc_6_badge_2">افزایش ایمنی‌زایی</span>
-            </div>
-          </div>
-        </div>
+                $badge_1 = rahnab_get_meta($post_id, '_service_badge', $fallback['badge_1']);
+                $badge_2 = rahnab_get_meta($post_id, '_service_badge_secondary', $fallback['badge_2']);
+                $icon_url = rahnab_get_service_icon($post_id, $tier);
+                ?>
+                <!-- <?php printf('%02d', $tier); ?>: <?php echo esc_html($title); ?> -->
+                <div class="value-chain-tier-card group" data-tier="<?php echo esc_attr($tier); ?>">
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="flex items-start gap-6">
+                      <div
+                        class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                        <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($title); ?>"
+                          class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+                      </div>
+                      <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                          data-i18n="svc_<?php echo esc_attr($tier); ?>_title"><?php echo esc_html($title); ?></h3>
+                        <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                          data-i18n="svc_<?php echo esc_attr($tier); ?>_en"><?php echo esc_html($title_en); ?></p>
+                        <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_<?php echo esc_attr($tier); ?>_desc"><?php echo esc_html($desc); ?></p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+                      <span
+                        class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                        data-i18n="svc_<?php echo esc_attr($tier); ?>_badge_1"><?php echo esc_html($badge_1); ?></span>
+                      <span
+                        class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                        data-i18n="svc_<?php echo esc_attr($tier); ?>_badge_2"><?php echo esc_html($badge_2); ?></span>
+                    </div>
+                  </div>
+                </div>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            // Direct fallback to default 6 services
+            foreach ($default_services as $tier => $svc) :
+                $icon_url = rahnab_get_service_icon(0, $tier);
+                ?>
+                <div class="value-chain-tier-card group" data-tier="<?php echo esc_attr($tier); ?>">
+                  <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="flex items-start gap-6">
+                      <div
+                        class="shrink-0 w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                        <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($svc['title']); ?>"
+                          class="w-14 h-14 md:w-16 md:h-16 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+                      </div>
+                      <div>
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-1 group-hover:text-gold-300 transition-colors"
+                          data-i18n="svc_<?php echo esc_attr($tier); ?>_title"><?php echo esc_html($svc['title']); ?></h3>
+                        <p class="caption text-gold-400 font-en-mono tracking-wider font-semibold text-xs md:text-sm mb-1.5"
+                          data-i18n="svc_<?php echo esc_attr($tier); ?>_en"><?php echo esc_html($svc['en']); ?></p>
+                        <p class="body-sm text-slate-300/85 text-xs md:text-sm leading-relaxed" data-i18n="svc_<?php echo esc_attr($tier); ?>_desc"><?php echo esc_html($svc['desc']); ?></p>
+                      </div>
+                    </div>
+                    <div class="flex flex-col items-start md:items-end gap-1.5 shrink-0">
+                      <span
+                        class="service-badge text-[11px] px-3 py-1 bg-white/10 rounded-full text-slate-300 border border-white/10"
+                        data-i18n="svc_<?php echo esc_attr($tier); ?>_badge_1"><?php echo esc_html($svc['badge_1']); ?></span>
+                      <span
+                        class="service-badge text-[11px] px-3 py-1 bg-gold-400/15 rounded-full text-gold-400 border border-gold-400/20"
+                        data-i18n="svc_<?php echo esc_attr($tier); ?>_badge_2"><?php echo esc_html($svc['badge_2']); ?></span>
+                    </div>
+                  </div>
+                </div>
+                <?php
+            endforeach;
+        endif;
+        ?>
       </div>
     </div>
   </section>
@@ -416,207 +375,167 @@ get_header();
       </div>
 
       <!-- 6 Subsidiaries Grid (Dual-Action Cards, Centered Optimized Logos, Clutter-Free) -->
+      <!-- 6 Subsidiaries Grid (Dual-Action Cards, Centered Optimized Logos, Clutter-Free) -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <?php
+        $default_companies = [
+            1 => [
+                'name'    => 'نوژین زیست فارمد',
+                'en'      => 'Nozhin Zist Pharmed',
+                'role'    => 'پالایشگاه صنعتی پلاسما — تولید فاکتورهای خونی، آلبومین و ایمونوگلوبولین‌ها با ظرفیت سالانه ۱۵۰,۰۰۰ لیتر.',
+                'anchor'  => 'company-nojin',
+                'website' => 'https://nojinepharmed.com/',
+                'logo'    => 'assets/images/subsidiaries/nojin_logo.webp',
+            ],
+            2 => [
+                'name'    => 'تأمین پلاسما نوژین',
+                'en'      => 'Tamin Plasma Nozhin',
+                'role'    => 'شبکه سراسری مراکز آفرزیس خودکار و تأمین پلاسمای استاندارد انسانی با انطباق کامل بر استانداردهای بین‌المللی GMP.',
+                'anchor'  => 'company-tamin-plasma',
+                'website' => 'https://tpnojine.com/',
+                'logo'    => 'assets/images/subsidiaries/logo-tamin-plasma.svg',
+            ],
+            3 => [
+                'name'    => 'پرسیس‌ژن',
+                'en'      => 'Persis Gene',
+                'role'    => 'شتابدهنده و انکوباتور ملی فرآیندهای زیستی، بانک سلولی و تحقیق و توسعه محصولات نوین بیوتکنولوژی و بیوسیمیلارها.',
+                'anchor'  => 'company-persis',
+                'website' => 'https://demo-branding.com/persis/',
+                'logo'    => 'assets/images/subsidiaries/logo-persisgen.png',
+            ],
+            4 => [
+                'name'    => 'آرک زیست آزما',
+                'en'      => 'Arc Zist Azma',
+                'role'    => 'آزمایشگاه همکار سازمان غذا و دارو (IFDA)، مرجع ملی کنترل کیفیت فرآورده‌های بیولوژیک و صدور گواهی Batch Release.',
+                'anchor'  => 'company-arc',
+                'website' => 'http://arcbioassay.com/',
+                'logo'    => 'assets/images/subsidiaries/logo-arc.png',
+            ],
+            5 => [
+                'name'    => 'پادرا سرم البرز',
+                'en'      => 'Padra Serum Alborz',
+                'role'    => 'تولیدکننده پیشرو پادزهرهای هایپرایمیون مارگزیدگی، عقرب‌گزیدگی و سرم‌های درمانی اورژانسی با پوشش بیش از ۷۰٪ نیاز ملی.',
+                'anchor'  => 'company-padra',
+                'website' => 'https://padraserum.com/',
+                'logo'    => 'assets/images/subsidiaries/padra-serum-logo-who-Final-PNG-1.png',
+            ],
+            6 => [
+                'name'    => 'کارا یاخته تجهیز آزما',
+                'en'      => 'KarayaKhteh / CARTIMED',
+                'role'    => 'پیشگام ایمونوتراپی سلولی اتولوگ، فاز کارآزمایی بالینی درمان سرطان با فناوری CAR-T و تولید فرآورده‌های دارویی پیشرفته ATMP.',
+                'anchor'  => 'company-karayakhteh',
+                'website' => 'http://karayakhteh.ir/',
+                'logo'    => 'assets/images/subsidiaries/logo-karayakhte.webp',
+            ],
+        ];
 
-        <!-- Comp 01: Nozhin Zist Pharmed -->
-        <div class="subsidiary-card group">
-          <div class="subsidiary-spotlight"></div>
-          <!-- Centered Prominent Logo Frame -->
-          <div class="subsidiary-logo-frame">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/nojin_logo.webp" alt="نوژین زیست فارمد" class="subsidiary-logo-img">
-          </div>
-          <div class="flex-grow text-start">
-            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
-              data-i18n="comp_1_name">نوژین زیست فارمد</h3>
-            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
-              data-i18n="comp_1_en">Nozhin Zist Pharmed</p>
-            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_1_role">
-              پالایشگاه صنعتی پلاسما — تولید فاکتورهای خونی، آلبومین و ایمونوگلوبولین‌ها با ظرفیت سالانه ۱۵۰,۰۰۰ لیتر.
-            </p>
-          </div>
-          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
-            <a href="#company-nojine" class="company-learn-more-btn">
-              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
-              <span class="text-xs">↗</span>
-            </a>
-            <a href="https://nojinepharmed.com/" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
-              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-            </a>
-          </div>
-        </div>
+        $companies_query = new WP_Query([
+            'post_type'      => 'company',
+            'posts_per_page' => 6,
+            'orderby'        => ['menu_order' => 'ASC', 'ID' => 'ASC'],
+            'post_status'    => 'publish',
+        ]);
 
-        <!-- Comp 02: Tamin Plasma Nozhin -->
-        <div class="subsidiary-card group">
-          <div class="subsidiary-spotlight"></div>
-          <!-- Centered Prominent Logo Frame -->
-          <div class="subsidiary-logo-frame">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-tamin-plasma.svg" alt="تأمین پلاسما نوژین"
-              class="subsidiary-logo-img">
-          </div>
-          <div class="flex-grow text-start">
-            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
-              data-i18n="comp_2_name">تأمین پلاسما نوژین</h3>
-            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
-              data-i18n="comp_2_en">Tamin Plasma Nozhin</p>
-            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_2_role">
-              شبکه سراسری مراکز آفرزیس خودکار و تأمین پلاسمای استاندارد انسانی با انطباق کامل بر استانداردهای بین‌المللی
-              GMP.
-            </p>
-          </div>
-          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
-            <a href="#company-tamin" class="company-learn-more-btn">
-              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
-              <span class="text-xs">↗</span>
-            </a>
-            <a href="https://tpnojine.com/" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
-              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-            </a>
-          </div>
-        </div>
+        $comp_idx = 0;
+        if ($companies_query->have_posts()) :
+            while ($companies_query->have_posts()) :
+                $companies_query->the_post();
+                $comp_idx++;
+                $post_id  = get_the_ID();
+                $fallback = $default_companies[$comp_idx] ?? $default_companies[1];
 
-        <!-- Comp 03: Persis Gene -->
-        <div class="subsidiary-card group">
-          <div class="subsidiary-spotlight"></div>
-          <!-- Centered Prominent Logo Frame -->
-          <div class="subsidiary-logo-frame">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-persisgen.png" alt="پرسیس‌ژن" class="subsidiary-logo-img">
-          </div>
-          <div class="flex-grow text-start">
-            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
-              data-i18n="comp_3_name">پرسیس‌ژن</h3>
-            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
-              data-i18n="comp_3_en">Persis Gene</p>
-            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_3_role">
-              شتابدهنده و انکوباتور ملی فرآیندهای زیستی، بانک سلولی و تحقیق و توسعه محصولات نوین بیوتکنولوژی و
-              بیوسیمیلارها.
-            </p>
-          </div>
-          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
-            <a href="#company-persis" class="company-learn-more-btn">
-              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
-              <span class="text-xs">↗</span>
-            </a>
-            <a href="https://demo-branding.com/persis/" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
-              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-            </a>
-          </div>
-        </div>
+                $comp_name = get_the_title();
+                $comp_en   = rahnab_get_meta($post_id, '_company_name_en', $fallback['en']);
+                $comp_role = get_the_excerpt();
+                if (empty($comp_role)) {
+                    $comp_role = get_the_content();
+                }
+                if (empty($comp_role)) {
+                    $comp_role = $fallback['role'];
+                }
+                $comp_role = wp_strip_all_tags($comp_role);
 
-        <!-- Comp 04: Arc Zist Azma -->
-        <div class="subsidiary-card group">
-          <div class="subsidiary-spotlight"></div>
-          <!-- Centered Prominent Logo Frame -->
-          <div class="subsidiary-logo-frame">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-arc.png" alt="آرک زیست آزما" class="subsidiary-logo-img">
-          </div>
-          <div class="flex-grow text-start">
-            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
-              data-i18n="comp_4_name">آرک زیست آزما</h3>
-            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
-              data-i18n="comp_4_en">Arc Zist Azma</p>
-            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_4_role">
-              آزمایشگاه همکار سازمان غذا و دارو (IFDA)، مرجع ملی کنترل کیفیت فرآورده‌های بیولوژیک و صدور گواهی Batch
-              Release.
-            </p>
-          </div>
-          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
-            <a href="#company-arc" class="company-learn-more-btn">
-              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
-              <span class="text-xs">↗</span>
-            </a>
-            <a href="http://arcbioassay.com/" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
-              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Comp 05: Padra Serum Alborz -->
-        <div class="subsidiary-card group">
-          <div class="subsidiary-spotlight"></div>
-          <!-- Centered Prominent Logo Frame -->
-          <div class="subsidiary-logo-frame">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/padra-serum-logo-who-Final-PNG-1.png" alt="پادرا سرم البرز"
-              class="subsidiary-logo-img">
-          </div>
-          <div class="flex-grow text-start">
-            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
-              data-i18n="comp_5_name">پادرا سرم البرز</h3>
-            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
-              data-i18n="comp_5_en">Padra Serum Alborz</p>
-            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_5_role">
-              تولیدکننده پیشرو پادزهرهای هایپرایمیون مارگزیدگی، عقرب‌گزیدگی و سرم‌های درمانی اورژانسی با پوشش بیش از ۷۰٪
-              نیاز ملی.
-            </p>
-          </div>
-          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
-            <a href="#company-padra" class="company-learn-more-btn">
-              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
-              <span class="text-xs">↗</span>
-            </a>
-            <a href="https://padraserum.com/" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
-              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <!-- Comp 06: KarayaKhteh Tajhiz Azma -->
-        <div class="subsidiary-card group">
-          <div class="subsidiary-spotlight"></div>
-          <!-- Centered Prominent Logo Frame -->
-          <div class="subsidiary-logo-frame">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-karayakhte.webp" alt="کارا یاخته تجهیز آزما"
-              class="subsidiary-logo-img">
-          </div>
-          <div class="flex-grow text-start">
-            <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
-              data-i18n="comp_6_name">کارا یاخته تجهیز آزما</h3>
-            <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
-              data-i18n="comp_6_en">KarayaKhteh / CARTIMED</p>
-            <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_6_role">
-              پیشگام ایمونوتراپی سلولی اتولوگ، فاز کارآزمایی بالینی درمان سرطان با فناوری CAR-T و تولید فرآورده‌های
-              دارویی پیشرفته ATMP.
-            </p>
-          </div>
-          <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
-            <a href="#company-karayakhteh" class="company-learn-more-btn">
-              <span data-i18n="company_learn_more">آشنایی بیشتر</span>
-              <span class="text-xs">↗</span>
-            </a>
-            <a href="http://karayakhteh.ir/" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
-              title="مشاهده وب‌سایت رسمی شرکت" aria-label="مشاهده وب‌سایت رسمی شرکت">
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-              </svg>
-            </a>
-          </div>
-        </div>
+                $anchor_id   = rahnab_get_meta($post_id, '_company_anchor_id', $fallback['anchor']);
+                $website     = rahnab_get_meta($post_id, '_company_website', $fallback['website']);
+                $logo_url    = rahnab_get_company_logo($post_id, $comp_idx);
+                $detail_link = home_url('/companies/#' . ltrim($anchor_id, '#'));
+                ?>
+                <!-- Comp <?php printf('%02d', $comp_idx); ?>: <?php echo esc_html($comp_name); ?> -->
+                <div class="subsidiary-card group">
+                  <div class="subsidiary-spotlight"></div>
+                  <!-- Centered Prominent Logo Frame -->
+                  <div class="subsidiary-logo-frame">
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($comp_name); ?>" class="subsidiary-logo-img">
+                  </div>
+                  <div class="flex-grow text-start">
+                    <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+                      data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_name"><?php echo esc_html($comp_name); ?></h3>
+                    <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+                      data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_en"><?php echo esc_html($comp_en); ?></p>
+                    <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_role">
+                      <?php echo esc_html($comp_role); ?>
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+                    <a href="<?php echo esc_url($detail_link); ?>" class="company-learn-more-btn">
+                      <span data-i18n="company_learn_more"><?php esc_html_e('آشنایی بیشتر', 'rahnab'); ?></span>
+                      <span class="text-xs">↗</span>
+                    </a>
+                    <?php if (!empty($website)) : ?>
+                    <a href="<?php echo esc_url($website); ?>" target="_blank" rel="noopener noreferrer"
+                      class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+                      title="<?php esc_attr_e('مشاهده وب‌سایت رسمی شرکت', 'rahnab'); ?>" aria-label="<?php esc_attr_e('مشاهده وب‌سایت رسمی شرکت', 'rahnab'); ?>">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                      </svg>
+                    </a>
+                    <?php endif; ?>
+                  </div>
+                </div>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            // Resilient fallback if no company posts
+            foreach ($default_companies as $comp_idx => $comp) :
+                $logo_url    = RAHNAB_URI . '/' . $comp['logo'];
+                $detail_link = home_url('/companies/#' . $comp['anchor']);
+                ?>
+                <div class="subsidiary-card group">
+                  <div class="subsidiary-spotlight"></div>
+                  <!-- Centered Prominent Logo Frame -->
+                  <div class="subsidiary-logo-frame">
+                    <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($comp['name']); ?>" class="subsidiary-logo-img">
+                  </div>
+                  <div class="flex-grow text-start">
+                    <h3 class="text-xl font-bold text-white group-hover:text-gold-300 transition-colors mb-1 text-start"
+                      data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_name"><?php echo esc_html($comp['name']); ?></h3>
+                    <p class="text-xs font-en-mono font-semibold tracking-wider text-slate-400 uppercase mb-3 text-start"
+                      data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_en"><?php echo esc_html($comp['en']); ?></p>
+                    <p class="text-slate-300/80 text-xs md:text-sm leading-relaxed text-justify" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_role">
+                      <?php echo esc_html($comp['role']); ?>
+                    </p>
+                  </div>
+                  <div class="mt-6 pt-5 border-t border-white/5 flex items-center justify-between">
+                    <a href="<?php echo esc_url($detail_link); ?>" class="company-learn-more-btn">
+                      <span data-i18n="company_learn_more"><?php esc_html_e('آشنایی بیشتر', 'rahnab'); ?></span>
+                      <span class="text-xs">↗</span>
+                    </a>
+                    <a href="<?php echo esc_url($comp['website']); ?>" target="_blank" rel="noopener noreferrer"
+                      class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-gold-300 hover:bg-gold-400/20 hover:border-gold-400/40 transition-all transform hover:scale-105"
+                      title="<?php esc_attr_e('مشاهده وب‌سایت رسمی شرکت', 'rahnab'); ?>" aria-label="<?php esc_attr_e('مشاهده وب‌سایت رسمی شرکت', 'rahnab'); ?>">
+                      <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+                <?php
+            endforeach;
+        endif;
+        ?>
 
       </div>
     </div>
@@ -698,62 +617,175 @@ get_header();
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        <!-- Featured Story (Local Refinery Image) -->
-        <div class="lg:col-span-8 news-card group cursor-pointer relative overflow-hidden h-[360px] sm:h-[460px]">
-          <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-plasma-refinery.jpg" alt="News Feature"
-            class="news-card-img absolute inset-0 w-full h-full object-cover">
-          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-          <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-            <div class="flex items-center gap-4 mb-3">
-              <span class="text-gold-400 text-xs font-bold font-en-display">OCT 2024</span>
-              <span class="bg-white/10 text-slate-200 px-3 py-1 rounded-full text-xs font-medium"
-                data-i18n="news_cat_1">توسعه زیرساخت ملی</span>
+        <?php
+        $default_news = [
+            1 => [
+                'title' => 'بهره‌برداری از فاز تکمیلی پالایشگاه صنعتی پلاسمای نوژین زیست فارمد با ظرفیت ۱۵۰ هزار لیتر',
+                'desc'  => 'این گام استراتژیک، وابستگی کشور به ارسال پلاسما به خارج از مرزها را خاتمه داده و تولید داروهای حیاتی مشتق از پلاسما را درون مرزهای کشور تثبیت می‌کند.',
+                'date'  => 'OCT 2024',
+                'cat'   => 'توسعه زیرساخت ملی',
+                'image' => 'assets/images/news-plasma-refinery.jpg',
+            ],
+            2 => [
+                'title' => 'موفقیت کارا یاخته در فاز نخست کارآزمایی بالینی ایمونوتراپی سلولی CAR-T',
+                'desc'  => 'ورود رسمی به باشگاه تولیدکنندگان فناوری‌های درمان پیشرفته سرطان در غرب آسیا.',
+                'date'  => 'SEP 2024',
+                'cat'   => 'فناوری و درمان‌های پیشرفته',
+                'image' => 'assets/images/news-cart-celltherapy.jpg',
+            ],
+            3 => [
+                'title' => 'تأمین بیش از ۷۰ درصد پادزهرهای اورژانسی کشور توسط پادرا سرم البرز',
+                'desc'  => 'پوشش سراسری مراکز درمان گزش‌های خطرناک و نجات جان هزاران بیمار در مناطق مرزی.',
+                'date'  => 'AUG 2024',
+                'cat'   => 'ارتقای سلامت و خدمات ملی',
+                'image' => 'assets/images/news-antivenom-lab.jpg',
+            ],
+        ];
+
+        $news_query = new WP_Query([
+            'post_type'      => 'post',
+            'posts_per_page' => 3,
+            'orderby'        => 'date',
+            'order'          => 'DESC',
+            'post_status'    => 'publish',
+        ]);
+
+        $news_posts = $news_query->posts;
+        $has_news   = !empty($news_posts);
+
+        // Featured Story (1st item)
+        if ($has_news && isset($news_posts[0])) :
+            $post_1    = $news_posts[0];
+            $post_id_1 = $post_1->ID;
+            $title_1   = get_the_title($post_1);
+            $desc_1    = get_the_excerpt($post_1);
+            if (empty($desc_1)) {
+                $desc_1 = $default_news[1]['desc'];
+            }
+            $desc_1    = wp_strip_all_tags($desc_1);
+            $date_1    = strtoupper(get_the_date('M Y', $post_1));
+            $cats_1    = get_the_category($post_id_1);
+            $cat_1     = (!empty($cats_1) && $cats_1[0]->slug !== 'uncategorized') ? $cats_1[0]->name : $default_news[1]['cat'];
+            $img_1     = rahnab_get_news_image($post_id_1, 1);
+            $link_1    = get_permalink($post_1);
+            ?>
+            <!-- Featured Story (Local Refinery Image) -->
+            <div class="lg:col-span-8 news-card group cursor-pointer relative overflow-hidden h-[360px] sm:h-[460px]" onclick="window.location.href='<?php echo esc_url($link_1); ?>'">
+              <img src="<?php echo esc_url($img_1); ?>" alt="<?php echo esc_attr($title_1); ?>"
+                class="news-card-img absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                <div class="flex items-center gap-4 mb-3">
+                  <span class="text-gold-400 text-xs font-bold font-en-display"><?php echo esc_html($date_1); ?></span>
+                  <span class="bg-white/10 text-slate-200 px-3 py-1 rounded-full text-xs font-medium"
+                    data-i18n="news_cat_1"><?php echo esc_html($cat_1); ?></span>
+                </div>
+                <h3
+                  class="text-xl md:text-3xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors leading-snug"
+                  data-i18n="news_item_1_title">
+                  <a href="<?php echo esc_url($link_1); ?>" class="hover:text-gold-400 transition-colors">
+                    <?php echo esc_html($title_1); ?>
+                  </a>
+                </h3>
+                <p class="text-slate-300 text-xs md:text-sm line-clamp-2 leading-relaxed" data-i18n="news_item_1_desc">
+                  <?php echo esc_html($desc_1); ?>
+                </p>
+              </div>
             </div>
-            <h3
-              class="text-xl md:text-3xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors leading-snug"
-              data-i18n="news_item_1_title">
-              بهره‌برداری از فاز تکمیلی پالایشگاه صنعتی پلاسمای نوژین زیست فارمد با ظرفیت ۱۵۰ هزار لیتر
-            </h3>
-            <p class="text-slate-300 text-xs md:text-sm line-clamp-2 leading-relaxed" data-i18n="news_item_1_desc">
-              این گام استراتژیک، وابستگی کشور به ارسال پلاسما به خارج از مرزها را خاتمه داده و تولید داروهای حیاتی مشتق
-              از پلاسما را درون مرزهای کشور تثبیت می‌کند.
-            </p>
-          </div>
-        </div>
+        <?php else : ?>
+            <!-- Fallback Featured Story -->
+            <div class="lg:col-span-8 news-card group cursor-pointer relative overflow-hidden h-[360px] sm:h-[460px]">
+              <img src="<?php echo esc_url(RAHNAB_URI . '/' . $default_news[1]['image']); ?>" alt="News Feature"
+                class="news-card-img absolute inset-0 w-full h-full object-cover">
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                <div class="flex items-center gap-4 mb-3">
+                  <span class="text-gold-400 text-xs font-bold font-en-display"><?php echo esc_html($default_news[1]['date']); ?></span>
+                  <span class="bg-white/10 text-slate-200 px-3 py-1 rounded-full text-xs font-medium"
+                    data-i18n="news_cat_1"><?php echo esc_html($default_news[1]['cat']); ?></span>
+                </div>
+                <h3
+                  class="text-xl md:text-3xl font-bold text-white mb-3 group-hover:text-gold-400 transition-colors leading-snug"
+                  data-i18n="news_item_1_title">
+                  <?php echo esc_html($default_news[1]['title']); ?>
+                </h3>
+                <p class="text-slate-300 text-xs md:text-sm line-clamp-2 leading-relaxed" data-i18n="news_item_1_desc">
+                  <?php echo esc_html($default_news[1]['desc']); ?>
+                </p>
+              </div>
+            </div>
+        <?php endif; ?>
 
         <!-- Secondary Stories (Local Lab & Antivenom Images) -->
         <div class="lg:col-span-4 flex flex-col gap-6">
-          <div
-            class="news-card group cursor-pointer flex flex-col justify-between h-[218px] relative overflow-hidden p-6">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-cart-celltherapy.jpg" alt="CAR-T Lab"
-              class="news-card-img absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity">
-            <div class="relative z-10">
-              <span class="text-gold-400 text-xs font-bold font-en-display block mb-2">SEP 2024</span>
-              <h4
-                class="text-base font-bold text-white group-hover:text-gold-400 transition-colors line-clamp-2 leading-snug"
-                data-i18n="news_item_2_title">
-                موفقیت کارا یاخته در فاز نخست کارآزمایی بالینی ایمونوتراپی سلولی CAR-T
-              </h4>
-            </div>
-            <p class="text-slate-400 text-xs line-clamp-2 relative z-10" data-i18n="news_item_2_desc">ورود رسمی به
-              باشگاه تولیدکنندگان فناوری‌های درمان پیشرفته سرطان در غرب آسیا.</p>
-          </div>
-
-          <div
-            class="news-card group cursor-pointer flex flex-col justify-between h-[218px] relative overflow-hidden p-6">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-antivenom-lab.jpg" alt="Antivenom Lab"
-              class="news-card-img absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity">
-            <div class="relative z-10">
-              <span class="text-gold-400 text-xs font-bold font-en-display block mb-2">AUG 2024</span>
-              <h4
-                class="text-base font-bold text-white group-hover:text-gold-400 transition-colors line-clamp-2 leading-snug"
-                data-i18n="news_item_3_title">
-                تأمین بیش از ۷۰ درصد پادزهرهای اورژانسی کشور توسط پادرا سرم البرز
-              </h4>
-            </div>
-            <p class="text-slate-400 text-xs line-clamp-2 relative z-10" data-i18n="news_item_3_desc">پوشش سراسری مراکز
-              درمان گزش‌های خطرناک و نجات جان هزاران بیمار در مناطق مرزی.</p>
-          </div>
+          <?php
+          if ($has_news && count($news_posts) > 1) :
+              for ($i = 1; $i <= 2; $i++) :
+                  $sec_idx = $i + 1;
+                  $fallback = $default_news[$sec_idx];
+                  if (isset($news_posts[$i])) {
+                      $sec_post  = $news_posts[$i];
+                      $sec_id    = $sec_post->ID;
+                      $sec_title = get_the_title($sec_post);
+                      $sec_desc  = get_the_excerpt($sec_post);
+                      if (empty($sec_desc)) {
+                          $sec_desc = $fallback['desc'];
+                      }
+                      $sec_desc  = wp_strip_all_tags($sec_desc);
+                      $sec_date  = strtoupper(get_the_date('M Y', $sec_post));
+                      $sec_img   = rahnab_get_news_image($sec_id, $sec_idx);
+                      $sec_link  = get_permalink($sec_post);
+                  } else {
+                      $sec_title = $fallback['title'];
+                      $sec_desc  = $fallback['desc'];
+                      $sec_date  = $fallback['date'];
+                      $sec_img   = RAHNAB_URI . '/' . $fallback['image'];
+                      $sec_link  = home_url('/news/');
+                  }
+                  ?>
+                  <div
+                    class="news-card group cursor-pointer flex flex-col justify-between h-[218px] relative overflow-hidden p-6" onclick="window.location.href='<?php echo esc_url($sec_link); ?>'">
+                    <img src="<?php echo esc_url($sec_img); ?>" alt="<?php echo esc_attr($sec_title); ?>"
+                      class="news-card-img absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity">
+                    <div class="relative z-10">
+                      <span class="text-gold-400 text-xs font-bold font-en-display block mb-2"><?php echo esc_html($sec_date); ?></span>
+                      <h4
+                        class="text-base font-bold text-white group-hover:text-gold-400 transition-colors line-clamp-2 leading-snug"
+                        data-i18n="news_item_<?php echo esc_attr($sec_idx); ?>_title">
+                        <a href="<?php echo esc_url($sec_link); ?>" class="hover:text-gold-400 transition-colors">
+                          <?php echo esc_html($sec_title); ?>
+                        </a>
+                      </h4>
+                    </div>
+                    <p class="text-slate-400 text-xs line-clamp-2 relative z-10" data-i18n="news_item_<?php echo esc_attr($sec_idx); ?>_desc"><?php echo esc_html($sec_desc); ?></p>
+                  </div>
+                  <?php
+              endfor;
+          else :
+              // Fallback for Secondary Stories
+              foreach ([2, 3] as $sec_idx) :
+                  $fallback = $default_news[$sec_idx];
+                  $sec_img  = RAHNAB_URI . '/' . $fallback['image'];
+                  ?>
+                  <div
+                    class="news-card group cursor-pointer flex flex-col justify-between h-[218px] relative overflow-hidden p-6">
+                    <img src="<?php echo esc_url($sec_img); ?>" alt="<?php echo esc_attr($fallback['title']); ?>"
+                      class="news-card-img absolute inset-0 w-full h-full object-cover opacity-20 group-hover:opacity-30 transition-opacity">
+                    <div class="relative z-10">
+                      <span class="text-gold-400 text-xs font-bold font-en-display block mb-2"><?php echo esc_html($fallback['date']); ?></span>
+                      <h4
+                        class="text-base font-bold text-white group-hover:text-gold-400 transition-colors line-clamp-2 leading-snug"
+                        data-i18n="news_item_<?php echo esc_attr($sec_idx); ?>_title">
+                        <?php echo esc_html($fallback['title']); ?>
+                      </h4>
+                    </div>
+                    <p class="text-slate-400 text-xs line-clamp-2 relative z-10" data-i18n="news_item_<?php echo esc_attr($sec_idx); ?>_desc"><?php echo esc_html($fallback['desc']); ?></p>
+                  </div>
+                  <?php
+              endforeach;
+          endif;
+          wp_reset_postdata();
+          ?>
         </div>
       </div>
     </div>

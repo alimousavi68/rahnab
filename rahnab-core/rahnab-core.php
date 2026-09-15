@@ -115,6 +115,11 @@ function rahnab_core_register_taxonomies() {
 add_action('init', 'rahnab_core_register_taxonomies');
 
 /**
+ * Include Native Meta Boxes (No ACF)
+ */
+require_once RAHNAB_CORE_DIR . 'inc/class-meta-boxes.php';
+
+/**
  * Include Seeder
  */
 require_once RAHNAB_CORE_DIR . 'inc/class-seeder.php';

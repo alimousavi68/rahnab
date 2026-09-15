@@ -58,3 +58,130 @@ if (!function_exists('rahnab_breadcrumbs')) {
         <?php
     }
 }
+
+if (!function_exists('rahnab_get_meta')) {
+    /**
+     * Safe post meta retriever with fallback default.
+     */
+    function rahnab_get_meta($post_id, $key, $default = '') {
+        $val = get_post_meta($post_id, $key, true);
+        return (!empty($val) || $val === '0') ? $val : $default;
+    }
+}
+
+if (!function_exists('rahnab_get_company_logo')) {
+    /**
+     * Resolves company logo URL with smart fallback.
+     */
+    function rahnab_get_company_logo($post_id, $index = 1) {
+        $custom_logo = get_post_meta($post_id, '_company_logo_custom', true);
+        if (!empty($custom_logo)) {
+            if (filter_var($custom_logo, FILTER_VALIDATE_URL)) {
+                return $custom_logo;
+            }
+            return RAHNAB_URI . '/' . ltrim($custom_logo, '/');
+        }
+
+        $thumb = get_the_post_thumbnail_url($post_id, 'full');
+        if (!empty($thumb)) {
+            return $thumb;
+        }
+
+        $post_name = get_post_field('post_name', $post_id);
+        $logos_by_slug = [
+            'company-nojin'        => 'assets/images/subsidiaries/nojin_logo.webp',
+            'company-tamin-plasma' => 'assets/images/subsidiaries/logo-tamin-plasma.svg',
+            'company-persis'       => 'assets/images/subsidiaries/logo-persisgen.png',
+            'company-arc'          => 'assets/images/subsidiaries/logo-arc.png',
+            'company-padra'        => 'assets/images/subsidiaries/padra-serum-logo-who-Final-PNG-1.png',
+            'company-karayakhte'   => 'assets/images/subsidiaries/logo-karayakhte.webp',
+        ];
+
+        if (isset($logos_by_slug[$post_name])) {
+            return RAHNAB_URI . '/' . $logos_by_slug[$post_name];
+        }
+
+        $fallback_logos = [
+            1 => 'assets/images/subsidiaries/nojin_logo.webp',
+            2 => 'assets/images/subsidiaries/logo-tamin-plasma.svg',
+            3 => 'assets/images/subsidiaries/logo-persisgen.png',
+            4 => 'assets/images/subsidiaries/logo-arc.png',
+            5 => 'assets/images/subsidiaries/padra-serum-logo-who-Final-PNG-1.png',
+            6 => 'assets/images/subsidiaries/logo-karayakhte.webp',
+        ];
+
+        $logo_file = isset($fallback_logos[$index]) ? $fallback_logos[$index] : 'assets/images/logo_rahnab.png';
+        return RAHNAB_URI . '/' . $logo_file;
+    }
+}
+
+if (!function_exists('rahnab_get_service_icon')) {
+    /**
+     * Resolves service icon SVG URL with fallback.
+     */
+    function rahnab_get_service_icon($post_id, $index = 1) {
+        $custom_icon = get_post_meta($post_id, '_service_icon', true);
+        if (!empty($custom_icon)) {
+            if (filter_var($custom_icon, FILTER_VALIDATE_URL)) {
+                return $custom_icon;
+            }
+            if (strpos($custom_icon, 'assets/') !== false) {
+                return RAHNAB_URI . '/' . ltrim($custom_icon, '/');
+            }
+            return RAHNAB_URI . '/assets/icons/services/' . ltrim($custom_icon, '/');
+        }
+
+        $fallback_icons = [
+            1 => 'service-veterinary-vaccines.svg',
+            2 => 'service-pediatric-pharma.svg',
+            3 => 'service-nutraceuticals.svg',
+            4 => 'service-biological-dressings.svg',
+            5 => 'service-plasma-therapy.svg',
+            6 => 'service-vaccine-adjuvants.svg',
+        ];
+
+        $icon_file = isset($fallback_icons[$index]) ? $fallback_icons[$index] : 'service-plasma-therapy.svg';
+        return RAHNAB_URI . '/assets/icons/services/' . $icon_file;
+    }
+}
+
+if (!function_exists('rahnab_get_news_image')) {
+    /**
+     * Resolves news image URL with fallback.
+     */
+    function rahnab_get_news_image($post_id, $index = 1) {
+        $thumb = get_the_post_thumbnail_url($post_id, 'full');
+        if (!empty($thumb)) {
+            return $thumb;
+        }
+
+        $post_name = get_post_field('post_name', $post_id);
+        $images_by_slug = [
+            'nozhin-plasma-refinery-expansion'      => 'assets/images/news-plasma-refinery.jpg',
+            'car-t-clinical-trial-success'          => 'assets/images/news-cart-celltherapy.jpg',
+            'padra-serum-national-antivenom-supply' => 'assets/images/news-antivenom-lab.jpg',
+            'arc-zist-iso-17025-accreditation'      => 'assets/images/about-cleanroom.jpg',
+            'persis-gene-new-cohort-acceleration'   => 'assets/images/news-cart.jpg',
+            'tamin-plasma-alborz-center-opening'    => 'assets/images/news-refinery.jpg',
+            'nozhin-nano-adjuvants-breakthrough'    => 'assets/images/news-antivenom.jpg',
+        ];
+
+        if (isset($images_by_slug[$post_name])) {
+            return RAHNAB_URI . '/' . $images_by_slug[$post_name];
+        }
+
+        $fallback_images = [
+            1 => 'assets/images/news-plasma-refinery.jpg',
+            2 => 'assets/images/news-cart-celltherapy.jpg',
+            3 => 'assets/images/news-antivenom-lab.jpg',
+            4 => 'assets/images/about-cleanroom.jpg',
+            5 => 'assets/images/news-cart.jpg',
+            6 => 'assets/images/news-refinery.jpg',
+            7 => 'assets/images/news-antivenom.jpg',
+        ];
+
+        $img_file = isset($fallback_images[$index]) ? $fallback_images[$index] : 'assets/images/news-plasma-refinery.jpg';
+        return RAHNAB_URI . '/' . $img_file;
+    }
+}
+

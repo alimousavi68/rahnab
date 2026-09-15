@@ -55,408 +55,246 @@ get_header();
   <section class="py-12 sm:py-20 lg:py-24 relative">
     <div class="container mx-auto px-6 sm:px-10 lg:px-16">
       <div id="servicesGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+        <?php
+        $default_services_showcase = [
+            1 => [
+                'num'      => '۰۱',
+                'title'    => 'ارائه انواع واکسن‌های دامی و طیور',
+                'en'       => 'Veterinary Recombinant Vaccines & National Biosecurity',
+                'badge_1'  => 'دام و طیور',
+                'badge_2'  => 'واکسن‌های نوترکیب',
+                'desc'     => 'تأمین امنیت زیستی و زنجیره سلامت غذایی از طریق تولید، توسعه و ارتقای فرمولاسیون واکسن‌های نوترکیب حیوانی و طیور با استانداردهای نوین بین‌المللی.',
+                'specs'    => 'خطوط فرمولاسیون آسپتیک، بیوراکتورهای صنعتی پایلوت تا کلان، استانداردهای سازمان دامپزشکی و GMP بین‌المللی',
+                'entities' => 'نوژین زیست فارمد | پرسیس‌ژن',
+                'icon'     => 'service-veterinary-vaccines.svg',
+            ],
+            2 => [
+                'num'      => '۰۲',
+                'title'    => 'ارائه انواع داروهای کودکان و اطفال',
+                'en'       => 'Pediatric Specialty Formulations & Metabolic Care',
+                'badge_1'  => 'انکولوژی اطفال',
+                'badge_2'  => 'فرمولاسیون اختصاصی',
+                'desc'     => 'تولید فرمولاسیون‌های حیاتی و داروهای ویژه نوزادان و کودکان در حوزه‌های انکولوژی، متابولیک و درمان‌های دارویی اختصاصی اطفال.',
+                'specs'    => 'کلین‌روم‌های رده A/B، سامانه‌های لیوفیلیزاسیون صنعتی، کنترل کیفی دقیق فارماکوپه‌ای',
+                'entities' => 'پرسیس‌ژن | نوژین زیست فارمد',
+                'icon'     => 'service-pediatric-pharma.svg',
+            ],
+            3 => [
+                'num'      => '۰۳',
+                'title'    => 'ارائه انواع مکمل‌های غذایی و درمانی',
+                'en'       => 'Therapeutic Supplements & Bioactive Nutraceuticals',
+                'badge_1'  => 'مکمل‌های زیستی',
+                'badge_2'  => 'پروبیوتیک درمانی',
+                'desc'     => 'توسعه فرآورده‌های طبیعی پیشرفته، پروبیوتیک‌های زیستی و مکمل‌های متابولیک و درمانی با هدف ارتقای پایدار شاخص‌های سلامت عمومی جامعه.',
+                'specs'    => 'فرآوری عصاره‌های بیواکتیو، تخمیر باکتریایی تحت شرایط ایزوله، پایش پایداری میکروبی مطابق ICH',
+                'entities' => 'نوژین زیست فارمد',
+                'icon'     => 'service-nutraceuticals.svg',
+            ],
+            4 => [
+                'num'      => '۰۴',
+                'title'    => 'ارائه انواع پانسمان‌های زیستی و سوختگی',
+                'en'       => 'Regenerative Dermal Matrices & Burn Bio-Dressings',
+                'badge_1'  => 'ترمیم بافت و سوختگی',
+                'badge_2'  => 'ماتریکس آمنیوتیک',
+                'desc'     => 'ارائه راهکارهای ماتریکس بیولوژیک و سلول‌های بازساختی جهت تسریع فرآیند ترمیم بافت در سوختگی‌های حاد پوستی، جراحی‌های باز و زخم‌های مزمن.',
+                'specs'    => 'فناوری مهندسی بافت، ایزوله‌سازی داربست‌های آمنیوتیک، بسته‌بندی استریل پرتودهی گاما',
+                'entities' => 'پادرا سرم البرز | کارا یاخته تجهیز آزما',
+                'icon'     => 'service-biological-dressings.svg',
+            ],
+            5 => [
+                'num'      => '۰۵',
+                'title'    => 'ارائه انواع داروهای مشتق از پلاسما و نوترکیب',
+                'en'       => 'Plasma-Derived Protein Replacement & Immunoglobulins',
+                'badge_1'  => 'مشتقات پلاسما',
+                'badge_2'  => 'IVIG و آلبومین',
+                'desc'     => 'تأمین فرآورده‌های مشتق از پلاسما شامل IVIG، آلبومین انسانی و فاکتورهای انعقادی حیاتی برای بیماران دچار کمبود یا نقص ایمنی اولیه و اکتسابی.',
+                'specs'    => 'پالایشگاه ۳۰۰,۰۰۰ لیتری کسر پلاسما، جداسازی کوهن پیشرفته، سامانه‌های دومرحله‌ای نانوفیلتراسیون ویروسی',
+                'entities' => 'نوژین زیست فارمد | تأمین پلاسما نوژین',
+                'icon'     => 'service-plasma-therapy.svg',
+            ],
+            6 => [
+                'num'      => '۰۶',
+                'title'    => 'ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن',
+                'en'       => 'Advanced Biological Adjuvants & Immune Enhancers',
+                'badge_1'  => 'ادجوانت‌های زیستی',
+                'badge_2'  => 'افزایش ایمنی‌زایی',
+                'desc'     => 'فرمولاسیون و تولید ادجوانت‌های پیشرفته زیستی جهت افزایش اثربخشی و ایمنی‌زایی واکسن‌ها و به حداقل رساندن دوز مصرفی و عوارض ناخواسته جانبی.',
+                'specs'    => 'امولسیون‌های نانوذره‌ای، ادجوانت‌های آلومینیومی و لیپیدی، تست‌های ایمنی‌زایی برون‌تنی و درون‌تنی',
+                'entities' => 'پرسیس‌ژن | نوژین زیست فارمد',
+                'icon'     => 'service-vaccine-adjuvants.svg',
+            ],
+        ];
 
-        <!-- Pillar 01: Veterinary Vaccines -->
-        <article class="service-showcase-card group">
-          <div class="service-card-spotlight"></div>
-          <div>
-            <!-- Top Index & Badges -->
-            <div class="flex items-center justify-between gap-3 mb-6">
-              <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_1_num">
-                ۰۱
-              </span>
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_1_badge_1">
-                  دام و طیور
-                </span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_1_badge_2">
-                  واکسن‌های نوترکیب
-                </span>
-              </div>
-            </div>
+        $services_query = new WP_Query([
+            'post_type'      => 'service',
+            'posts_per_page' => 6,
+            'orderby'        => ['menu_order' => 'ASC', 'ID' => 'ASC'],
+            'post_status'    => 'publish',
+        ]);
 
-            <!-- Icon Frame -->
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-veterinary-vaccines.svg" alt="واکسن‌های دامی و طیور" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-            </div>
+        $svc_idx = 0;
+        if ($services_query->have_posts()) :
+            while ($services_query->have_posts()) :
+                $services_query->the_post();
+                $svc_idx++;
+                $post_id  = get_the_ID();
+                $fallback = $default_services_showcase[$svc_idx] ?? $default_services_showcase[1];
 
-            <!-- Titles -->
-            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_1_title">
-              ارائه انواع واکسن‌های دامی و طیور
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_1_en">
-              Veterinary Recombinant Vaccines & National Biosecurity
-            </span>
+                $title = get_the_title();
+                $en    = rahnab_get_meta($post_id, '_service_title_en', $fallback['en']);
+                $num   = rahnab_get_meta($post_id, '_service_num', $fallback['num']);
+                if (empty($num)) {
+                    $persian_nums = [1 => '۰۱', 2 => '۰۲', 3 => '۰۳', 4 => '۰۴', 5 => '۰۵', 6 => '۰۶'];
+                    $num = $persian_nums[$svc_idx] ?? sprintf('%02d', $svc_idx);
+                }
 
-            <!-- Description -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_1_desc">
-              تأمین امنیت زیستی و زنجیره سلامت غذایی از طریق تولید، توسعه و ارتقای فرمولاسیون واکسن‌های نوترکیب حیوانی و طیور با استانداردهای نوین بین‌المللی.
-            </p>
+                $badge_1 = rahnab_get_meta($post_id, '_service_badge', $fallback['badge_1']);
+                $badge_2 = rahnab_get_meta($post_id, '_service_badge_secondary', $fallback['badge_2']);
 
-            <!-- Technical Specifications -->
-            <div class="space-y-3">
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="svc_specs_label">مشخصات فنی و مقیاس زیرساخت:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_1_specs">
-                  خطوط فرمولاسیون آسپتیک، بیوراکتورهای صنعتی پایلوت تا کلان، استانداردهای سازمان دامپزشکی و GMP بین‌المللی
-                </p>
-              </div>
+                $desc = get_the_excerpt();
+                if (empty($desc)) {
+                    $desc = get_the_content();
+                }
+                if (empty($desc)) {
+                    $desc = $fallback['desc'];
+                }
+                $desc = wp_strip_all_tags($desc);
 
-              <!-- Executing Entities -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                  </svg>
-                  <span data-i18n="svc_entities_label">شرکت‌های مجری و پشتیبان:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_1_entities">
-                  نوژین زیست فارمد | پرسیس‌ژن
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
+                $specs    = rahnab_get_meta($post_id, '_service_specs', $fallback['specs']);
+                $entities = rahnab_get_meta($post_id, '_service_entities', $fallback['entities']);
+                $icon_url = rahnab_get_service_icon($post_id, $svc_idx);
+                ?>
+                <!-- Pillar <?php echo esc_attr($svc_idx); ?>: <?php echo esc_html($title); ?> -->
+                <article class="service-showcase-card group">
+                  <div class="service-card-spotlight"></div>
+                  <div>
+                    <!-- Top Index & Badges -->
+                    <div class="flex items-center justify-between gap-3 mb-6">
+                      <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_num">
+                        <?php echo esc_html($num); ?>
+                      </span>
+                      <div class="flex items-center gap-2 flex-wrap">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_badge_1">
+                          <?php echo esc_html($badge_1); ?>
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_badge_2">
+                          <?php echo esc_html($badge_2); ?>
+                        </span>
+                      </div>
+                    </div>
 
-        <!-- Pillar 02: Pediatric Formulations -->
-        <article class="service-showcase-card group">
-          <div class="service-card-spotlight"></div>
-          <div>
-            <!-- Top Index & Badges -->
-            <div class="flex items-center justify-between gap-3 mb-6">
-              <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_2_num">
-                ۰۲
-              </span>
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_2_badge_1">
-                  انکولوژی اطفال
-                </span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_2_badge_2">
-                  فرمولاسیون اختصاصی
-                </span>
-              </div>
-            </div>
+                    <!-- Icon Frame -->
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                      <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($title); ?>" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+                    </div>
 
-            <!-- Icon Frame -->
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-pediatric-pharma.svg" alt="داروهای کودکان و اطفال" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-            </div>
+                    <!-- Titles -->
+                    <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_title">
+                      <?php echo esc_html($title); ?>
+                    </h2>
+                    <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_en">
+                      <?php echo esc_html($en); ?>
+                    </span>
 
-            <!-- Titles -->
-            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_2_title">
-              ارائه انواع داروهای کودکان و اطفال
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_2_en">
-              Pediatric Specialty Formulations & Metabolic Care
-            </span>
+                    <!-- Description -->
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_desc">
+                      <?php echo esc_html($desc); ?>
+                    </p>
 
-            <!-- Description -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_2_desc">
-              تولید فرمولاسیون‌های حیاتی و داروهای ویژه نوزادان و کودکان در حوزه‌های انکولوژی، متابولیک و درمان‌های دارویی اختصاصی اطفال.
-            </p>
+                    <!-- Technical Specifications -->
+                    <div class="space-y-3">
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                          </svg>
+                          <span data-i18n="svc_specs_label"><?php esc_html_e('مشخصات فنی و مقیاس زیرساخت:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_specs">
+                          <?php echo esc_html($specs); ?>
+                        </p>
+                      </div>
 
-            <!-- Technical Specifications -->
-            <div class="space-y-3">
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="svc_specs_label">مشخصات فنی و مقیاس زیرساخت:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_2_specs">
-                  کلین‌روم‌های رده A/B، سامانه‌های لیوفیلیزاسیون صنعتی، کنترل کیفی دقیق فارماکوپه‌ای
-                </p>
-              </div>
-
-              <!-- Executing Entities -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                  </svg>
-                  <span data-i18n="svc_entities_label">شرکت‌های مجری و پشتیبان:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_2_entities">
-                  پرسیس‌ژن | نوژین زیست فارمد
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Pillar 03: Nutraceuticals & Supplements -->
-        <article class="service-showcase-card group">
-          <div class="service-card-spotlight"></div>
-          <div>
-            <!-- Top Index & Badges -->
-            <div class="flex items-center justify-between gap-3 mb-6">
-              <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_3_num">
-                ۰۳
-              </span>
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_3_badge_1">
-                  مکمل‌های زیستی
-                </span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_3_badge_2">
-                  پروبیوتیک درمانی
-                </span>
-              </div>
-            </div>
-
-            <!-- Icon Frame -->
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-nutraceuticals.svg" alt="مکمل‌های غذایی و درمانی" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-            </div>
-
-            <!-- Titles -->
-            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_3_title">
-              ارائه انواع مکمل‌های غذایی و درمانی
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_3_en">
-              Therapeutic Supplements & Bioactive Nutraceuticals
-            </span>
-
-            <!-- Description -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_3_desc">
-              توسعه فرآورده‌های طبیعی پیشرفته، پروبیوتیک‌های زیستی و مکمل‌های متابولیک و درمانی با هدف ارتقای پایدار شاخص‌های سلامت عمومی جامعه.
-            </p>
-
-            <!-- Technical Specifications -->
-            <div class="space-y-3">
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="svc_specs_label">مشخصات فنی و مقیاس زیرساخت:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_3_specs">
-                  فرآوری عصاره‌های بیواکتیو، تخمیر باکتریایی تحت شرایط ایزوله، پایش پایداری میکروبی مطابق ICH
-                </p>
-              </div>
-
-              <!-- Executing Entities -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                  </svg>
-                  <span data-i18n="svc_entities_label">شرکت‌های مجری و پشتیبان:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_3_entities">
-                  نوژین زیست فارمد
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Pillar 04: Biological Dressings & Regenerative Matrices -->
-        <article class="service-showcase-card group">
-          <div class="service-card-spotlight"></div>
-          <div>
-            <!-- Top Index & Badges -->
-            <div class="flex items-center justify-between gap-3 mb-6">
-              <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_4_num">
-                ۰۴
-              </span>
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_4_badge_1">
-                  ترمیم بافت و سوختگی
-                </span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_4_badge_2">
-                  ماتریکس آمنیوتیک
-                </span>
-              </div>
-            </div>
-
-            <!-- Icon Frame -->
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-biological-dressings.svg" alt="پانسمان‌های زیستی و سوختگی" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-            </div>
-
-            <!-- Titles -->
-            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_4_title">
-              ارائه انواع پانسمان‌های زیستی و سوختگی
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_4_en">
-              Regenerative Dermal Matrices & Burn Bio-Dressings
-            </span>
-
-            <!-- Description -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_4_desc">
-              ارائه راهکارهای ماتریکس بیولوژیک و سلول‌های بازساختی جهت تسریع فرآیند ترمیم بافت در سوختگی‌های حاد پوستی، جراحی‌های باز و زخم‌های مزمن.
-            </p>
-
-            <!-- Technical Specifications -->
-            <div class="space-y-3">
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="svc_specs_label">مشخصات فنی و مقیاس زیرساخت:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_4_specs">
-                  فناوری مهندسی بافت، ایزوله‌سازی داربست‌های آمنیوتیک، بسته‌بندی استریل پرتودهی گاما
-                </p>
-              </div>
-
-              <!-- Executing Entities -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                  </svg>
-                  <span data-i18n="svc_entities_label">شرکت‌های مجری و پشتیبان:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_4_entities">
-                  پادرا سرم البرز | کارا یاخته تجهیز آزما
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Pillar 05: Plasma Derivatives & Immunoglobulins -->
-        <article class="service-showcase-card group">
-          <div class="service-card-spotlight"></div>
-          <div>
-            <!-- Top Index & Badges -->
-            <div class="flex items-center justify-between gap-3 mb-6">
-              <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_5_num">
-                ۰۵
-              </span>
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_5_badge_1">
-                  مشتقات پلاسما
-                </span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_5_badge_2">
-                  IVIG و آلبومین
-                </span>
-              </div>
-            </div>
-
-            <!-- Icon Frame -->
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-plasma-therapy.svg" alt="داروهای مشتق از پلاسما و نوترکیب" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-            </div>
-
-            <!-- Titles -->
-            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_5_title">
-              ارائه انواع داروهای مشتق از پلاسما و نوترکیب
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_5_en">
-              Plasma-Derived Protein Replacement & Immunoglobulins
-            </span>
-
-            <!-- Description -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_5_desc">
-              تأمین فرآورده‌های مشتق از پلاسما شامل IVIG، آلبومین انسانی و فاکتورهای انعقادی حیاتی برای بیماران دچار کمبود یا نقص ایمنی اولیه و اکتسابی.
-            </p>
-
-            <!-- Technical Specifications -->
-            <div class="space-y-3">
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="svc_specs_label">مشخصات فنی و مقیاس زیرساخت:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_5_specs">
-                  پالایشگاه ۳۰۰,۰۰۰ لیتری کسر پلاسما، جداسازی کوهن پیشرفته، سامانه‌های دومرحله‌ای نانوفیلتراسیون ویروسی
-                </p>
-              </div>
-
-              <!-- Executing Entities -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                  </svg>
-                  <span data-i18n="svc_entities_label">شرکت‌های مجری و پشتیبان:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_5_entities">
-                  نوژین زیست فارمد | تأمین پلاسما نوژین
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <!-- Pillar 06: Vaccine Adjuvants -->
-        <article class="service-showcase-card group">
-          <div class="service-card-spotlight"></div>
-          <div>
-            <!-- Top Index & Badges -->
-            <div class="flex items-center justify-between gap-3 mb-6">
-              <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_6_num">
-                ۰۶
-              </span>
-              <div class="flex items-center gap-2 flex-wrap">
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_6_badge_1">
-                  ادجوانت‌های زیستی
-                </span>
-                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_6_badge_2">
-                  افزایش ایمنی‌زایی
-                </span>
-              </div>
-            </div>
-
-            <!-- Icon Frame -->
-            <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/icons/services/service-vaccine-adjuvants.svg" alt="یاورها و فرمولاسیون‌های اختصاصی واکسن" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
-            </div>
-
-            <!-- Titles -->
-            <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_6_title">
-              ارائه انواع یاورها و فرمولاسیون‌های اختصاصی واکسن
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_6_en">
-              Advanced Biological Adjuvants & Immune Enhancers
-            </span>
-
-            <!-- Description -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_6_desc">
-              فرمولاسیون و تولید ادجوانت‌های پیشرفته زیستی جهت افزایش اثربخشی و ایمنی‌زایی واکسن‌ها و به حداقل رساندن دوز مصرفی و عوارض ناخواسته جانبی.
-            </p>
-
-            <!-- Technical Specifications -->
-            <div class="space-y-3">
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="svc_specs_label">مشخصات فنی و مقیاس زیرساخت:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_6_specs">
-                  امولسیون‌های نانوذره‌ای، ادجوانت‌های آلومینیومی و لیپیدی، تست‌های ایمنی‌زایی برون‌تنی و درون‌تنی
-                </p>
-              </div>
-
-              <!-- Executing Entities -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
-                  </svg>
-                  <span data-i18n="svc_entities_label">شرکت‌های مجری و پشتیبان:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_6_entities">
-                  پرسیس‌ژن | نوژین زیست فارمد
-                </p>
-              </div>
-            </div>
-          </div>
-        </article>
+                      <!-- Executing Entities -->
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                          </svg>
+                          <span data-i18n="svc_entities_label"><?php esc_html_e('شرکت‌های مجری و پشتیبان:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_entities">
+                          <?php echo esc_html($entities); ?>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            foreach ($default_services_showcase as $svc_idx => $svc) :
+                $icon_url = RAHNAB_URI . '/assets/icons/services/' . $svc['icon'];
+                ?>
+                <article class="service-showcase-card group">
+                  <div class="service-card-spotlight"></div>
+                  <div>
+                    <div class="flex items-center justify-between gap-3 mb-6">
+                      <span class="text-2xl sm:text-3xl font-mono font-bold text-gold-400/40 group-hover:text-gold-400 transition-colors" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_num">
+                        <?php echo esc_html($svc['num']); ?>
+                      </span>
+                      <div class="flex items-center gap-2 flex-wrap">
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-white/5 text-slate-300 border border-white/10" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_badge_1">
+                          <?php echo esc_html($svc['badge_1']); ?>
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold bg-gold-400/10 text-gold-300 border border-gold-400/20" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_badge_2">
+                          <?php echo esc_html($svc['badge_2']); ?>
+                        </span>
+                      </div>
+                    </div>
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gold-400/[0.04] border border-gold-400/20 flex items-center justify-center p-3 mb-6 group-hover:border-gold-400/50 group-hover:bg-gold-400/10 group-hover:shadow-[0_0_25px_rgba(229,184,135,0.18)] transition-all duration-300">
+                      <img src="<?php echo esc_url($icon_url); ?>" alt="<?php echo esc_attr($svc['title']); ?>" class="w-10 h-10 sm:w-12 sm:h-12 object-contain filter drop-shadow-[0_0_8px_rgba(229,184,135,0.25)] transition-transform duration-300 group-hover:scale-110">
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-black text-white tracking-tight mb-1 group-hover:text-gold-300 transition-colors" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_title">
+                      <?php echo esc_html($svc['title']); ?>
+                    </h2>
+                    <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_en">
+                      <?php echo esc_html($svc['en']); ?>
+                    </span>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_desc">
+                      <?php echo esc_html($svc['desc']); ?>
+                    </p>
+                    <div class="space-y-3">
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                          </svg>
+                          <span data-i18n="svc_specs_label"><?php esc_html_e('مشخصات فنی و مقیاس زیرساخت:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_specs">
+                          <?php echo esc_html($svc['specs']); ?>
+                        </p>
+                      </div>
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                          </svg>
+                          <span data-i18n="svc_entities_label"><?php esc_html_e('شرکت‌های مجری و پشتیبان:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 font-semibold" data-i18n="svc_<?php echo esc_attr($svc_idx); ?>_entities">
+                          <?php echo esc_html($svc['entities']); ?>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+                <?php
+            endforeach;
+        endif;
+        ?>
 
       </div>
     </div>

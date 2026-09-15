@@ -84,58 +84,117 @@ get_header();
        ========================================= -->
   <section class="py-10 sm:py-14 relative z-10">
     <div class="container mx-auto px-6 sm:px-10 lg:px-16">
-      <article class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-r from-[#101522] to-[#0A0E17] group hover:border-gold-400/40 transition-all duration-500 shadow-2xl">
-        <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
-          
-          <!-- Image Column (7 Cols) -->
-          <div class="lg:col-span-7 relative min-h-[260px] sm:min-h-[360px] lg:min-h-[440px] overflow-hidden">
-            <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-plasma-refinery.jpg" alt="Nozhin Plasma Refinery"
-                 class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 filter brightness-[0.95]">
-            <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-[#101522]/40 to-[#101522] pointer-events-none"></div>
-          </div>
+      <?php
+      $featured_query = new WP_Query([
+          'post_type'      => 'post',
+          'posts_per_page' => 1,
+          'orderby'        => 'date',
+          'order'          => 'DESC',
+          'post_status'    => 'publish',
+      ]);
 
-          <!-- Content Column (5 Cols) -->
-          <div class="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative z-10">
-            <div>
-              <!-- Badges & Meta -->
-              <div class="flex items-center gap-3 flex-wrap mb-4">
-                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gold-400 text-black" data-i18n="news_featured_badge">
-                  ★ دستاورد ملی
-                </span>
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/10 text-slate-300 border border-white/10" data-i18n="news_cat_1">
-                  توسعه زیرساخت ملی
-                </span>
+      if ($featured_query->have_posts()) :
+          while ($featured_query->have_posts()) :
+              $featured_query->the_post();
+              $feat_id    = get_the_ID();
+              $feat_title = get_the_title();
+              $feat_desc  = get_the_excerpt();
+              if (empty($feat_desc)) {
+                  $feat_desc = get_the_content();
+              }
+              $feat_desc = wp_strip_all_tags($feat_desc);
+              $feat_cats = get_the_category();
+              $feat_cat_name = (!empty($feat_cats) && $feat_cats[0]->slug !== 'uncategorized') ? $feat_cats[0]->name : __('توسعه زیرساخت ملی', 'rahnab');
+              $feat_date = rahnab_get_meta($feat_id, '_news_date_fa', get_the_date('j F Y'));
+              $feat_read = rahnab_get_meta($feat_id, '_news_read_time', __('۵ دقیقه مطالعه', 'rahnab'));
+              $feat_img  = rahnab_get_news_image($feat_id, 1);
+              $feat_link = get_permalink();
+              ?>
+              <article class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-r from-[#101522] to-[#0A0E17] group hover:border-gold-400/40 transition-all duration-500 shadow-2xl" onclick="window.location.href='<?php echo esc_url($feat_link); ?>'">
+                <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+                  <div class="lg:col-span-7 relative min-h-[260px] sm:min-h-[360px] lg:min-h-[440px] overflow-hidden">
+                    <img src="<?php echo esc_url($feat_img); ?>" alt="<?php echo esc_attr($feat_title); ?>"
+                         class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 filter brightness-[0.95]">
+                    <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-[#101522]/40 to-[#101522] pointer-events-none"></div>
+                  </div>
+                  <div class="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative z-10">
+                    <div>
+                      <div class="flex items-center gap-3 flex-wrap mb-4">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gold-400 text-black" data-i18n="news_featured_badge">
+                          ★ <?php esc_html_e('دستاورد ملی', 'rahnab'); ?>
+                        </span>
+                        <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/10 text-slate-300 border border-white/10" data-i18n="news_cat_1">
+                          <?php echo esc_html($feat_cat_name); ?>
+                        </span>
+                      </div>
+                      <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-4">
+                        <span data-i18n="news_featured_date"><?php echo esc_html($feat_date); ?></span>
+                        <span class="text-white/20">•</span>
+                        <span data-i18n="news_featured_read"><?php echo esc_html($feat_read); ?></span>
+                      </div>
+                      <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug tracking-tight mb-4 group-hover:text-gold-300 transition-colors" data-i18n="news_item_1_title">
+                        <a href="<?php echo esc_url($feat_link); ?>" class="hover:text-gold-300 transition-colors">
+                          <?php echo esc_html($feat_title); ?>
+                        </a>
+                      </h2>
+                      <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-6" data-i18n="news_item_1_desc">
+                        <?php echo esc_html($feat_desc); ?>
+                      </p>
+                    </div>
+                    <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                      <span class="text-xs sm:text-sm font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-2 transition-colors">
+                        <span data-i18n="news_read_more"><?php esc_html_e('مطالعه خبر کامل', 'rahnab'); ?></span>
+                        <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </article>
+              <?php
+          endwhile;
+          wp_reset_postdata();
+      else :
+          // Fallback static featured article
+          ?>
+          <article class="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-r from-[#101522] to-[#0A0E17] group hover:border-gold-400/40 transition-all duration-500 shadow-2xl">
+            <div class="grid grid-cols-1 lg:grid-cols-12 items-stretch">
+              <div class="lg:col-span-7 relative min-h-[260px] sm:min-h-[360px] lg:min-h-[440px] overflow-hidden">
+                <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-plasma-refinery.jpg" alt="Nozhin Plasma Refinery"
+                     class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105 filter brightness-[0.95]">
+                <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-transparent via-[#101522]/40 to-[#101522] pointer-events-none"></div>
               </div>
-
-              <!-- Date & Read Time -->
-              <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-4">
-                <span data-i18n="news_featured_date">۱۸ مهر ۱۴۰۳</span>
-                <span class="text-white/20">•</span>
-                <span data-i18n="news_featured_read">۵ دقیقه مطالعه</span>
+              <div class="lg:col-span-5 p-6 sm:p-8 lg:p-10 flex flex-col justify-between relative z-10">
+                <div>
+                  <div class="flex items-center gap-3 flex-wrap mb-4">
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-gold-400 text-black" data-i18n="news_featured_badge">
+                      ★ دستاورد ملی
+                    </span>
+                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-white/10 text-slate-300 border border-white/10" data-i18n="news_cat_1">
+                      توسعه زیرساخت ملی
+                    </span>
+                  </div>
+                  <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-4">
+                    <span data-i18n="news_featured_date">۱۸ مهر ۱۴۰۳</span>
+                    <span class="text-white/20">•</span>
+                    <span data-i18n="news_featured_read">۵ دقیقه مطالعه</span>
+                  </div>
+                  <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug tracking-tight mb-4 group-hover:text-gold-300 transition-colors" data-i18n="news_item_1_title">
+                    بهره‌برداری از فاز تکمیلی پالایشگاه صنعتی پلاسمای نوژین زیست فارمد با ظرفیت ۱۵۰ هزار لیتر
+                  </h2>
+                  <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-6" data-i18n="news_item_1_desc">
+                    این گام استراتژیک، وابستگی کشور به ارسال پلاسما به خارج از مرزها را خاتمه داده و تولید داروهای حیاتی مشتق از پلاسما را درون مرزهای کشور تثبیت می‌کند.
+                  </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 flex items-center justify-between">
+                  <span class="text-xs sm:text-sm font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-2 transition-colors">
+                    <span data-i18n="news_read_more">مطالعه خبر کامل</span>
+                    <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
+                  </span>
+                </div>
               </div>
-
-              <!-- Title -->
-              <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug tracking-tight mb-4 group-hover:text-gold-300 transition-colors" data-i18n="news_item_1_title">
-                بهره‌برداری از فاز تکمیلی پالایشگاه صنعتی پلاسمای نوژین زیست فارمد با ظرفیت ۱۵۰ هزار لیتر
-              </h2>
-
-              <!-- Description -->
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-6" data-i18n="news_item_1_desc">
-                این گام استراتژیک، وابستگی کشور به ارسال پلاسما به خارج از مرزها را خاتمه داده و تولید داروهای حیاتی مشتق از پلاسما را درون مرزهای کشور تثبیت می‌کند.
-              </p>
             </div>
-
-            <!-- Action Link -->
-            <div class="pt-4 border-t border-white/10 flex items-center justify-between">
-              <span class="text-xs sm:text-sm font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-2 transition-colors">
-                <span data-i18n="news_read_more">مطالعه خبر کامل</span>
-                <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
-              </span>
-            </div>
-          </div>
-
-        </div>
-      </article>
+          </article>
+      <?php endif; ?>
     </div>
   </section>
 
@@ -146,251 +205,220 @@ get_header();
     <div class="container mx-auto px-6 sm:px-10 lg:px-16">
       <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
-        <!-- Card 1: CAR-T Therapy (science) -->
-        <article class="news-showcase-card group cursor-pointer" data-category="science">
-          <div class="news-card-spotlight"></div>
-          <div>
-            <!-- Thumbnail Image -->
-            <div class="relative h-48 sm:h-52 overflow-hidden">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-cart-celltherapy.jpg" alt="CAR-T Cellular Therapy"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
-              <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
-                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="news_tab_science">
-                  فناوری و درمان‌های پیشرفته
-                </span>
-              </div>
-            </div>
+        <?php
+        $news_fallback_items = array(
+            array(
+                'category'   => 'science',
+                'cat_i18n'   => 'news_tab_science',
+                'cat_name'   => 'فناوری و درمان‌های پیشرفته',
+                'img'        => RAHNAB_URI . '/assets/images/news-cart-celltherapy.jpg',
+                'alt'        => 'CAR-T Cellular Therapy',
+                'date'       => '۲۸ شهریور ۱۴۰۳',
+                'date_i18n'  => 'news_1_date',
+                'read'       => '۴ دقیقه مطالعه',
+                'read_i18n'  => 'news_1_read',
+                'title'      => 'موفقیت کارا یاخته در فاز نخست کارآزمایی بالینی ایمونوتراپی سلولی CAR-T',
+                'title_i18n' => 'news_item_2_title',
+                'desc'       => 'ورود رسمی به باشگاه تولیدکنندگان فناوری‌های درمان پیشرفته سرطان در غرب آسیا.',
+                'desc_i18n'  => 'news_item_2_desc',
+            ),
+            array(
+                'category'   => 'health',
+                'cat_i18n'   => 'news_tab_health',
+                'cat_name'   => 'ارتقای سلامت و خدمات ملی',
+                'img'        => RAHNAB_URI . '/assets/images/news-antivenom-lab.jpg',
+                'alt'        => 'Padra Serum Lab',
+                'date'       => '۱۲ شهریور ۱۴۰۳',
+                'date_i18n'  => 'news_2_date',
+                'read'       => '۳ دقیقه مطالعه',
+                'read_i18n'  => 'news_2_read',
+                'title'      => 'تأمین بیش از ۷۰ درصد پادزهرهای اورژانسی کشور توسط پادرا سرم البرز',
+                'title_i18n' => 'news_item_3_title',
+                'desc'       => 'پوشش سراسری مراکز درمان گزش‌های خطرناک و نجات جان هزاران بیمار در مناطق مرزی.',
+                'desc_i18n'  => 'news_item_3_desc',
+            ),
+            array(
+                'category'   => 'infra',
+                'cat_i18n'   => 'news_tab_infra',
+                'cat_name'   => 'توسعه زیرساخت ملی',
+                'img'        => RAHNAB_URI . '/assets/images/about-cleanroom.jpg',
+                'alt'        => 'Arc Biological QC',
+                'date'       => '۲۵ مرداد ۱۴۰۳',
+                'date_i18n'  => 'news_3_date',
+                'read'       => '۴ دقیقه مطالعه',
+                'read_i18n'  => 'news_3_read',
+                'title'      => 'اخذ گواهینامه رفرنس بین‌المللی ISO/IEC 17025 توسط آرک زیست آزما',
+                'title_i18n' => 'news_3_title',
+                'desc'       => 'ارتقای استانداردهای کنترل کیفی، آزمون‌های بیواسی و تأیید بچ‌ریلیز فرآورده‌های بیولوژیک در سطح آزمایشگاه‌های مرجع منطقه‌ای.',
+                'desc_i18n'  => 'news_3_desc',
+            ),
+            array(
+                'category'   => 'science',
+                'cat_i18n'   => 'news_tab_science',
+                'cat_name'   => 'فناوری و درمان‌های پیشرفته',
+                'img'        => RAHNAB_URI . '/assets/images/news-cart.jpg',
+                'alt'        => 'Persis Gene Accelerator',
+                'date'       => '۰۴ مرداد ۱۴۰۳',
+                'date_i18n'  => 'news_4_date',
+                'read'       => '۵ دقیقه مطالعه',
+                'read_i18n'  => 'news_4_read',
+                'title'      => 'آغاز چرخه شتاب‌دهی دور جدید تیم‌های زیست‌دارویی در شتاب‌دهنده پرسیس ژن',
+                'title_i18n' => 'news_4_title',
+                'desc'       => 'ورود ۶ استارتاپ نخبگانی زیست‌فناوری سلامت به مرحله تحقیق، توسعه فرمولاسیون و جذب سرمایه‌گذاری ونچر در هلدینگ.',
+                'desc_i18n'  => 'news_4_desc',
+            ),
+            array(
+                'category'   => 'infra',
+                'cat_i18n'   => 'news_tab_infra',
+                'cat_name'   => 'توسعه زیرساخت ملی',
+                'img'        => RAHNAB_URI . '/assets/images/news-refinery.jpg',
+                'alt'        => 'Tamin Plasma Center',
+                'date'       => '۱۶ تیر ۱۴۰۳',
+                'date_i18n'  => 'news_5_date',
+                'read'       => '۳ دقیقه مطالعه',
+                'read_i18n'  => 'news_5_read',
+                'title'      => 'افتتاح بزرگ‌ترین پایگاه جمع‌آوری پلاسمای استان البرز توسط تأمین پلاسما نوژین',
+                'title_i18n' => 'news_5_title',
+                'desc'       => 'گسترش شبکه ملی جمع‌آوری پلاسما به روش پلاسمانویسی تمام‌اتوماتیک و مطابق با استانداردهای بهداشت جهانی WHO.',
+                'desc_i18n'  => 'news_5_desc',
+            ),
+            array(
+                'category'   => 'health',
+                'cat_i18n'   => 'news_tab_health',
+                'cat_name'   => 'ارتقای سلامت و خدمات ملی',
+                'img'        => RAHNAB_URI . '/assets/images/news-antivenom.jpg',
+                'alt'        => 'Nozhin Nano Adjuvants',
+                'date'       => '۲۲ خرداد ۱۴۰۳',
+                'date_i18n'  => 'news_6_date',
+                'read'       => '۴ دقیقه مطالعه',
+                'read_i18n'  => 'news_6_read',
+                'title'      => 'بومی‌سازی نانویاورهای اختصاصی واکسن‌های دامی و طیور در نوژین زیست فارمد',
+                'title_i18n' => 'news_6_title',
+                'desc'       => 'دستیابی به دانش فنی فرمولاسیون ادجوانت‌های روغنی پیشرفته جهت افزایش اثربخشی ایمنی‌زایی واکسن‌ها در صنعت دامپروری.',
+                'desc_i18n'  => 'news_6_desc',
+            ),
+        );
 
-            <!-- Content Area -->
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
-                <span data-i18n="news_1_date">۲۸ شهریور ۱۴۰۳</span>
-                <span class="text-white/20">•</span>
-                <span data-i18n="news_1_read">۴ دقیقه مطالعه</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="news_item_2_title">
-                موفقیت کارا یاخته در فاز نخست کارآزمایی بالینی ایمونوتراپی سلولی CAR-T
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="news_item_2_desc">
-                ورود رسمی به باشگاه تولیدکنندگان فناوری‌های درمان پیشرفته سرطان در غرب آسیا.
-              </p>
-            </div>
-          </div>
+        $news_grid_query = new WP_Query(array(
+            'post_type'      => 'post',
+            'posts_per_page' => 6,
+            'offset'         => 1,
+            'post_status'    => 'publish',
+        ));
 
-          <!-- Card Footer -->
-          <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
-              <span data-i18n="news_read_more">مطالعه خبر کامل</span>
-              <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
-            </span>
-          </div>
-        </article>
+        if ($news_grid_query->have_posts()) :
+            $grid_idx = 0;
+            while ($news_grid_query->have_posts()) : $news_grid_query->the_post();
+                $fb = isset($news_fallback_items[$grid_idx]) ? $news_fallback_items[$grid_idx] : $news_fallback_items[0];
 
-        <!-- Card 2: Emergency Antivenom (health) -->
-        <article class="news-showcase-card group cursor-pointer" data-category="health">
-          <div class="news-card-spotlight"></div>
-          <div>
-            <!-- Thumbnail Image -->
-            <div class="relative h-48 sm:h-52 overflow-hidden">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-antivenom-lab.jpg" alt="Padra Serum Lab"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
-              <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
-                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="news_tab_health">
-                  ارتقای سلامت و خدمات ملی
-                </span>
-              </div>
-            </div>
+                // Category determination
+                $cats = get_the_category();
+                $cat_slug = !empty($cats) ? $cats[0]->slug : $fb['category'];
+                $cat_name = !empty($cats) ? $cats[0]->name : $fb['cat_name'];
+                $cat_i18n = $fb['cat_i18n'];
+                if ($cat_slug === 'infra') {
+                    $cat_i18n = 'news_tab_infra';
+                } elseif ($cat_slug === 'science') {
+                    $cat_i18n = 'news_tab_science';
+                } elseif ($cat_slug === 'health') {
+                    $cat_i18n = 'news_tab_health';
+                }
 
-            <!-- Content Area -->
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
-                <span data-i18n="news_2_date">۱۲ شهریور ۱۴۰۳</span>
-                <span class="text-white/20">•</span>
-                <span data-i18n="news_2_read">۳ دقیقه مطالعه</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="news_item_3_title">
-                تأمین بیش از ۷۰ درصد پادزهرهای اورژانسی کشور توسط پادرا سرم البرز
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="news_item_3_desc">
-                پوشش سراسری مراکز درمان گزش‌های خطرناک و نجات جان هزاران بیمار در مناطق مرزی.
-              </p>
-            </div>
-          </div>
+                // Image resolution
+                $img_url = rahnab_get_news_image(get_the_ID(), $grid_idx + 2);
+                if (empty($img_url)) {
+                    $img_url = $fb['img'];
+                }
 
-          <!-- Card Footer -->
-          <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
-              <span data-i18n="news_read_more">مطالعه خبر کامل</span>
-              <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
-            </span>
-          </div>
-        </article>
+                // Meta resolution
+                $date_fa   = get_post_meta(get_the_ID(), '_news_date_fa', true) ?: (get_the_date('j F Y') ?: $fb['date']);
+                $read_time = get_post_meta(get_the_ID(), '_news_read_time', true) ?: $fb['read'];
+                $excerpt   = get_the_excerpt() ?: $fb['desc'];
+                $post_link = get_permalink();
+                ?>
+                <article class="news-showcase-card group cursor-pointer" data-category="<?php echo esc_attr($cat_slug); ?>" onclick="window.location.href='<?php echo esc_url($post_link); ?>'">
+                  <div class="news-card-spotlight"></div>
+                  <div>
+                    <!-- Thumbnail Image -->
+                    <div class="relative h-48 sm:h-52 overflow-hidden">
+                      <img src="<?php echo esc_url($img_url); ?>" alt="<?php the_title_attribute(); ?>"
+                           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                      <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
+                      <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
+                        <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="<?php echo esc_attr($cat_i18n); ?>">
+                          <?php echo esc_html($cat_name); ?>
+                        </span>
+                      </div>
+                    </div>
 
-        <!-- Card 3: ISO 17025 Accreditation (infra) -->
-        <article class="news-showcase-card group cursor-pointer" data-category="infra">
-          <div class="news-card-spotlight"></div>
-          <div>
-            <!-- Thumbnail Image -->
-            <div class="relative h-48 sm:h-52 overflow-hidden">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/about-cleanroom.jpg" alt="Arc Biological QC"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
-              <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
-                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="news_tab_infra">
-                  توسعه زیرساخت ملی
-                </span>
-              </div>
-            </div>
+                    <!-- Content Area -->
+                    <div class="p-6 sm:p-7">
+                      <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
+                        <span data-i18n="<?php echo esc_attr($fb['date_i18n']); ?>"><?php echo esc_html($date_fa); ?></span>
+                        <span class="text-white/20">•</span>
+                        <span data-i18n="<?php echo esc_attr($fb['read_i18n']); ?>"><?php echo esc_html($read_time); ?></span>
+                      </div>
+                      <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="<?php echo esc_attr($fb['title_i18n']); ?>">
+                        <a href="<?php echo esc_url($post_link); ?>" class="hover:text-gold-300 transition-colors"><?php the_title(); ?></a>
+                      </h3>
+                      <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="<?php echo esc_attr($fb['desc_i18n']); ?>">
+                        <?php echo esc_html($excerpt); ?>
+                      </p>
+                    </div>
+                  </div>
 
-            <!-- Content Area -->
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
-                <span data-i18n="news_3_date">۲۵ مرداد ۱۴۰۳</span>
-                <span class="text-white/20">•</span>
-                <span data-i18n="news_3_read">۴ دقیقه مطالعه</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="news_3_title">
-                اخذ گواهینامه رفرنس بین‌المللی ISO/IEC 17025 توسط آرک زیست آزما
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="news_3_desc">
-                ارتقای استانداردهای کنترل کیفی، آزمون‌های بیواسی و تأیید بچ‌ریلیز فرآورده‌های بیولوژیک در سطح آزمایشگاه‌های مرجع منطقه‌ای.
-              </p>
-            </div>
-          </div>
+                  <!-- Card Footer -->
+                  <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
+                    <a href="<?php echo esc_url($post_link); ?>" class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
+                      <span data-i18n="news_read_more">مطالعه خبر کامل</span>
+                      <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
+                    </a>
+                  </div>
+                </article>
+                <?php
+                $grid_idx++;
+            endwhile;
+            wp_reset_postdata();
+        else :
+            foreach ($news_fallback_items as $item) : ?>
+                <article class="news-showcase-card group cursor-pointer" data-category="<?php echo esc_attr($item['category']); ?>">
+                  <div class="news-card-spotlight"></div>
+                  <div>
+                    <div class="relative h-48 sm:h-52 overflow-hidden">
+                      <img src="<?php echo esc_url($item['img']); ?>" alt="<?php echo esc_attr($item['alt']); ?>"
+                           class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                      <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
+                      <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
+                        <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="<?php echo esc_attr($item['cat_i18n']); ?>">
+                          <?php echo esc_html($item['cat_name']); ?>
+                        </span>
+                      </div>
+                    </div>
 
-          <!-- Card Footer -->
-          <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
-              <span data-i18n="news_read_more">مطالعه خبر کامل</span>
-              <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
-            </span>
-          </div>
-        </article>
+                    <div class="p-6 sm:p-7">
+                      <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
+                        <span data-i18n="<?php echo esc_attr($item['date_i18n']); ?>"><?php echo esc_html($item['date']); ?></span>
+                        <span class="text-white/20">•</span>
+                        <span data-i18n="<?php echo esc_attr($item['read_i18n']); ?>"><?php echo esc_html($item['read']); ?></span>
+                      </div>
+                      <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="<?php echo esc_attr($item['title_i18n']); ?>">
+                        <?php echo esc_html($item['title']); ?>
+                      </h3>
+                      <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="<?php echo esc_attr($item['desc_i18n']); ?>">
+                        <?php echo esc_html($item['desc']); ?>
+                      </p>
+                    </div>
+                  </div>
 
-        <!-- Card 4: Persis Gene Acceleration (science) -->
-        <article class="news-showcase-card group cursor-pointer" data-category="science">
-          <div class="news-card-spotlight"></div>
-          <div>
-            <!-- Thumbnail Image -->
-            <div class="relative h-48 sm:h-52 overflow-hidden">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-cart.jpg" alt="Persis Gene Accelerator"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
-              <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
-                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="news_tab_science">
-                  فناوری و درمان‌های پیشرفته
-                </span>
-              </div>
-            </div>
-
-            <!-- Content Area -->
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
-                <span data-i18n="news_4_date">۰۴ مرداد ۱۴۰۳</span>
-                <span class="text-white/20">•</span>
-                <span data-i18n="news_4_read">۵ دقیقه مطالعه</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="news_4_title">
-                آغاز چرخه شتاب‌دهی دور جدید تیم‌های زیست‌دارویی در شتاب‌دهنده پرسیس ژن
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="news_4_desc">
-                ورود ۶ استارتاپ نخبگانی زیست‌فناوری سلامت به مرحله تحقیق، توسعه فرمولاسیون و جذب سرمایه‌گذاری ونچر در هلدینگ.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
-              <span data-i18n="news_read_more">مطالعه خبر کامل</span>
-              <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
-            </span>
-          </div>
-        </article>
-
-        <!-- Card 5: Tamin Plasma Expansion (infra) -->
-        <article class="news-showcase-card group cursor-pointer" data-category="infra">
-          <div class="news-card-spotlight"></div>
-          <div>
-            <!-- Thumbnail Image -->
-            <div class="relative h-48 sm:h-52 overflow-hidden">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-refinery.jpg" alt="Tamin Plasma Center"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
-              <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
-                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="news_tab_infra">
-                  توسعه زیرساخت ملی
-                </span>
-              </div>
-            </div>
-
-            <!-- Content Area -->
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
-                <span data-i18n="news_5_date">۱۶ تیر ۱۴۰۳</span>
-                <span class="text-white/20">•</span>
-                <span data-i18n="news_5_read">۳ دقیقه مطالعه</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="news_5_title">
-                افتتاح بزرگ‌ترین پایگاه جمع‌آوری پلاسمای استان البرز توسط تأمین پلاسما نوژین
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="news_5_desc">
-                گسترش شبکه ملی جمع‌آوری پلاسما به روش پلاسمانویسی تمام‌اتوماتیک و مطابق با استانداردهای بهداشت جهانی WHO.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
-              <span data-i18n="news_read_more">مطالعه خبر کامل</span>
-              <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
-            </span>
-          </div>
-        </article>
-
-        <!-- Card 6: Nano-Adjuvants Breakthrough (health) -->
-        <article class="news-showcase-card group cursor-pointer" data-category="health">
-          <div class="news-card-spotlight"></div>
-          <div>
-            <!-- Thumbnail Image -->
-            <div class="relative h-48 sm:h-52 overflow-hidden">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/news-antivenom.jpg" alt="Nozhin Nano Adjuvants"
-                   class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-              <div class="absolute inset-0 bg-gradient-to-t from-[#101522] via-transparent to-transparent"></div>
-              <div class="absolute top-4 right-4 rtl:right-4 rtl:left-auto ltr:left-4 ltr:right-auto">
-                <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-black/60 backdrop-blur-md border border-white/15 text-gold-400" data-i18n="news_tab_health">
-                  ارتقای سلامت و خدمات ملی
-                </span>
-              </div>
-            </div>
-
-            <!-- Content Area -->
-            <div class="p-6 sm:p-7">
-              <div class="flex items-center gap-3 text-xs text-slate-400 font-mono mb-3">
-                <span data-i18n="news_6_date">۲۲ خرداد ۱۴۰۳</span>
-                <span class="text-white/20">•</span>
-                <span data-i18n="news_6_read">۴ دقیقه مطالعه</span>
-              </div>
-              <h3 class="text-base sm:text-lg font-black text-white leading-snug mb-3 group-hover:text-gold-300 transition-colors" data-i18n="news_6_title">
-                بومی‌سازی نانویاورهای اختصاصی واکسن‌های دامی و طیور در نوژین زیست فارمد
-              </h3>
-              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify line-clamp-3" data-i18n="news_6_desc">
-                دستیابی به دانش فنی فرمولاسیون ادجوانت‌های روغنی پیشرفته جهت افزایش اثربخشی ایمنی‌زایی واکسن‌ها در صنعت دامپروری.
-              </p>
-            </div>
-          </div>
-
-          <!-- Card Footer -->
-          <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
-            <span class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
-              <span data-i18n="news_read_more">مطالعه خبر کامل</span>
-              <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
-            </span>
-          </div>
-        </article>
+                  <div class="px-6 pb-6 pt-2 border-t border-white/5 flex items-center justify-between">
+                    <span class="text-xs font-bold text-gold-400 group-hover:text-gold-300 inline-flex items-center gap-1.5 transition-colors">
+                      <span data-i18n="news_read_more">مطالعه خبر کامل</span>
+                      <span class="transform rtl:rotate-180 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
+                    </span>
+                  </div>
+                </article>
+            <?php endforeach;
+        endif; ?>
 
       </div>
     </div>

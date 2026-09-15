@@ -55,384 +55,226 @@ get_header();
   <section class="py-12 sm:py-20 lg:py-24 relative">
     <div class="container mx-auto px-6 sm:px-10 lg:px-16">
       <div id="companyGrid" class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
+        <?php
+        $default_companies_showcase = [
+            1 => [
+                'name'    => 'نوژین زیست فارمد',
+                'en'      => 'Nozhin Zist Pharmed',
+                'role'    => 'پالایشگاه صنعتی پلاسما — تولید فاکتورهای خونی، آلبومین و ایمونوگلوبولین‌ها با ظرفیت سالانه ۱۵۰,۰۰۰ لیتر.',
+                'cap'     => 'پالایشگاه ۳۰۰,۰۰۰ لیتری پلاسما، خطوط فیل و فینیش آسپتیک ویال و سرنگ آماده تزریق (PFS) در کلین‌روم‌های کلاس A و B',
+                'focus'   => 'فاکتورهای انعقادی VIII و IX، آلبومین انسانی، ایمونوگلوبولین (IVIG)، واکسن‌های نوترکیب دامی و طیور',
+                'website' => 'https://nojinepharmed.com/',
+                'anchor'  => 'company-nojin',
+                'logo'    => 'assets/images/subsidiaries/nojin_logo.webp',
+            ],
+            2 => [
+                'name'    => 'تأمین پلاسما نوژین',
+                'en'      => 'Tamin Plasma Nozhin',
+                'role'    => 'شبکه سراسری مراکز آفرزیس خودکار و تأمین پلاسمای استاندارد انسانی با انطباق کامل بر استانداردهای بین‌المللی GMP.',
+                'cap'     => 'شبکه زنجیره سرد منهای ۳۰ درجه، سیستم‌های تمام‌اتوماتیک آفرزیس با پایش آنلاین بیومتریک اهداکنندگان',
+                'focus'   => 'پلاسمای استاندارد انسانی با گرید دارویی، پلاسمای هایپرایمیون جهت استحصال داروهای بیولوژیک',
+                'website' => 'https://tpnojine.com/',
+                'anchor'  => 'company-tamin-plasma',
+                'logo'    => 'assets/images/subsidiaries/logo-tamin-plasma.svg',
+            ],
+            3 => [
+                'name'    => 'پرسیس‌ژن',
+                'en'      => 'Persis Gene',
+                'role'    => 'شتابدهنده و انکوباتور ملی فرآیندهای زیستی، بانک سلولی و تحقیق و توسعه محصولات نوین بیوتکنولوژی و بیوسیمیلارها.',
+                'cap'     => 'فب‌لب‌های بیوتکنولوژی، کلین‌روم‌های مقیاس پایلوت، بانک سلولی ملی و سوئیت‌های تحقیق و توسعه فرآیندهای زیستی',
+                'focus'   => 'آنتی‌بادی‌های مونوکلونال، پروتئین‌های نوترکیب درمانی، آنزیم‌های صنعتی و فرآورده‌های پیشرفته بیوسیمیلار',
+                'website' => 'https://demo-branding.com/persis/',
+                'anchor'  => 'company-persis',
+                'logo'    => 'assets/images/subsidiaries/logo-persisgen.png',
+            ],
+            4 => [
+                'name'    => 'آرک زیست آزما',
+                'en'      => 'Arc Zist Azma',
+                'role'    => 'آزمایشگاه همکار سازمان غذا و دارو (IFDA)، مرجع ملی کنترل کیفیت فرآورده‌های بیولوژیک و صدور گواهی Batch Release.',
+                'cap'     => 'گواهینامه ISO/IEC 17025، همکار رسمی سازمان غذا و دارو (IFDA) و مرکز رفرنس آزمون‌های بین‌المللی WHO',
+                'focus'   => 'آنالیز طیف‌سنجی جرمی ساختار پروتئین، تست استریلیتی، بیواسی سلولی و پایش پایداری مطابق استاندارد ICH',
+                'website' => 'http://arcbioassay.com/',
+                'anchor'  => 'company-arc',
+                'logo'    => 'assets/images/subsidiaries/logo-arc.png',
+            ],
+            5 => [
+                'name'    => 'پادرا سرم البرز',
+                'en'      => 'Padra Serum Alborz',
+                'role'    => 'تولیدکننده پیشرو پادزهرهای هایپرایمیون مارگزیدگی، عقرب‌گزیدگی و سرم‌های درمانی اورژانسی با پوشش بیش از ۷۰٪ نیاز ملی.',
+                'cap'     => 'مزارع اختصاصی تولید ایمونوگلوبولین، خطوط تصفیه آنزیمی و فرمولاسیون پادزهرهای چندظرفیتی با توزیع ملی',
+                'focus'   => 'پادزهر پلی‌والان مار و عقرب، سرم ضد هاری، پادزهر دیفتری و کزاز، ایمونوگلوبولین‌های اختصاصی',
+                'website' => 'https://padraserum.com/',
+                'anchor'  => 'company-padra',
+                'logo'    => 'assets/images/subsidiaries/padra-serum-logo-who-Final-PNG-1.png',
+            ],
+            6 => [
+                'name'    => 'کارا یاخته تجهیز آزما',
+                'en'      => 'KarayaKhteh / CARTIMED',
+                'role'    => 'پیشگام ایمونوتراپی سلولی اتولوگ، فاز کارآزمایی بالینی درمان سرطان با فناوری CAR-T و تولید فرآورده‌های دارویی پیشرفته ATMP.',
+                'cap'     => 'اتاق‌های تمیز فوق‌ایزوله کشت سلول، بیوراکتورهای ویو و همزن‌دار تولید داخل، اتاقک‌های پیشرفته فرآوری ژنی',
+                'focus'   => 'کارآزمایی‌های بالینی CAR-T در لوسمی و لنفوم، طراحی و ساخت بیوراکتورهای صنعتی زیست‌دارویی',
+                'website' => 'http://karayakhteh.ir/',
+                'anchor'  => 'company-karayakhteh',
+                'logo'    => 'assets/images/subsidiaries/logo-karayakhte.webp',
+            ],
+        ];
 
-        <!-- Company 1: Nozhin Zist Pharmed -->
-        <article id="company-nojin" class="company-showcase-card group">
-          <div class="company-card-spotlight"></div>
-          <div>
-            <!-- Monochrome Logo Frame -->
-            <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/nojin_logo.webp" alt="نوژین زیست فارمد" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
-            </div>
+        $companies_query = new WP_Query([
+            'post_type'      => 'company',
+            'posts_per_page' => 6,
+            'orderby'        => ['menu_order' => 'ASC', 'ID' => 'ASC'],
+            'post_status'    => 'publish',
+        ]);
 
-            <!-- Heading & En Name -->
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_1_name">
-              نوژین زیست فارمد
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_1_en">
-              Nozhin Zist Pharmed
-            </span>
+        $comp_idx = 0;
+        if ($companies_query->have_posts()) :
+            while ($companies_query->have_posts()) :
+                $companies_query->the_post();
+                $comp_idx++;
+                $post_id  = get_the_ID();
+                $fallback = $default_companies_showcase[$comp_idx] ?? $default_companies_showcase[1];
 
-            <!-- Mission / Role -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_1_role">
-              پالایشگاه صنعتی پلاسما — تولید فاکتورهای خونی، آلبومین و ایمونوگلوبولین‌ها با ظرفیت سالانه ۱۵۰,۰۰۰ لیتر.
-            </p>
+                $comp_name = get_the_title();
+                $comp_en   = rahnab_get_meta($post_id, '_company_name_en', $fallback['en']);
+                $comp_role = get_the_excerpt();
+                if (empty($comp_role)) {
+                    $comp_role = get_the_content();
+                }
+                if (empty($comp_role)) {
+                    $comp_role = $fallback['role'];
+                }
+                $comp_role = wp_strip_all_tags($comp_role);
 
-            <!-- Technical Breakdown -->
-            <div class="space-y-3.5 mb-6">
-              <!-- Infrastructure -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="comp_details_infra">زیرساخت و ظرفیت تولید:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_1_cap">
-                  پالایشگاه ۳۰۰,۰۰۰ لیتری پلاسما، خطوط فیل و فینیش آسپتیک ویال و سرنگ آماده تزریق (PFS) در کلین‌روم‌های کلاس A و B
-                </p>
-              </div>
+                $comp_cap   = rahnab_get_meta($post_id, '_company_cap', $fallback['cap']);
+                $comp_focus = rahnab_get_meta($post_id, '_company_focus', $fallback['focus']);
+                $anchor_id  = rahnab_get_meta($post_id, '_company_anchor_id', $fallback['anchor']);
+                $website    = rahnab_get_meta($post_id, '_company_website', $fallback['website']);
+                $logo_url   = rahnab_get_company_logo($post_id, $comp_idx);
+                ?>
+                <!-- Company <?php echo esc_attr($comp_idx); ?>: <?php echo esc_html($comp_name); ?> -->
+                <article id="<?php echo esc_attr(ltrim($anchor_id, '#')); ?>" class="company-showcase-card group">
+                  <div class="company-card-spotlight"></div>
+                  <div>
+                    <!-- Monochrome Logo Frame -->
+                    <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
+                      <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($comp_name); ?>" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
+                    </div>
 
-              <!-- Focus & Products -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                  </svg>
-                  <span data-i18n="comp_details_focus">فرآورده‌ها و تمرکز محوری:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_1_focus">
-                  فاکتورهای انعقادی VIII و IX، آلبومین انسانی، ایمونوگلوبولین (IVIG)، واکسن‌های نوترکیب دامی و طیور
-                </p>
-              </div>
-            </div>
-          </div>
+                    <!-- Heading & En Name -->
+                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_name">
+                      <?php echo esc_html($comp_name); ?>
+                    </h2>
+                    <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_en">
+                      <?php echo esc_html($comp_en); ?>
+                    </span>
 
-          <!-- Single Official Website CTA -->
-          <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
-            <a href="https://nojinepharmed.com/" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
-              <span data-i18n="comp_btn_official">مشاهده وب‌سایت رسمی شرکت</span>
-              <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
-          </div>
-        </article>
+                    <!-- Mission / Role -->
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_role">
+                      <?php echo esc_html($comp_role); ?>
+                    </p>
 
-        <!-- Company 2: Tamin Plasma Nozhin -->
-        <article id="company-tamin-plasma" class="company-showcase-card group">
-          <div class="company-card-spotlight"></div>
-          <div>
-            <!-- Monochrome Logo Frame -->
-            <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-tamin-plasma.svg" alt="تأمین پلاسما نوژین" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
-            </div>
+                    <!-- Technical Breakdown -->
+                    <div class="space-y-3.5 mb-6">
+                      <!-- Infrastructure -->
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                          </svg>
+                          <span data-i18n="comp_details_infra"><?php esc_html_e('زیرساخت و ظرفیت تولید:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_cap">
+                          <?php echo esc_html($comp_cap); ?>
+                        </p>
+                      </div>
 
-            <!-- Heading & En Name -->
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_2_name">
-              تأمین پلاسما نوژین
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_2_en">
-              Tamin Plasma Nozhin
-            </span>
+                      <!-- Focus & Products -->
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                          </svg>
+                          <span data-i18n="comp_details_focus"><?php esc_html_e('فرآورده‌ها و تمرکز محوری:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_focus">
+                          <?php echo esc_html($comp_focus); ?>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
 
-            <!-- Mission / Role -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_2_role">
-              شبکه سراسری مراکز آفرزیس خودکار و تأمین پلاسمای استاندارد انسانی با انطباق کامل بر استانداردهای بین‌المللی GMP.
-            </p>
-
-            <!-- Technical Breakdown -->
-            <div class="space-y-3.5 mb-6">
-              <!-- Infrastructure -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="comp_details_infra">زیرساخت و ظرفیت تولید:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_2_cap">
-                  شبکه زنجیره سرد منهای ۳۰ درجه، سیستم‌های تمام‌اتوماتیک آفرزیس با پایش آنلاین بیومتریک اهداکنندگان
-                </p>
-              </div>
-
-              <!-- Focus & Products -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                  </svg>
-                  <span data-i18n="comp_details_focus">فرآورده‌ها و تمرکز محوری:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_2_focus">
-                  پلاسمای استاندارد انسانی با گرید دارویی، پلاسمای هایپرایمیون جهت استحصال داروهای بیولوژیک
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Official Website CTA -->
-          <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
-            <a href="https://tpnojine.com/" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
-              <span data-i18n="comp_btn_official">مشاهده وب‌سایت رسمی شرکت</span>
-              <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Company 3: Persis Gene -->
-        <article id="company-persis" class="company-showcase-card group">
-          <div class="company-card-spotlight"></div>
-          <div>
-            <!-- Monochrome Logo Frame -->
-            <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-persisgen.png" alt="پرسیس‌ژن" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
-            </div>
-
-            <!-- Heading & En Name -->
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_3_name">
-              پرسیس‌ژن
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_3_en">
-              Persis Gene
-            </span>
-
-            <!-- Mission / Role -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_3_role">
-              شتابدهنده و انکوباتور ملی فرآیندهای زیستی، بانک سلولی و تحقیق و توسعه محصولات نوین بیوتکنولوژی و بیوسیمیلارها.
-            </p>
-
-            <!-- Technical Breakdown -->
-            <div class="space-y-3.5 mb-6">
-              <!-- Infrastructure -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="comp_details_infra">زیرساخت و ظرفیت تولید:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_3_cap">
-                  فب‌لب‌های بیوتکنولوژی، کلین‌روم‌های مقیاس پایلوت، بانک سلولی ملی و سوئیت‌های تحقیق و توسعه فرآیندهای زیستی
-                </p>
-              </div>
-
-              <!-- Focus & Products -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                  </svg>
-                  <span data-i18n="comp_details_focus">فرآورده‌ها و تمرکز محوری:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_3_focus">
-                  آنتی‌بادی‌های مونوکلونال، پروتئین‌های نوترکیب درمانی، آنزیم‌های صنعتی و فرآورده‌های پیشرفته بیوسیمیلار
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Official Website CTA -->
-          <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
-            <a href="https://demo-branding.com/persis/" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
-              <span data-i18n="comp_btn_official">مشاهده وب‌سایت رسمی شرکت</span>
-              <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Company 4: Arc Zist Azma -->
-        <article id="company-arc" class="company-showcase-card group">
-          <div class="company-card-spotlight"></div>
-          <div>
-            <!-- Monochrome Logo Frame -->
-            <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-arc.png" alt="آرک زیست آزما" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
-            </div>
-
-            <!-- Heading & En Name -->
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_4_name">
-              آرک زیست آزما
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_4_en">
-              Arc Zist Azma
-            </span>
-
-            <!-- Mission / Role -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_4_role">
-              آزمایشگاه همکار سازمان غذا و دارو (IFDA)، مرجع ملی کنترل کیفیت فرآورده‌های بیولوژیک و صدور گواهی Batch Release.
-            </p>
-
-            <!-- Technical Breakdown -->
-            <div class="space-y-3.5 mb-6">
-              <!-- Infrastructure -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="comp_details_infra">زیرساخت و ظرفیت تولید:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_4_cap">
-                  گواهینامه ISO/IEC 17025، همکار رسمی سازمان غذا و دارو (IFDA) و مرکز رفرنس آزمون‌های بین‌المللی WHO
-                </p>
-              </div>
-
-              <!-- Focus & Products -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                  </svg>
-                  <span data-i18n="comp_details_focus">فرآورده‌ها و تمرکز محوری:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_4_focus">
-                  آنالیز طیف‌سنجی جرمی ساختار پروتئین، تست استریلیتی، بیواسی سلولی و پایش پایداری مطابق استاندارد ICH
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Official Website CTA -->
-          <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
-            <a href="http://arcbioassay.com/" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
-              <span data-i18n="comp_btn_official">مشاهده وب‌سایت رسمی شرکت</span>
-              <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Company 5: Padra Serum Alborz -->
-        <article id="company-padra" class="company-showcase-card group">
-          <div class="company-card-spotlight"></div>
-          <div>
-            <!-- Monochrome Logo Frame -->
-            <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/padra-serum-logo-who-Final-PNG-1.png" alt="پادرا سرم البرز" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
-            </div>
-
-            <!-- Heading & En Name -->
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_5_name">
-              پادرا سرم البرز
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_5_en">
-              Padra Serum Alborz
-            </span>
-
-            <!-- Mission / Role -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_5_role">
-              تولیدکننده پیشرو پادزهرهای هایپرایمیون مارگزیدگی، عقرب‌گزیدگی و سرم‌های درمانی اورژانسی با پوشش بیش از ۷۰٪ نیاز ملی.
-            </p>
-
-            <!-- Technical Breakdown -->
-            <div class="space-y-3.5 mb-6">
-              <!-- Infrastructure -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="comp_details_infra">زیرساخت و ظرفیت تولید:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_5_cap">
-                  مزارع اختصاصی تولید ایمونوگلوبولین، خطوط تصفیه آنزیمی و فرمولاسیون پادزهرهای چندظرفیتی با توزیع ملی
-                </p>
-              </div>
-
-              <!-- Focus & Products -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                  </svg>
-                  <span data-i18n="comp_details_focus">فرآورده‌ها و تمرکز محوری:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_5_focus">
-                  پادزهر پلی‌والان مار و عقرب، سرم ضد هاری، پادزهر دیفتری و کزاز، ایمونوگلوبولین‌های اختصاصی
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Official Website CTA -->
-          <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
-            <a href="https://padraserum.com/" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
-              <span data-i18n="comp_btn_official">مشاهده وب‌سایت رسمی شرکت</span>
-              <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
-          </div>
-        </article>
-
-        <!-- Company 6: KarayaKhteh Tajhiz Azma -->
-        <article id="company-karayakhte" class="company-showcase-card group">
-          <div class="company-card-spotlight"></div>
-          <div>
-            <!-- Monochrome Logo Frame -->
-            <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
-              <img src="<?php echo esc_url(RAHNAB_URI); ?>/assets/images/subsidiaries/logo-karayakhte.webp" alt="کارا یاخته تجهیز آزما" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
-            </div>
-
-            <!-- Heading & En Name -->
-            <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_6_name">
-              کارا یاخته تجهیز آزما
-            </h2>
-            <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_6_en">
-              KarayaKhteh / CARTIMED
-            </span>
-
-            <!-- Mission / Role -->
-            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_6_role">
-              پیشگام ایمونوتراپی سلولی اتولوگ، فاز کارآزمایی بالینی درمان سرطان با فناوری CAR-T و تولید فرآورده‌های دارویی پیشرفته ATMP.
-            </p>
-
-            <!-- Technical Breakdown -->
-            <div class="space-y-3.5 mb-6">
-              <!-- Infrastructure -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
-                  </svg>
-                  <span data-i18n="comp_details_infra">زیرساخت و ظرفیت تولید:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_6_cap">
-                  اتاق‌های تمیز فوق‌ایزوله کشت سلول، بیوراکتورهای ویو و همزن‌دار تولید داخل، اتاقک‌های پیشرفته فرآوری ژنی
-                </p>
-              </div>
-
-              <!-- Focus & Products -->
-              <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
-                <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
-                  <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
-                  </svg>
-                  <span data-i18n="comp_details_focus">فرآورده‌ها و تمرکز محوری:</span>
-                </div>
-                <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_6_focus">
-                  کارآزمایی‌های بالینی CAR-T در لوسمی و لنفوم، طراحی و ساخت بیوراکتورهای صنعتی زیست‌دارویی
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Single Official Website CTA -->
-          <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
-            <a href="http://karayakhteh.ir/" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
-              <span data-i18n="comp_btn_official">مشاهده وب‌سایت رسمی شرکت</span>
-              <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-            </a>
-          </div>
-        </article>
+                  <!-- Single Official Website CTA -->
+                  <?php if (!empty($website)) : ?>
+                  <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
+                    <a href="<?php echo esc_url($website); ?>" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
+                      <span data-i18n="comp_btn_official"><?php esc_html_e('مشاهده وب‌سایت رسمی شرکت', 'rahnab'); ?></span>
+                      <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                  </div>
+                  <?php endif; ?>
+                </article>
+                <?php
+            endwhile;
+            wp_reset_postdata();
+        else :
+            foreach ($default_companies_showcase as $comp_idx => $comp) :
+                $logo_url = RAHNAB_URI . '/' . $comp['logo'];
+                ?>
+                <article id="<?php echo esc_attr($comp['anchor']); ?>" class="company-showcase-card group">
+                  <div class="company-card-spotlight"></div>
+                  <div>
+                    <div class="subsidiary-logo-frame mb-6 p-4 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-center min-h-[95px] sm:min-h-[110px]">
+                      <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr($comp['name']); ?>" class="subsidiary-mono-logo h-11 sm:h-14 w-auto object-contain">
+                    </div>
+                    <h2 class="text-xl sm:text-2xl lg:text-3xl font-black text-white tracking-tight mb-1" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_name">
+                      <?php echo esc_html($comp['name']); ?>
+                    </h2>
+                    <span class="text-xs font-mono uppercase text-gold-400/80 tracking-wider mb-4 block" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_en">
+                      <?php echo esc_html($comp['en']); ?>
+                    </span>
+                    <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-justify mb-5 pb-4 border-b border-white/10" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_role">
+                      <?php echo esc_html($comp['role']); ?>
+                    </p>
+                    <div class="space-y-3.5 mb-6">
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-gold-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-gold-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                          </svg>
+                          <span data-i18n="comp_details_infra"><?php esc_html_e('زیرساخت و ظرفیت تولید:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_cap">
+                          <?php echo esc_html($comp['cap']); ?>
+                        </p>
+                      </div>
+                      <div class="p-3 sm:p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                        <div class="flex items-center gap-2 mb-1.5 text-amber-400 text-xs font-bold">
+                          <svg class="w-4 h-4 text-amber-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                          </svg>
+                          <span data-i18n="comp_details_focus"><?php esc_html_e('فرآورده‌ها و تمرکز محوری:', 'rahnab'); ?></span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-400 leading-relaxed text-justify" data-i18n="comp_<?php echo esc_attr($comp_idx); ?>_focus">
+                          <?php echo esc_html($comp['focus']); ?>
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mt-auto pt-5 sm:pt-6 border-t border-white/10">
+                    <a href="<?php echo esc_url($comp['website']); ?>" target="_blank" rel="noopener noreferrer" class="w-full py-3 sm:py-3.5 px-4 rounded-xl bg-white/5 hover:bg-gold-400 hover:text-black text-slate-200 border border-white/15 hover:border-gold-400 text-xs sm:text-sm font-bold text-center transition-all flex items-center justify-center gap-2 group/btn">
+                      <span data-i18n="comp_btn_official"><?php esc_html_e('مشاهده وب‌سایت رسمی شرکت', 'rahnab'); ?></span>
+                      <svg class="w-4 h-4 text-gold-400 group-hover/btn:text-black transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                      </svg>
+                    </a>
+                  </div>
+                </article>
+                <?php
+            endforeach;
+        endif;
+        ?>
 
       </div>
     </div>
